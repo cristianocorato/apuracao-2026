@@ -326,6 +326,8 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
 .rodape h2 { color: var(--tinta); font-size: 1.25rem; margin-bottom: 12px; }
 .rodape ul { margin: 0; padding-left: 1.1rem; max-width: 74ch; display: grid; gap: 7px; font-size: .95rem; }
 .rodape .coleta { margin-top: 16px; font-size: .9rem; }
+.online { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 28px; padding: 9px 16px; border-radius: 999px; background: var(--folha); border: 1px solid var(--linha); color: var(--tinta); font-weight: 650; font-size: .98rem; font-variant-numeric: tabular-nums; }
+.online-ponto { width: 10px; height: 10px; border-radius: 50%; background: var(--azul); flex: none; animation: pulso 2s infinite; }
 
 .aviso-flutuante { position: fixed; left: 50%; bottom: 22px; z-index: 60; transform: translate(-50%, 16px); background: var(--tinta); color: var(--fundo); padding: 10px 18px; border-radius: 999px; font-size: .93rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
 .aviso-flutuante.visivel { opacity: 1; transform: translate(-50%, 0); }
@@ -476,14 +478,16 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
 </main>
 
 <footer class="rodape envelope" id="sobre">
+  <p class="online" id="online" hidden><span class="online-ponto" aria-hidden="true"></span><span id="online-txt"></span></p>
   <h2>Sobre os dados</h2>
   <ul>
     <li>Fonte: arquivos oficiais de divulgação de resultados do Tribunal Superior Eleitoral, em <a href="https://resultados.tse.jus.br/oficial/app/index.html" rel="noopener">resultados.tse.jus.br</a>. Eleição 6257 (1º turno, 4 de outubro) e 6258 (2º turno, 25 de outubro).</li>
     <li>Os percentuais são sobre os votos válidos, sem brancos e nulos, como faz o TSE. p.p. quer dizer pontos percentuais.</li>
     <li>Enquanto a apuração não termina, os números são parciais. O resultado oficial é o da totalização final do TSE.</li>
     <li>Na comparação em votos, uma cidade ainda em apuração parece ter perdido votos só porque nem todas as urnas foram contadas. Por isso, os rankings usam, por padrão, apenas cidades com apuração concluída.</li>
-    <li id="sobre-atualizacao">Os dados das cidades são coletados por um robô a cada 5 minutos, mais ou menos.</li>
+    <li id="sobre-atualizacao">Os dados das cidades são coletados do TSE por um robô a cada poucos minutos.</li>
     <li>Ordem dos candidatos pelo número na urna. Cores: vermelho para Lula, verde para Flávio Bolsonaro.</li>
+    <li>O número de pessoas com a página aberta é aproximado: cada página aberta avisa um contador gratuito (<a href="https://abacus.jasoncameron.dev" rel="noopener">Abacus</a>) uma vez por minuto. A página não envia nada além desse aviso.</li>
     <li>Mapa: malha estadual do IBGE (projeto click_that_hood, licença MIT). Fonte tipográfica: Archivo (licença SIL OFL).</li>
     <li>Site independente, sem ligação com o TSE, partidos ou campanhas.</li>
   </ul>
@@ -507,6 +511,8 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
   var ATUALIZAR_A_CADA_SEG = 60;   // de quanto em quanto tempo a página busca dados novos
   var LER_TSE_DIRETO = true;       // tenta ler placar nacional e estados direto do TSE
   var DADOS = 'dados/';
+  // Contador gratuito usado para mostrar quantas pessoas estão com a página aberta ('' desliga)
+  var CONTADOR_ONLINE = 'https://abacus.jasoncameron.dev';
 
   var UFS = {
     ac: 'Acre', al: 'Alagoas', ap: 'Amapá', am: 'Amazonas', ba: 'Bahia', ce: 'Ceará', df: 'Distrito Federal',
@@ -1331,13 +1337,13 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     var r = S.resumo, partes = [];
     if (r && r.versao) {
       var d = new Date(r.versao);
-      partes.push('Última coleta do robô: ' + d.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' (horário de Brasília).');
+      partes.push('Última atualização dos dados do robô: ' + d.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' (horário de Brasília).');
       if (r.coleta && r.coleta.incompleto) partes.push('A última coleta não terminou; alguns números de cidades podem estar alguns minutos atrasados.');
     }
     $('#coleta').textContent = partes.join(' ');
     $('#sobre-atualizacao').textContent = S.vivo.ok
-      ? 'O placar nacional e os estados são lidos direto do TSE a cada minuto. Os dados das cidades são coletados por um robô a cada 5 minutos, mais ou menos.'
-      : 'Os dados são coletados do TSE por um robô a cada 5 minutos, mais ou menos, e esta página confere se há novidade a cada minuto.';
+      ? 'O placar nacional e os estados são lidos direto do TSE a cada minuto. Os dados das cidades são coletados por um robô a cada poucos minutos.'
+      : 'Os dados são coletados do TSE por um robô a cada poucos minutos, e esta página confere se há novidade a cada minuto.';
   }
 
   function renderTudo() {
@@ -1466,6 +1472,49 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
   }
 
   // ======================================================================
+  // Pessoas com a página aberta (aproximado)
+  // Cada página aberta e visível "bate o ponto" uma vez por minuto no contador;
+  // o número mostrado é o maior entre o minuto anterior (completo) e o atual.
+  // ======================================================================
+  var PRES = { ns: '', minuto: null, desvio: Math.floor(Math.random() * 40), falhas: 0, atual: 0, anterior: 0 };
+
+  function mostrarOnline() {
+    var n = Math.max(PRES.atual, PRES.anterior), el = $('#online');
+    if (!n || PRES.falhas >= 3) { el.hidden = true; return; }
+    $('#online-txt').textContent = n === 1 ? '1 pessoa vendo este site agora' : fmtN(n) + ' pessoas vendo este site agora';
+    el.hidden = false;
+  }
+
+  function baterPonto(jaAgora) {
+    if (!CONTADOR_ONLINE || !PRES.ns || document.hidden || PRES.falhas >= 3) return;
+    var agora = Date.now(), m = Math.floor(agora / 60000);
+    if (PRES.minuto === m) return; // já contou neste minuto
+    if (!jaAgora && PRES.minuto !== null && (agora % 60000) / 1000 < PRES.desvio) return; // espalha os acessos ao longo do minuto
+    PRES.minuto = m;
+    var base = CONTADOR_ONLINE + '/', chave = PRES.ns + '/m';
+    buscarJSON(base + 'hit/' + chave + m, 8).then(function (j) {
+      PRES.falhas = 0;
+      PRES.atual = Number(j && j.value) || 0;
+      return buscarJSON(base + 'get/' + chave + (m - 1), 8).then(function (k) {
+        PRES.anterior = Number(k && k.value) || 0;
+      }, function () { PRES.anterior = 0; }); // 404: ninguém no minuto anterior
+    }).then(mostrarOnline, function () {
+      PRES.falhas++;
+      PRES.minuto = null; // tenta de novo daqui a pouco (desiste depois de 3 falhas seguidas)
+      mostrarOnline();
+    });
+  }
+
+  function ligarOnline() {
+    if (!CONTADOR_ONLINE) return;
+    PRES.ns = ('apuracao2026-' + (location.hostname + location.pathname).toLowerCase().replace(/[^a-z0-9]+/g, '-'))
+      .replace(/-+$/, '').slice(0, 60);
+    baterPonto(true);
+    setInterval(function () { baterPonto(false); }, 10000);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) baterPonto(true); });
+  }
+
+  // ======================================================================
   // Ciclo de atualização
   // ======================================================================
   var rodando = false;
@@ -1502,6 +1551,7 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     document.addEventListener('visibilitychange', function () {
       if (!document.hidden && Date.now() - S.ultimaLeitura > 20000) ciclo();
     });
+    ligarOnline();
   }
 
   iniciar();

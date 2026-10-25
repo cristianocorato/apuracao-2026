@@ -9,7 +9,7 @@
  *   dados/municipios.json  todas as cidades (e o exterior), 1º e 2º turnos
  *   dados/sincronia.json   controle interno: o que já foi baixado e quando
  *
- * Feito para rodar no GitHub Actions a cada 5 minutos, mas funciona em
+ * Feito para rodar no GitHub Actions a cada poucos minutos, mas funciona em
  * qualquer computador com Node 18 ou mais novo:
  *
  *   node scripts/coletar.mjs
@@ -462,18 +462,20 @@ async function salvar(estado, info) {
   const versao = new Date().toISOString();
   const turnos = {};
   const sinc = {};
+  // Chaves sempre na mesma ordem, para dar para comparar com a rodada anterior
+  const emOrdem = obj => Object.entries(obj).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
   for (const t of ['t1', 't2']) {
     const est = estado[t];
     turnos[t] = {
       eleicao: est.ele,
       completo: est.completo,
       br: est.br,
-      uf: Object.fromEntries(Object.entries(est.uf).filter(([, v]) => v.r).map(([uf, v]) => [uf, v.r])),
+      uf: Object.fromEntries(emOrdem(est.uf).filter(([, v]) => v.r).map(([uf, v]) => [uf, v.r])),
     };
     sinc[t] = {
       completo: est.completo,
-      uf: Object.fromEntries(Object.entries(est.uf).map(([uf, v]) => [uf, [v.ab || '', v.pend ? 1 : 0]])),
-      mun: Object.fromEntries(Object.entries(est.mun).map(([k, v]) => [k, [v.ab || '', v.pend ? 1 : 0, v.r?.dt || '']])),
+      uf: Object.fromEntries(emOrdem(est.uf).map(([uf, v]) => [uf, [v.ab || '', v.pend ? 1 : 0]])),
+      mun: Object.fromEntries(emOrdem(est.mun).map(([k, v]) => [k, [v.ab || '', v.pend ? 1 : 0, v.r?.dt || '']])),
     };
   }
 
@@ -492,12 +494,26 @@ async function salvar(estado, info) {
       return [m.uf, m.cd, m.nome, m.capital, m.cdi, te, ...colunasTurno(m1), ...colunasTurno(m2)];
     });
 
+  const tse = { base: CFG.base, ambiente: CFG.ambiente, ciclo: CFG.ciclo, eleicoes: CFG.eleicoes, cargo: CFG.cargo };
+  const candidatos = montarCandidatos(estado);
+
+  // Se nada mudou desde a última coleta, não regrava: assim o robô não cria
+  // commits nem publica o site à toa (antes da apuração e depois do fim)
+  const [antesR, antesM, antesS] = await Promise.all(
+    ['resumo.json', 'municipios.json', 'sincronia.json'].map(n => lerJSON(arquivo(n))),
+  );
+  const igual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  if (antesR && antesM && antesS
+    && igual([antesR.tse, antesR.candidatos, antesR.turnos, !!antesR.coleta?.incompleto], [tse, candidatos, turnos, !!info.incompleto])
+    && igual(antesM.linhas, linhas) && igual(antesS, sinc)) {
+    log('Nada mudou desde a última coleta: arquivos mantidos.');
+    return false;
+  }
+
   await gravarJSON(arquivo('resumo.json'), {
     versao,
-    tse: {
-      base: CFG.base, ambiente: CFG.ambiente, ciclo: CFG.ciclo, eleicoes: CFG.eleicoes, cargo: CFG.cargo,
-    },
-    candidatos: montarCandidatos(estado),
+    tse,
+    candidatos,
     coleta: info,
     turnos,
   });
@@ -510,6 +526,7 @@ async function salvar(estado, info) {
     linhas,
   });
   await gravarJSON(arquivo('sincronia.json'), sinc);
+  return true;
 }
 
 // ---------------------------------------------------------------------------
@@ -569,6 +586,20 @@ async function main() {
 
   const kb = (stats.bytes / 1024).toFixed(0);
   log(`Fim: ${stats.requisicoes} requisições (${stats.nao_encontrados} não encontradas, ${stats.erros} erros), ${kb} KB, ${((Date.now() - inicio) / 1000).toFixed(1)} s.`);
+
+  // No GitHub Actions: durante a apuração, a próxima rodada começa logo depois desta
+  // (o agendamento do GitHub atrasa nos horários de pico). Janela em ENCADEAR_DE/ENCADEAR_ATE.
+  if (env.GITHUB_OUTPUT) {
+    const agora = Date.now();
+    const and2 = estado.t2.br?.and || '';
+    const seguir = !interrompido && and2 !== 'f'
+      && agora >= Date.parse(env.ENCADEAR_DE || '') && agora <= Date.parse(env.ENCADEAR_ATE || '');
+    const espera = and2 === 'p' ? 0 : 120; // antes de a apuração começar, uma rodada a cada ~3 minutos basta
+    await fs.appendFile(env.GITHUB_OUTPUT, `seguir=${seguir}\nespera=${espera}\n`);
+    log(seguir
+      ? `A próxima rodada vem em seguida${espera ? ` (daqui a ${espera} s)` : ''}.`
+      : `Sem rodada extra${and2 === 'f' ? ': o TSE já publicou a totalização final do 2º turno' : ''}.`);
+  }
 }
 
 main().catch(e => {

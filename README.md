@@ -17,7 +17,7 @@ Site com os resultados oficiais do TSE, atualizado automaticamente, que compara 
 |---|---|
 | `index.html` | O site inteiro (HTML, CSS e JavaScript; só a fonte vem do Google Fonts) |
 | `scripts/coletar.mjs` | Robô que baixa os arquivos oficiais do TSE e grava em `dados/` |
-| `.github/workflows/atualizar-dados.yml` | Roda o robô no GitHub a cada 5 minutos e publica o site |
+| `.github/workflows/atualizar-dados.yml` | Roda o robô no GitHub e publica o site |
 | `dados/` | Criada pelo robô na primeira rodada |
 
 O robô usa os arquivos públicos de divulgação do TSE (`resultados.tse.jus.br`,
@@ -43,9 +43,15 @@ dados do robô.
    cidades. Depois disso o site fica em
    `https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/`.
 
-A partir daí o robô roda sozinho a cada 5 minutos (o GitHub às vezes atrasa
-alguns minutos nos horários de pico) e a página confere se há novidade a cada
-minuto.
+A partir daí o robô roda sozinho a cada 5 minutos. Como o agendamento do GitHub
+costuma atrasar nos horários de pico, durante a apuração cada rodada já pede a
+próxima (o período fica em `ENCADEAR_DE` e `ENCADEAR_ATE`, no arquivo do robô):
+os dados das cidades se renovam a cada 2 ou 3 minutos. Isso para sozinho quando
+o TSE publica a totalização final do 2º turno. A página confere se há novidade a
+cada minuto. Quando nada muda no TSE, o robô não grava nem publica nada.
+
+Se o robô parecer parado, abra **Actions → Atualizar dados do TSE → Run
+workflow**: a rodada manual também retoma a sequência.
 
 **Depois que a apuração terminar**, desligue o robô: Actions → Atualizar dados do
 TSE → menu `···` → **Disable workflow**. O site continua no ar com o resultado final.
