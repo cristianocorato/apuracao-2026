@@ -1,0 +1,1499 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Apuração do 2º turno para presidente 2026</title>
+<meta name="description" content="Resultado do 2º turno para presidente com dados oficiais do TSE, atualizado automaticamente, e a comparação com o 1º turno em cada estado e cidade.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Apuração do 2º turno para presidente">
+<meta property="og:description" content="Dados oficiais do TSE, atualizados automaticamente. Compare o 1º e o 2º turno no Brasil, no seu estado e na sua cidade.">
+<meta name="theme-color" content="#F2F4F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E131B" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232346A0'/%3E%3Crect x='7' y='9' width='8' height='14' rx='1.5' fill='%23fff'/%3E%3Crect x='17' y='13' width='8' height='10' rx='1.5' fill='%23fff' opacity='.7'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;display=swap">
+<style>
+:root {
+  --fundo: #F2F4F7;
+  --vidro: rgba(242, 244, 247, .9);
+  --folha: #FFFFFF;
+  --trilho: #E8ECF1;
+  --tinta: #141B2B;
+  --tinta-2: #3E4A5F;
+  --tinta-3: #667185;
+  --linha: #DCE1E8;
+  --linha-forte: #BFC7D3;
+  --azul: #2346A0;
+  --azul-fundo: #E5EBF8;
+  /* Candidatos (validados para daltonismo: vermelho e verde com luminosidades diferentes) */
+  --lula-1: #DA2C38;
+  --lula-2: #E7767E;
+  --lula-3: #F2B5B9;
+  --flavio-1: #00804E;
+  --flavio-2: #59AC8C;
+  --flavio-3: #A6D3C1;
+  --sem-dado: #D3D9E2;
+  --empate: #8F99A8;
+  --rot-1: #FFFFFF;
+  --rot-2: #141B2B;
+  --rot-0: #3E4A5F;
+  --raio: 14px;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0E131B;
+    --vidro: rgba(14, 19, 27, .9);
+    --folha: #151C27;
+    --trilho: #1F2836;
+    --tinta: #E9EDF3;
+    --tinta-2: #BCC5D3;
+    --tinta-3: #8D98AA;
+    --linha: #263142;
+    --linha-forte: #3A475E;
+    --azul: #8EA8F2;
+    --azul-fundo: #1E2A44;
+    --lula-1: #F25050;
+    --lula-2: #A43D40;
+    --lula-3: #622D33;
+    --flavio-1: #0C9A6A;
+    --flavio-2: #0F6D51;
+    --flavio-3: #11473C;
+    --sem-dado: #2B3546;
+    --empate: #5C6779;
+    --rot-1: #0E131B;
+    --rot-2: #E9EDF3;
+    --rot-0: #BCC5D3;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-stretch: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--azul); text-underline-offset: 3px; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; border-radius: 6px; }
+h1, h2, h3, h4 { margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(1.7rem, 5.2vw, 2.6rem); font-weight: 800; font-stretch: 82%; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.35rem, 3.6vw, 1.85rem); font-weight: 760; font-stretch: 86%; letter-spacing: -0.005em; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+p { margin: 0; }
+.envelope { width: 100%; max-width: 1140px; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+.sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mudo { color: var(--tinta-3); }
+.marca { display: inline-block; width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.marca.lula { background: var(--lula-1); }
+.marca.flavio { background: var(--flavio-1); }
+.marca.empate { background: var(--empate); }
+
+/* ---------- Topo ---------- */
+.topo { padding-top: 28px; padding-bottom: 6px; }
+.selo { display: inline-flex; align-items: center; gap: 9px; font-weight: 650; font-size: .95rem; color: var(--tinta-2); margin-bottom: 14px; }
+.selo .ponto { width: 10px; height: 10px; border-radius: 50%; background: var(--tinta-3); flex: none; }
+.selo[data-estado="vivo"] .ponto { background: var(--azul); box-shadow: 0 0 0 0 var(--azul); animation: pulso 2s infinite; }
+.selo[data-estado="fim"] .ponto { background: var(--tinta); }
+.selo[data-estado="erro"] .ponto { background: var(--empate); }
+@keyframes pulso { 0% { box-shadow: 0 0 0 0 rgba(35, 70, 160, .45); } 70% { box-shadow: 0 0 0 9px rgba(35, 70, 160, 0); } 100% { box-shadow: 0 0 0 0 rgba(35, 70, 160, 0); } }
+.sub { margin-top: 10px; color: var(--tinta-2); max-width: 62ch; font-size: 1.02rem; }
+
+/* ---------- Placar nacional ---------- */
+.placar { padding-top: 26px; padding-bottom: 8px; }
+.placar-cands { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.pc-dir { text-align: right; }
+.pc-nome { display: flex; align-items: center; gap: 9px; font-weight: 720; font-size: clamp(1.02rem, 3.4vw, 1.4rem); line-height: 1.15; }
+.pc-dir .pc-nome { justify-content: flex-end; }
+.pc-partido { color: var(--tinta-3); font-size: .88rem; margin-top: 2px; }
+.pc-pct { font-size: clamp(2.9rem, 13.5vw, 6rem); font-weight: 800; font-stretch: 68%; line-height: .9; letter-spacing: -0.02em; margin: 10px 0 4px; }
+.pc-votos { font-size: clamp(.95rem, 2.8vw, 1.2rem); color: var(--tinta-2); font-weight: 560; }
+.pc-eleito { display: inline-block; margin-top: 8px; font-size: .82rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; border: 1.5px solid var(--tinta); }
+.cabo { position: relative; display: flex; gap: 2px; height: 24px; margin: 20px 0 8px; background: var(--trilho); border-radius: 7px; }
+.cabo > .lado { flex: 0 1 0; min-width: 0; height: 100%; transition: flex-grow .9s cubic-bezier(.2, .7, .2, 1); }
+#cabo-a { background: var(--lula-1); border-radius: 7px 0 0 7px; }
+#cabo-b { background: var(--flavio-1); border-radius: 0 7px 7px 0; }
+.cabo-meio { position: absolute; left: 50%; top: -8px; bottom: -8px; width: 2px; margin-left: -1px; background: var(--tinta); border-radius: 1px; }
+.cabo-escala { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; font-size: .88rem; color: var(--tinta-2); margin-top: 10px; }
+.cabo-escala span:last-child { text-align: right; }
+.cabo-escala .meio { color: var(--tinta); font-weight: 650; }
+.diferenca { margin-top: 14px; font-size: 1rem; color: var(--tinta-2); }
+.diferenca b { color: var(--tinta); }
+.apuracao { margin-top: 22px; display: grid; gap: 8px; }
+.medidor { height: 6px; background: var(--trilho); border-radius: 3px; overflow: hidden; }
+.medidor > span { display: block; height: 100%; width: 0; background: var(--azul); border-radius: 3px; transition: width .9s; }
+.apuracao-txt { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; font-size: .93rem; color: var(--tinta-2); }
+.apuracao-txt b { color: var(--tinta); }
+.fatos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 18px; margin: 22px 0 0; padding: 16px 0 0; border-top: 1px solid var(--linha); }
+@media (min-width: 720px) { .fatos { grid-template-columns: repeat(4, 1fr); } }
+.fatos dt { font-size: .85rem; color: var(--tinta-2); }
+.fatos dd { margin: 2px 0 0; font-size: 1.25rem; font-weight: 700; font-stretch: 88%; }
+.fatos dd small { display: block; font-size: .8rem; font-weight: 500; font-stretch: 100%; color: var(--tinta-3); }
+.nota-tse { margin-top: 14px; padding: 10px 14px; border-left: 3px solid var(--tinta); background: var(--folha); font-size: .95rem; }
+
+/* ---------- Atalhos ---------- */
+.atalhos { position: sticky; top: 0; z-index: 30; margin-top: 26px; background: var(--vidro); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linha); }
+.atalhos-in { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-top: 8px; padding-bottom: 8px; }
+.atalhos-in::-webkit-scrollbar { display: none; }
+.atalhos a { flex: none; padding: 8px 14px; border-radius: 999px; color: var(--tinta-2); text-decoration: none; font-weight: 620; font-size: .93rem; }
+.atalhos a:hover { color: var(--tinta); }
+.atalhos a[aria-current="true"] { background: var(--folha); color: var(--tinta); box-shadow: inset 0 0 0 1px var(--linha); }
+
+/* ---------- Seções ---------- */
+.secao { padding-top: 44px; padding-bottom: 6px; scroll-margin-top: 60px; }
+.secao-cab { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 20px; margin-bottom: 12px; }
+.explica { color: var(--tinta-2); max-width: 66ch; margin: 8px 0 16px; }
+.folha { background: var(--folha); border: 1px solid var(--linha); border-radius: var(--raio); }
+
+.alternar { display: inline-flex; flex-wrap: wrap; padding: 3px; gap: 2px; background: var(--trilho); border-radius: 999px; }
+.alternar button { border: 0; background: transparent; color: var(--tinta-2); font-weight: 620; font-size: .9rem; padding: 7px 14px; min-height: 36px; border-radius: 999px; cursor: pointer; }
+.alternar button[aria-pressed="true"] { background: var(--folha); color: var(--tinta); box-shadow: 0 1px 2px rgba(20, 27, 43, .14); }
+
+/* ---------- Mapa ---------- */
+.resumo-mapa { font-size: 1.02rem; margin: 0 0 14px; max-width: 70ch; }
+.mapa-grade { display: grid; gap: 16px; }
+@media (min-width: 920px) { .mapa-grade { grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); align-items: start; } }
+.mapa-folha { margin: 0; padding: 10px 10px 14px; position: relative; }
+#mapa-svg { display: block; width: 100%; height: auto; touch-action: manipulation; }
+.uf { stroke: var(--folha); stroke-width: 1.1; stroke-linejoin: round; cursor: pointer; transition: fill .45s; }
+.uf:hover { opacity: .86; }
+.uf.sel { stroke: var(--tinta); stroke-width: 2.6; }
+.uf:focus { outline: none; }
+.uf:focus-visible { stroke: var(--azul); stroke-width: 3.2; }
+.alvo { fill: transparent; cursor: pointer; }
+.guias line { stroke: var(--tinta-3); stroke-width: 1; }
+.guias circle { fill: var(--tinta); }
+.rotulos text { font-size: 15px; font-weight: 720; font-stretch: 92%; text-anchor: middle; dominant-baseline: central; pointer-events: none; fill: var(--rot-2); }
+.rotulos text.fora { fill: var(--tinta); pointer-events: auto; cursor: pointer; }
+.rotulos text.sel { text-decoration: underline; }
+.f-lula-1 { fill: var(--lula-1); } .f-lula-2 { fill: var(--lula-2); } .f-lula-3 { fill: var(--lula-3); }
+.f-flavio-1 { fill: var(--flavio-1); } .f-flavio-2 { fill: var(--flavio-2); } .f-flavio-3 { fill: var(--flavio-3); }
+.f-sem { fill: var(--sem-dado); } .f-empate { fill: var(--empate); }
+.rotulos text.r-lula-1, .rotulos text.r-flavio-1, .rotulos text.r-empate { fill: var(--rot-1); }
+.rotulos text.r-sem { fill: var(--rot-0); }
+.legenda { display: grid; gap: 8px; margin: 6px 6px 0; font-size: .86rem; color: var(--tinta-2); }
+.leg-linha { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px; }
+.leg-nome { display: flex; align-items: center; gap: 8px; }
+.leg-escala { display: grid; grid-template-columns: repeat(3, 34px); gap: 2px; }
+.leg-escala i, .leg-sem i { display: block; height: 12px; border-radius: 2px; }
+.leg-ticks { display: grid; grid-template-columns: minmax(0, 1fr) repeat(3, 34px); gap: 2px; font-size: .74rem; color: var(--tinta-3); text-align: center; line-height: 1.2; }
+.leg-ticks span:first-child { text-align: right; padding-right: 8px; }
+.leg-sem { display: flex; align-items: center; gap: 8px; }
+.leg-sem i { width: 34px; }
+.s-lula-1 { background: var(--lula-1); } .s-lula-2 { background: var(--lula-2); } .s-lula-3 { background: var(--lula-3); }
+.s-flavio-1 { background: var(--flavio-1); } .s-flavio-2 { background: var(--flavio-2); } .s-flavio-3 { background: var(--flavio-3); }
+.s-sem { background: var(--sem-dado); }
+.dica { position: absolute; z-index: 5; pointer-events: none; background: var(--tinta); color: var(--fundo); padding: 8px 11px; border-radius: 9px; font-size: .84rem; line-height: 1.4; min-width: 170px; transform: translate(-50%, calc(-100% - 14px)); opacity: 0; transition: opacity .12s; }
+.dica.visivel { opacity: 1; }
+.dica b { display: block; font-size: .92rem; margin-bottom: 2px; }
+.painel { padding: 18px; }
+.painel-cab { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.painel-cab h3 { font-size: 1.45rem; font-weight: 800; font-stretch: 86%; }
+.painel-apur { margin-top: 4px; font-size: .92rem; color: var(--tinta-2); }
+.botao-sec { flex: none; border: 1px solid var(--linha-forte); background: var(--folha); border-radius: 999px; padding: 7px 13px; font-size: .88rem; font-weight: 620; cursor: pointer; min-height: 36px; color: var(--tinta); }
+.botao-sec:hover { border-color: var(--tinta-3); }
+.painel .ligar { display: inline-block; margin-top: 16px; font-weight: 620; }
+
+/* ---------- Comparativo 1º x 2º turno ---------- */
+.comp { display: grid; gap: 22px; margin-top: 18px; }
+.comp-cab { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-bottom: 8px; }
+.comp-cab strong { font-size: 1.06rem; }
+.etiqueta { font-size: .76rem; font-weight: 650; padding: 2px 9px; border-radius: 999px; background: var(--trilho); color: var(--tinta-2); }
+.comp-linha + .comp-linha { margin-top: 10px; }
+.comp-topo { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: .9rem; margin-bottom: 5px; }
+.comp-topo .rot { color: var(--tinta-2); }
+.comp-topo .rot small { color: var(--tinta-3); font-size: .8rem; margin-left: 4px; }
+.comp-topo .val { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.comp-topo .val b { font-size: 1.04rem; font-weight: 720; }
+.comp-topo .val span { color: var(--tinta-3); margin-left: 7px; }
+.trilho { height: 12px; background: var(--trilho); border-radius: 0 4px 4px 0; overflow: hidden; }
+.barra { display: block; height: 100%; width: 0; border-radius: 0 4px 4px 0; transition: width .7s cubic-bezier(.2, .7, .2, 1); }
+.b-lula-1 { background: var(--lula-1); } .b-lula-2 { background: var(--lula-2); }
+.b-flavio-1 { background: var(--flavio-1); } .b-flavio-2 { background: var(--flavio-2); }
+.comp-delta { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 2px 8px; align-items: baseline; font-size: .97rem; }
+.comp-delta b { font-weight: 720; }
+.comp-delta .seta { font-size: .78em; }
+.comp-delta .pp { color: var(--tinta-2); }
+.comp-delta.espera { color: var(--tinta-2); font-size: .9rem; }
+
+/* ---------- Tabela por estado ---------- */
+.tabela-rolagem { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { padding: 10px 12px; text-align: right; border-bottom: 1px solid var(--linha); vertical-align: top; }
+th:first-child, td:first-child { text-align: left; }
+tbody tr:last-child td { border-bottom: 0; }
+thead th { font-size: .82rem; font-weight: 620; color: var(--tinta-2); white-space: nowrap; }
+.ordenar { border: 0; background: none; padding: 0; cursor: pointer; font-weight: 620; color: inherit; display: inline-flex; align-items: center; gap: 4px; }
+.ordenar .seta-ord { font-size: .75em; opacity: .35; }
+th[aria-sort] .ordenar { color: var(--tinta); }
+th[aria-sort] .ordenar .seta-ord { opacity: 1; }
+.th-cand { display: inline-flex; align-items: center; gap: 6px; }
+tr.total td { background: var(--trilho); font-weight: 650; }
+.cel-princ { display: inline-flex; align-items: center; justify-content: flex-end; gap: 6px; font-weight: 620; white-space: nowrap; }
+.cel-princ.lider { font-weight: 800; }
+.cel-sub { display: block; font-size: .8rem; color: var(--tinta-3); white-space: nowrap; }
+td:first-child .cel-sub { white-space: normal; font-weight: 400; margin-top: 2px; }
+.cel-sub.parcial::after { content: " *"; }
+.nome-uf { border: 0; background: none; padding: 0; text-align: left; cursor: pointer; font-weight: 620; color: var(--tinta); text-decoration: underline; text-decoration-color: var(--linha-forte); text-underline-offset: 3px; }
+.nome-uf:hover { text-decoration-color: var(--tinta); }
+.nota-tabela { font-size: .85rem; color: var(--tinta-3); margin: 10px 2px 0; }
+@media (max-width: 560px) {
+  th, td { padding: 9px 5px; }
+  th:first-child, td:first-child { padding-left: 10px; }
+  th:last-child, td:last-child { padding-right: 10px; }
+  td { font-size: .9rem; }
+  .cel-princ { gap: 4px; }
+  .cel-princ .marca { width: 9px; height: 9px; }
+  .cel-sub { font-size: .76rem; }
+  thead th { font-size: .78rem; }
+}
+
+/* ---------- Cidade ---------- */
+.busca { display: grid; gap: 12px; max-width: 760px; }
+@media (min-width: 640px) { .busca { grid-template-columns: minmax(0, 1fr) 210px; } }
+.campo label { display: block; font-size: .86rem; font-weight: 620; color: var(--tinta-2); margin-bottom: 5px; }
+.campo { position: relative; }
+input[type="search"], select {
+  width: 100%; min-height: 48px; padding: 11px 14px; font: inherit; font-size: 1rem;
+  color: var(--tinta); background: var(--folha); border: 1px solid var(--linha-forte); border-radius: 11px;
+}
+input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outline-offset: 1px; border-color: var(--azul); }
+.sugestoes { position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 25; list-style: none; margin: 0; padding: 4px; background: var(--folha); border: 1px solid var(--linha-forte); border-radius: 12px; box-shadow: 0 10px 30px rgba(14, 19, 27, .16); max-height: 340px; overflow-y: auto; }
+.sugestoes li { padding: 10px 12px; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; gap: 10px; }
+.sugestoes li span { color: var(--tinta-3); font-size: .88rem; }
+.sugestoes li[aria-selected="true"], .sugestoes li:hover { background: var(--azul-fundo); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 16px; align-items: center; }
+.chips-rot { font-size: .86rem; color: var(--tinta-3); margin-right: 2px; }
+.chip { border: 1px solid var(--linha-forte); background: var(--folha); border-radius: 999px; padding: 6px 12px; font-size: .9rem; cursor: pointer; min-height: 36px; color: var(--tinta); }
+.chip span { color: var(--tinta-3); font-size: .8rem; margin-left: 3px; }
+.chip[aria-pressed="true"] { border-color: var(--azul); background: var(--azul-fundo); }
+.cartao { padding: 20px; max-width: 900px; }
+.cartao-cab { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+.cartao-cab h3 { font-size: clamp(1.55rem, 6vw, 2.3rem); font-weight: 800; font-stretch: 80%; line-height: 1.02; }
+.cartao-cab p { margin-top: 4px; color: var(--tinta-2); }
+@media (min-width: 720px) { .cartao .comp { grid-template-columns: 1fr 1fr; gap: 34px; } }
+.cartao-rodape { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px 20px; margin: 20px 0 0; padding-top: 14px; border-top: 1px solid var(--linha); }
+.cartao-rodape dt { font-size: .84rem; color: var(--tinta-2); }
+.cartao-rodape dd { margin: 2px 0 0; font-weight: 650; font-variant-numeric: tabular-nums; }
+.cartao-rodape dd small { color: var(--tinta-3); font-weight: 500; }
+
+/* ---------- Ganhos e perdas ---------- */
+.filtros { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: flex-end; margin-bottom: 14px; }
+.filtros .campo select { min-width: 13rem; }
+.caixa { display: inline-flex; align-items: center; gap: 9px; font-size: .95rem; min-height: 44px; cursor: pointer; }
+.caixa input { width: 20px; height: 20px; margin: 0; accent-color: var(--azul); }
+.contagem { font-size: .93rem; color: var(--tinta-2); max-width: 72ch; margin-bottom: 14px; }
+.placar-cidades { padding: 4px 14px; margin-bottom: 22px; max-width: 640px; }
+.placar-cidades th, .placar-cidades td { padding: 9px 6px; }
+.placar-cidades td:first-child { font-weight: 650; }
+.placar-cidades caption { caption-side: top; text-align: left; font-size: .86rem; color: var(--tinta-2); padding: 10px 6px 4px; }
+.rk-escolha { margin-bottom: 16px; }
+.rk-grade { display: grid; gap: 30px; }
+@media (min-width: 920px) { .rk-grade { grid-template-columns: 1fr 1fr; gap: 40px; } .rk-escolha { display: none; } }
+@media (max-width: 919px) {
+  .rk-grade[data-mostrar="0"] .rk-col[data-c="1"],
+  .rk-grade[data-mostrar="1"] .rk-col[data-c="0"] { display: none; }
+}
+.rk-col > h3 { display: flex; align-items: center; gap: 9px; font-size: 1.3rem; font-weight: 780; font-stretch: 88%; }
+.rk-col h4 { font-size: .98rem; font-weight: 650; color: var(--tinta-2); margin: 18px 0 6px; }
+.rk-lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linha); }
+.rk-item {
+  appearance: none; border: 0; background: none; width: 100%; text-align: left; cursor: pointer; color: var(--tinta);
+  display: grid; grid-template-columns: 1.7rem minmax(0, 1fr) auto; grid-template-areas: "pos cid delta" "pos de de" "pos barra barra";
+  column-gap: 8px; row-gap: 2px; padding: 10px 4px; border-bottom: 1px solid var(--linha);
+}
+.rk-item:hover { background: var(--trilho); }
+.rk-pos { grid-area: pos; color: var(--tinta-3); font-size: .9rem; font-variant-numeric: tabular-nums; padding-top: 1px; }
+.rk-cid { grid-area: cid; font-weight: 640; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rk-uf { color: var(--tinta-3); font-weight: 500; font-size: .84rem; margin-left: 4px; }
+.rk-delta { grid-area: delta; font-weight: 760; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.rk-de { grid-area: de; font-size: .84rem; color: var(--tinta-2); font-variant-numeric: tabular-nums; }
+.rk-barra { grid-area: barra; height: 4px; margin-top: 5px; }
+.rk-barra i { display: block; height: 100%; border-radius: 0 2px 2px 0; }
+.rk-vazio { padding: 14px 4px; color: var(--tinta-2); border-bottom: 1px solid var(--linha); font-size: .95rem; }
+
+/* ---------- Rodapé ---------- */
+.rodape { padding-top: 56px; padding-bottom: 72px; color: var(--tinta-2); }
+.rodape h2 { color: var(--tinta); font-size: 1.25rem; margin-bottom: 12px; }
+.rodape ul { margin: 0; padding-left: 1.1rem; max-width: 74ch; display: grid; gap: 7px; font-size: .95rem; }
+.rodape .coleta { margin-top: 16px; font-size: .9rem; }
+
+.aviso-flutuante { position: fixed; left: 50%; bottom: 22px; z-index: 60; transform: translate(-50%, 16px); background: var(--tinta); color: var(--fundo); padding: 10px 18px; border-radius: 999px; font-size: .93rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+.aviso-flutuante.visivel { opacity: 1; transform: translate(-50%, 0); }
+.carregando { opacity: .55; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="topo envelope">
+  <p class="selo" id="selo" data-estado="carregando" role="status"><span class="ponto" aria-hidden="true"></span><span id="selo-texto">Carregando os dados do TSE…</span></p>
+  <h1>Apuração do 2º turno para presidente</h1>
+  <p class="sub">Resultados oficiais do TSE, atualizados automaticamente, e a comparação com o 1º turno no Brasil, em cada estado e em cada cidade.</p>
+</header>
+
+<main>
+  <section class="placar envelope" aria-labelledby="titulo-placar">
+    <h2 id="titulo-placar" class="sr">Placar nacional do 2º turno</h2>
+    <div class="placar-cands">
+      <div class="pc" id="pc-0">
+        <p class="pc-nome"><span class="marca lula"></span><span class="pc-nome-txt">Lula</span></p>
+        <p class="pc-partido">PT, 13</p>
+        <p class="pc-pct">–</p>
+        <p class="pc-votos">&nbsp;</p>
+        <p class="pc-eleito" hidden>Eleito, segundo o TSE</p>
+      </div>
+      <div class="pc pc-dir" id="pc-1">
+        <p class="pc-nome"><span class="pc-nome-txt">Flávio Bolsonaro</span><span class="marca flavio"></span></p>
+        <p class="pc-partido">PL, 22</p>
+        <p class="pc-pct">–</p>
+        <p class="pc-votos">&nbsp;</p>
+        <p class="pc-eleito" hidden>Eleito, segundo o TSE</p>
+      </div>
+    </div>
+    <div class="cabo" id="cabo" role="img" aria-label="Placar ainda sem votos apurados">
+      <span class="lado" id="cabo-a"></span><span class="lado" id="cabo-b"></span>
+      <span class="cabo-meio" aria-hidden="true"></span>
+    </div>
+    <div class="cabo-escala" aria-hidden="true"><span id="t1-0"></span><span class="meio">50%</span><span id="t1-1"></span></div>
+    <p class="diferenca" id="diferenca"></p>
+    <div class="apuracao">
+      <div class="medidor" aria-hidden="true"><span id="medidor"></span></div>
+      <p class="apuracao-txt"><span id="apuracao-pct">Seções apuradas: –</span><span id="apuracao-hora"></span></p>
+    </div>
+    <dl class="fatos" id="fatos"></dl>
+    <p class="nota-tse" id="nota-tse" hidden></p>
+  </section>
+
+  <nav class="atalhos" aria-label="Partes da página">
+    <div class="envelope atalhos-in">
+      <a href="#mapa">Mapa</a>
+      <a href="#estados">Estados</a>
+      <a href="#cidade">Sua cidade</a>
+      <a href="#ganhos">Ganhos e perdas</a>
+      <a href="#sobre">Sobre os dados</a>
+    </div>
+  </nav>
+
+  <section class="secao envelope" id="mapa" aria-labelledby="titulo-mapa">
+    <div class="secao-cab">
+      <h2 id="titulo-mapa">Quem está à frente em cada estado</h2>
+      <div class="alternar" role="group" aria-label="Turno mostrado no mapa">
+        <button type="button" data-mapa="t2" aria-pressed="true">2º turno</button>
+        <button type="button" data-mapa="t1" aria-pressed="false">1º turno</button>
+      </div>
+    </div>
+    <p class="resumo-mapa" id="resumo-mapa"></p>
+    <div class="mapa-grade">
+      <figure class="mapa-folha folha">
+        <svg id="mapa-svg" role="group" aria-label="Mapa do Brasil por estado"></svg>
+        <div class="dica" id="dica" aria-hidden="true"></div>
+        <figcaption class="legenda" id="legenda"></figcaption>
+      </figure>
+      <div class="painel folha" id="painel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="secao envelope" id="estados" aria-labelledby="titulo-estados">
+    <div class="secao-cab">
+      <h2 id="titulo-estados">Resultado por estado</h2>
+      <div class="alternar" role="group" aria-label="O que mostrar na tabela">
+        <button type="button" data-visao="t2" aria-pressed="true">2º turno</button>
+        <button type="button" data-visao="var" aria-pressed="false">Mudança desde o 1º</button>
+        <button type="button" data-visao="cid" aria-pressed="false">Cidades</button>
+      </div>
+    </div>
+    <p class="explica" id="explica-tabela"></p>
+    <div class="tabela-rolagem folha"><table id="tabela"></table></div>
+    <p class="nota-tabela" id="nota-tabela"></p>
+  </section>
+
+  <section class="secao envelope" id="cidade" aria-labelledby="titulo-cidade">
+    <h2 id="titulo-cidade">Compare o 1º e o 2º turno na sua cidade</h2>
+    <p class="explica">Quantos votos cada um teve no 1º turno e quantos tem agora no 2º.</p>
+    <div class="busca">
+      <div class="campo">
+        <label for="busca">Cidade</label>
+        <input id="busca" type="search" placeholder="Digite o nome da cidade" autocomplete="off" spellcheck="false"
+          role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sugestoes">
+        <ul class="sugestoes" id="sugestoes" role="listbox" aria-label="Cidades encontradas" hidden></ul>
+      </div>
+      <div class="campo">
+        <label for="busca-uf">Estado</label>
+        <select id="busca-uf"><option value="">Todos</option></select>
+      </div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <article class="cartao folha" id="cartao" aria-live="polite"></article>
+  </section>
+
+  <section class="secao envelope" id="ganhos" aria-labelledby="titulo-ganhos">
+    <h2 id="titulo-ganhos">Onde cada um mais ganhou e mais perdeu votos</h2>
+    <p class="explica">Comparação, cidade por cidade, entre o 2º e o 1º turno. Em votos: quantos votos a mais ou a menos o candidato teve. Em pontos percentuais: quanto mudou a fatia dele nos votos válidos.</p>
+    <div class="filtros">
+      <div class="campo">
+        <label for="rk-local">Onde</label>
+        <select id="rk-local"><option value="br">Brasil (todas as cidades)</option></select>
+      </div>
+      <div class="alternar" role="group" aria-label="Medida da comparação">
+        <button type="button" data-medida="votos" aria-pressed="true">Em votos</button>
+        <button type="button" data-medida="pp" aria-pressed="false">Em pontos percentuais</button>
+      </div>
+      <label class="caixa"><input type="checkbox" id="rk-so100" checked> Só cidades com apuração concluída</label>
+    </div>
+    <p class="contagem" id="rk-contagem"></p>
+    <div class="placar-cidades folha"><table id="placar-cidades"></table></div>
+    <div class="alternar rk-escolha" role="group" aria-label="Candidato mostrado">
+      <button type="button" data-rkc="0" aria-pressed="true">Lula</button>
+      <button type="button" data-rkc="1" aria-pressed="false">Flávio Bolsonaro</button>
+    </div>
+    <div class="rk-grade" id="rk-grade" data-mostrar="0">
+      <div class="rk-col" data-c="0">
+        <h3><span class="marca lula"></span><span class="rk-nome">Lula</span></h3>
+        <h4 data-titulo="ganhos">Onde mais ganhou votos</h4><ol class="rk-lista" data-lista="ganhos"></ol>
+        <h4 data-titulo="perdas">Onde mais perdeu votos</h4><ol class="rk-lista" data-lista="perdas"></ol>
+      </div>
+      <div class="rk-col" data-c="1">
+        <h3><span class="marca flavio"></span><span class="rk-nome">Flávio Bolsonaro</span></h3>
+        <h4 data-titulo="ganhos">Onde mais ganhou votos</h4><ol class="rk-lista" data-lista="ganhos"></ol>
+        <h4 data-titulo="perdas">Onde mais perdeu votos</h4><ol class="rk-lista" data-lista="perdas"></ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape envelope" id="sobre">
+  <h2>Sobre os dados</h2>
+  <ul>
+    <li>Fonte: arquivos oficiais de divulgação de resultados do Tribunal Superior Eleitoral, em <a href="https://resultados.tse.jus.br/oficial/app/index.html" rel="noopener">resultados.tse.jus.br</a>. Eleição 6257 (1º turno, 4 de outubro) e 6258 (2º turno, 25 de outubro).</li>
+    <li>Os percentuais são sobre os votos válidos, sem brancos e nulos, como faz o TSE. p.p. quer dizer pontos percentuais.</li>
+    <li>Enquanto a apuração não termina, os números são parciais. O resultado oficial é o da totalização final do TSE.</li>
+    <li>Na comparação em votos, uma cidade ainda em apuração parece ter perdido votos só porque nem todas as urnas foram contadas. Por isso, os rankings usam, por padrão, apenas cidades com apuração concluída.</li>
+    <li id="sobre-atualizacao">Os dados das cidades são coletados por um robô a cada 5 minutos, mais ou menos.</li>
+    <li>Ordem dos candidatos pelo número na urna. Cores: vermelho para Lula, verde para Flávio Bolsonaro.</li>
+    <li>Mapa: malha estadual do IBGE (projeto click_that_hood, licença MIT). Fonte tipográfica: Archivo (licença SIL OFL).</li>
+    <li>Site independente, sem ligação com o TSE, partidos ou campanhas.</li>
+  </ul>
+  <p class="coleta" id="coleta"></p>
+</footer>
+
+<div class="aviso-flutuante" id="aviso" role="status" aria-live="polite"></div>
+<noscript><p class="envelope" style="padding:20px 16px">Este site precisa de JavaScript para mostrar os resultados. Você também pode consultar direto no <a href="https://resultados.tse.jus.br/oficial/app/index.html">site do TSE</a>.</p></noscript>
+
+<script>
+(function () {
+  'use strict';
+
+  // ======================================================================
+  // Configuração
+  // ======================================================================
+  var CANDIDATOS = {
+    '13': { nome: 'Lula', curto: 'Lula', partido: 'PT', classe: 'lula' },
+    '22': { nome: 'Flávio Bolsonaro', curto: 'Flávio', partido: 'PL', classe: 'flavio' }
+  };
+  var ATUALIZAR_A_CADA_SEG = 60;   // de quanto em quanto tempo a página busca dados novos
+  var LER_TSE_DIRETO = true;       // tenta ler placar nacional e estados direto do TSE
+  var DADOS = 'dados/';
+
+  var UFS = {
+    ac: 'Acre', al: 'Alagoas', ap: 'Amapá', am: 'Amazonas', ba: 'Bahia', ce: 'Ceará', df: 'Distrito Federal',
+    es: 'Espírito Santo', go: 'Goiás', ma: 'Maranhão', mt: 'Mato Grosso', ms: 'Mato Grosso do Sul',
+    mg: 'Minas Gerais', pa: 'Pará', pb: 'Paraíba', pr: 'Paraná', pe: 'Pernambuco', pi: 'Piauí',
+    rj: 'Rio de Janeiro', rn: 'Rio Grande do Norte', rs: 'Rio Grande do Sul', ro: 'Rondônia', rr: 'Roraima',
+    sc: 'Santa Catarina', sp: 'São Paulo', se: 'Sergipe', to: 'Tocantins', zz: 'Exterior'
+  };
+  var UFS_BR = Object.keys(UFS).filter(function (u) { return u !== 'zz'; })
+    .sort(function (a, b) { return UFS[a].localeCompare(UFS[b], 'pt-BR'); });
+
+  // Caminhos SVG dos estados (malha do IBGE simplificada, projeção policônica)
+  var MAPA = {"viewBox":"0 0 646 600","estados":{"ac":{"d":"M115,237L94,229L85,225L75,220L60,213L52,212L26,207L8,199L10,203L6,203L7,207L10,210L10,213L12,215L13,219L17,220L17,223L19,224L23,230L19,235L26,235L32,236L35,242L35,244L47,243L49,242L52,240L58,233L58,240L59,258L65,259L69,256L72,257L77,256L84,257L87,259L94,256L97,251L102,251L103,248L107,245L109,245L118,238Z","lx":59.8,"ly":231.5},"al":{"d":"M588,227L582,225L579,227L576,226L573,227L571,230L566,233L558,231L552,226L550,227L549,224L545,229L541,231L545,234L549,236L560,243L560,245L565,248L568,251L570,248L573,245L577,239L585,231Z","lx":622,"ly":235,"ax":565.2,"ay":235.4},"am":{"d":"M115,237L119,234L121,231L127,230L131,233L135,229L138,228L139,230L141,230L143,227L143,224L147,224L151,222L154,222L154,219L157,217L157,213L159,213L161,208L163,207L173,207L175,209L176,211L181,213L183,216L184,220L188,220L190,218L192,219L210,219L220,219L238,219L240,215L241,208L240,204L243,201L244,197L243,194L239,190L239,186L242,183L252,160L260,143L269,123L270,120L273,118L272,117L269,119L265,119L262,116L260,115L259,113L255,112L245,106L239,101L238,99L234,95L234,93L232,91L232,82L214,82L211,89L209,94L210,97L207,99L204,99L203,97L198,93L193,96L191,100L191,102L190,105L191,108L186,107L184,103L180,100L179,97L182,91L178,85L177,78L177,75L178,71L175,64L172,62L174,60L174,56L169,55L167,53L164,52L157,56L154,56L153,61L150,63L148,63L143,67L139,69L137,71L134,72L133,74L130,70L128,70L122,74L119,74L111,67L108,68L108,59L105,57L103,51L100,55L97,54L95,57L90,56L91,59L73,59L70,58L66,59L66,69L74,69L77,72L75,76L71,74L69,76L63,77L63,89L69,94L69,98L73,104L71,117L68,131L65,152L64,154L60,153L57,151L52,151L50,155L42,156L40,157L36,157L33,160L21,168L20,176L16,182L16,183L18,188L17,190L15,191L11,193L8,199L26,207L52,212L60,213L75,220L85,225L94,229Z","lx":143.7,"ly":150},"ap":{"d":"M365,75L367,71L368,64L367,60L363,59L361,54L359,53L356,53L355,49L352,43L350,35L350,27L348,26L347,23L345,20L343,19L341,25L337,29L331,39L326,50L321,53L315,51L314,52L308,51L303,53L299,53L293,49L294,53L293,55L294,59L301,60L306,63L313,66L314,67L315,72L319,75L318,80L321,85L326,91L325,93L328,94L328,99L331,103L339,103L341,101L341,98L344,94L348,88L354,84L358,82L360,77Z","lx":334.8,"ly":70.2},"ba":{"d":"M541,231L540,228L537,225L535,226L533,223L527,221L525,218L521,220L520,222L517,223L516,226L511,226L509,231L505,232L504,230L505,227L503,226L501,222L499,220L495,220L492,223L490,224L487,228L482,228L478,231L473,233L470,230L466,230L463,227L457,232L458,235L460,236L460,239L456,245L453,247L450,247L446,248L442,251L441,252L436,250L433,248L433,243L431,239L429,240L429,243L422,247L420,251L419,253L418,256L415,257L417,260L420,261L419,266L419,272L420,275L420,281L422,282L420,283L419,287L420,289L419,297L420,300L424,303L422,312L422,315L426,316L435,310L439,308L444,304L449,303L456,305L454,310L459,312L462,310L467,311L472,315L477,318L482,319L484,318L490,324L490,328L493,329L500,328L501,330L506,331L511,335L510,338L505,342L504,345L500,348L499,354L501,357L504,360L504,364L511,370L514,365L518,363L520,360L519,359L519,352L521,348L523,338L526,332L525,330L524,313L527,302L526,300L528,298L528,291L533,288L537,288L542,282L548,273L553,265L548,267L544,264L544,261L540,256L541,253L544,254L546,253L546,249L548,247L547,242L545,241L544,239L545,234Z","lx":487.3,"ly":277.7},"ce":{"d":"M517,130L511,129L497,131L498,133L496,138L497,139L497,143L500,148L500,152L498,157L498,161L501,164L503,166L502,173L505,184L504,187L506,189L509,190L510,195L508,200L512,201L521,199L526,203L527,205L530,207L535,205L538,200L536,197L535,193L538,185L540,181L542,181L545,178L546,174L548,172L552,163L558,162L557,160L553,158L546,151L542,146L540,144L537,143L532,139L529,136L517,130Z","lx":520.6,"ly":168.8},"es":{"d":"M504,364L500,362L496,365L492,366L490,370L492,370L491,373L493,376L491,378L493,383L492,386L489,389L488,392L486,393L484,397L480,396L478,398L479,400L477,405L479,406L479,410L481,411L488,413L490,414L493,407L497,405L502,398L503,394L505,391L508,390L510,385L510,377L510,372L511,370Z","lx":548,"ly":398,"ax":495.8,"ay":387.8},"go":{"d":"M422,282L418,283L413,282L410,284L402,287L399,286L397,287L392,287L392,285L388,287L387,284L381,279L380,281L378,279L374,284L374,286L366,281L362,280L360,279L362,275L359,275L357,280L356,286L352,293L352,298L350,300L350,305L348,309L346,312L345,311L340,314L339,319L336,324L331,325L330,328L327,329L325,331L326,335L323,338L320,340L317,346L317,351L319,357L319,361L324,362L321,365L323,367L328,367L329,369L332,370L339,374L343,374L348,377L349,379L353,374L356,373L356,371L359,368L363,366L366,367L371,365L371,367L379,362L385,364L388,363L392,366L396,364L398,362L402,359L401,357L403,353L400,351L399,349L402,346L405,343L404,338L401,336L403,332L403,329L389,328L389,325L390,324L390,320L402,320L403,322L402,326L403,329L405,327L410,327L410,323L409,322L410,318L409,317L411,313L414,315L415,313L415,311L416,309L419,312L422,312L424,303L420,300L419,297L420,289L419,287L420,283Z","lx":363.6,"ly":335.7},"ma":{"d":"M410,222L413,225L414,228L417,230L416,234L417,234L418,239L420,240L425,240L426,242L427,239L428,229L427,227L425,221L429,215L434,203L436,201L442,200L444,198L446,199L447,196L451,194L454,191L457,189L462,189L464,191L467,189L471,189L472,188L474,182L471,179L470,176L470,172L474,168L474,164L472,159L474,156L472,151L476,146L477,142L479,139L484,139L485,136L487,136L490,131L490,128L486,127L479,127L476,125L469,122L465,122L463,120L460,122L458,124L456,123L452,124L451,120L449,118L450,116L448,114L448,114L448,114L447,113L446,113L446,112L445,111L447,110L443,109L441,108L441,108L441,108L441,109L440,108L440,108L441,107L440,107L440,107L440,107L440,107L440,108L439,109L436,111L436,111L437,109L437,107L437,106L437,106L436,108L436,108L435,109L434,107L434,106L434,106L431,106L431,105L430,105L430,105L429,105L427,102L425,104L423,112L423,115L422,119L420,121L420,124L417,127L417,131L414,136L411,140L410,144L407,147L406,150L403,154L399,156L385,167L387,166L388,164L391,164L393,165L398,165L399,167L403,169L405,181L403,187L403,192L400,195L403,196L403,199L406,202L410,208L417,206L418,207L417,212L414,213L412,216L412,220Z","lx":433.3,"ly":162.7},"mg":{"d":"M422,312L419,312L416,309L415,311L415,313L414,315L411,313L409,317L410,318L409,322L410,323L410,327L405,327L403,329L403,329L403,332L401,336L404,338L405,343L402,346L399,349L400,351L403,353L401,357L402,359L398,362L396,364L392,366L388,363L385,364L379,362L371,367L371,365L366,367L363,366L359,368L356,371L356,373L353,374L349,379L348,383L348,388L356,384L358,385L364,387L369,386L373,387L373,392L374,392L377,390L379,391L386,390L388,389L390,390L393,390L393,388L396,389L399,388L402,392L401,395L404,399L401,402L403,404L403,407L406,410L408,410L411,411L411,414L408,417L409,419L408,424L411,427L413,431L412,433L418,432L421,433L422,430L426,430L431,428L434,427L440,425L443,425L449,423L454,423L456,422L459,424L462,422L471,419L471,415L473,407L476,407L477,405L479,400L478,398L480,396L484,397L486,393L488,392L489,389L492,386L493,383L491,378L493,376L491,373L492,370L490,370L492,366L496,365L500,362L504,364L504,360L501,357L499,354L500,348L504,345L505,342L510,338L511,335L506,331L501,330L500,328L493,329L490,328L490,324L484,318L482,319L477,318L472,315L467,311L462,310L459,312L454,310L456,305L449,303L444,304L439,308L435,310L426,316L422,315Z","lx":439.9,"ly":366.8},"ms":{"d":"M319,357L316,357L313,357L308,355L308,352L310,352L310,345L309,345L305,351L301,352L298,349L295,349L293,351L289,351L277,345L275,344L270,347L266,347L264,350L261,354L256,355L254,354L252,351L251,352L254,358L255,361L252,371L252,373L247,384L251,387L248,389L248,393L249,397L251,399L251,407L250,410L251,416L249,418L259,421L268,421L272,418L275,421L280,421L283,426L283,430L284,437L284,442L287,447L293,446L296,444L300,446L302,448L304,447L306,439L309,438L311,434L311,431L318,426L320,424L327,420L333,412L332,410L335,409L336,404L339,401L339,398L343,393L347,391L348,388L348,383L349,379L348,377L343,374L339,374L332,370L329,369L328,367L323,367L321,365L324,362L319,361Z","lx":293.7,"ly":391.6},"mt":{"d":"M192,219L194,221L193,225L192,228L194,232L192,240L195,244L194,252L210,252L211,254L216,254L218,258L215,261L215,265L217,266L219,271L220,272L219,275L217,276L216,281L213,284L212,287L212,289L208,291L207,293L211,295L212,298L211,299L211,302L214,307L214,314L210,315L215,320L216,332L226,332L241,332L243,333L241,337L241,341L242,345L244,348L247,350L250,349L252,351L254,354L256,355L261,354L264,350L266,347L270,347L275,344L277,345L289,351L293,351L295,349L298,349L301,352L305,351L309,345L310,345L310,352L308,352L308,355L313,357L316,357L319,357L317,351L317,346L320,340L323,338L326,335L325,331L327,329L330,328L331,325L336,324L339,319L340,314L345,311L346,312L348,309L350,305L350,300L352,298L352,293L356,286L357,280L356,279L354,276L356,273L355,270L355,260L354,258L356,253L356,246L360,240L362,234L346,233L326,232L312,230L291,229L266,227L264,225L261,225L258,220L252,218L251,213L251,210L248,206L247,202L244,197L243,201L240,204L241,208L240,215L238,219L220,219L210,219Z","lx":277.4,"ly":280.6},"pa":{"d":"M244,197L247,202L248,206L251,210L251,213L252,218L258,220L261,225L264,225L266,227L291,229L312,230L326,232L346,233L362,234L364,230L365,226L370,219L372,219L376,212L377,210L378,203L376,201L375,199L378,195L378,190L381,188L384,188L386,186L387,183L390,181L389,179L392,178L392,174L394,171L390,167L388,168L385,167L399,156L403,154L406,150L407,147L410,144L411,140L414,136L417,131L417,127L420,124L420,121L422,119L423,115L423,112L425,104L425,103L422,101L418,101L418,99L412,97L407,95L403,96L401,95L397,96L389,93L390,90L383,89L374,85L371,80L368,81L365,81L366,77L365,75L360,77L358,82L354,84L348,88L344,94L341,98L341,101L339,103L331,103L328,99L328,94L325,93L326,91L321,85L318,80L319,75L315,72L314,67L313,66L306,63L301,60L294,59L293,55L294,53L293,49L291,47L279,50L276,48L275,52L277,57L275,58L268,56L263,58L260,57L259,55L254,57L252,60L246,61L245,63L240,62L238,67L235,66L232,67L232,82L232,91L234,93L234,95L238,99L239,101L245,106L255,112L259,113L260,115L262,116L265,119L269,119L272,117L273,118L270,120L269,123L260,143L252,160L242,183L239,186L239,190L243,194Z","lx":319.9,"ly":145.5},"pb":{"d":"M535,205L537,207L541,206L541,208L545,208L548,205L553,203L554,201L557,200L561,202L558,206L556,211L558,211L558,214L560,216L566,213L566,211L569,209L575,209L576,209L581,208L585,204L587,203L593,206L594,200L592,191L592,189L589,190L585,189L576,188L573,187L572,185L569,186L567,195L564,192L561,191L557,193L557,191L554,191L556,185L559,183L557,181L555,182L551,182L549,186L543,187L538,185L535,193L536,197L538,200Z","lx":622,"ly":193,"ax":563.4,"ay":197.7},"pe":{"d":"M588,227L590,221L593,212L593,206L587,203L585,204L581,208L576,209L575,209L569,209L566,211L566,213L560,216L558,214L558,211L556,211L558,206L561,202L557,200L554,201L553,203L548,205L545,208L541,208L541,206L537,207L535,205L530,207L527,205L526,203L521,199L512,201L508,200L505,201L506,206L508,207L506,212L504,214L501,215L497,219L495,220L499,220L501,222L503,226L505,227L504,230L505,232L509,231L511,226L516,226L517,223L520,222L521,220L525,218L527,221L533,223L535,226L537,225L540,228L541,231L545,229L549,224L550,227L552,226L558,231L566,233L571,230L573,227L576,226L579,227L582,225Z","lx":622,"ly":214,"ax":545.6,"ay":216},"pi":{"d":"M495,220L497,219L501,215L504,214L506,212L508,207L506,206L505,201L508,200L510,195L509,190L506,189L504,187L505,184L502,173L503,166L501,164L498,161L498,157L500,152L500,148L497,143L497,139L496,138L498,133L497,131L493,130L490,128L490,131L487,136L485,136L484,139L479,139L477,142L476,146L472,151L474,156L472,159L474,164L474,168L470,172L470,176L471,179L474,182L472,188L471,189L467,189L464,191L462,189L457,189L454,191L451,194L447,196L446,199L444,198L442,200L436,201L434,203L429,215L425,221L427,227L428,229L427,239L426,242L429,240L431,239L433,243L433,248L436,250L441,252L442,251L446,248L450,247L453,247L456,245L460,239L460,236L458,235L457,232L463,227L466,230L470,230L473,233L478,231L482,228L487,228L490,224L492,223Z","lx":471.5,"ly":204.8},"pr":{"d":"M302,448L301,449L302,452L301,457L300,461L300,464L298,468L298,471L300,472L304,470L308,472L308,477L311,481L315,481L318,483L324,483L331,484L335,486L337,486L340,488L343,486L343,482L346,481L348,482L351,480L352,478L355,479L357,478L362,479L366,482L371,478L379,478L382,473L383,473L387,469L385,465L380,463L380,458L374,458L372,459L370,457L371,454L368,447L366,442L367,438L365,434L363,433L362,432L356,432L350,431L349,429L341,427L340,428L335,427L332,425L330,427L326,426L324,426L320,425L318,426L311,431L311,434L309,438L306,439L304,447Z","lx":338.5,"ly":456.8},"rj":{"d":"M477,405L476,407L473,407L471,415L471,419L462,422L459,424L456,422L454,423L449,423L443,425L440,425L434,427L436,430L440,430L443,432L441,434L435,435L432,439L435,442L438,441L435,439L439,436L443,437L444,436L447,435L451,438L456,437L457,436L457,436L456,435L459,437L465,437L472,438L475,435L473,433L478,428L485,427L488,424L488,417L490,414L488,413L481,411L479,410L479,406Z","lx":503,"ly":455,"ax":464.7,"ay":425.8},"rn":{"d":"M538,185L543,187L549,186L551,182L555,182L557,181L559,183L556,185L554,191L557,191L557,193L561,191L564,192L567,195L569,186L572,185L573,187L576,188L585,189L589,190L592,189L588,173L585,167L578,165L573,166L570,166L567,166L564,164L560,163L558,162L552,163L548,172L546,174L545,178L542,181L540,181Z","lx":622,"ly":172,"ax":566.8,"ay":177.6},"ro":{"d":"M118,238L120,238L128,236L134,236L136,234L137,237L138,242L136,247L139,254L137,257L138,262L139,265L141,265L142,269L145,270L147,272L150,273L152,276L159,277L161,275L164,276L167,279L171,279L173,281L174,282L182,285L186,286L186,287L190,291L194,291L196,291L199,290L203,291L207,293L208,291L212,289L212,287L213,284L216,281L217,276L219,275L220,272L219,271L217,266L215,265L215,261L218,258L216,254L211,254L210,252L194,252L195,244L192,240L194,232L192,228L193,225L194,221L192,219L190,218L188,220L184,220L183,216L181,213L176,211L175,209L173,207L163,207L161,208L159,213L157,213L157,217L154,219L154,222L151,222L147,224L143,224L143,227L141,230L139,230L138,228L135,229L131,233L127,230L121,231L119,234L115,237Z","lx":174.2,"ly":251.8},"rr":{"d":"M232,82L232,67L231,66L226,65L221,60L219,58L219,52L217,50L215,45L215,41L216,38L218,35L217,31L220,30L222,26L219,23L219,19L213,18L215,15L215,9L212,6L210,7L207,7L206,11L204,14L201,15L200,17L196,17L195,19L192,19L192,21L188,23L184,23L183,24L179,22L177,24L173,25L172,29L170,31L169,29L167,28L167,26L164,25L162,27L154,26L153,23L150,23L146,23L142,22L148,28L150,29L152,31L151,34L151,38L155,44L154,48L158,49L163,49L164,52L167,53L169,55L174,56L174,60L172,62L175,64L178,71L177,75L177,78L178,85L182,91L179,97L180,100L184,103L186,107L191,108L190,105L191,102L191,100L193,96L198,93L203,97L204,99L207,99L210,97L209,94L211,89L214,82Z","lx":193.8,"ly":58.3},"rs":{"d":"M331,561L333,557L336,557L339,554L338,552L341,549L341,546L343,545L343,542L344,542L344,544L351,542L351,545L348,550L343,554L341,560L338,561L337,563L334,565L331,565L331,568L338,564L348,555L354,545L357,538L359,532L362,528L359,526L357,527L359,525L359,524L360,519L363,518L363,516L351,514L348,509L347,507L340,501L337,500L334,500L331,497L330,497L322,495L320,495L314,494L312,495L308,495L300,498L297,501L295,500L293,504L290,505L285,510L282,511L281,515L277,519L275,520L274,524L271,524L270,528L265,534L262,536L262,538L259,542L264,542L265,539L269,539L271,541L275,545L277,547L279,549L280,554L281,554L285,550L288,555L292,558L295,559L298,559L300,562L305,567L306,566L309,569L310,573L313,576L316,577L321,574L324,576L322,581L318,579L312,587L313,590L312,592L314,594L321,587L325,581L327,573L330,570L330,567L329,564Z","lx":312.8,"ly":533},"sc":{"d":"M311,481L310,486L310,491L308,495L312,495L314,494L320,495L322,495L330,497L331,497L334,500L337,500L340,501L347,507L348,509L351,514L363,516L363,518L360,519L359,524L359,525L357,527L359,526L362,528L366,523L370,521L375,518L378,507L378,502L379,498L379,494L378,489L380,482L379,478L371,478L366,482L362,479L357,478L355,479L352,478L351,480L348,482L346,481L343,482L343,486L340,488L337,486L335,486L331,484L324,483L318,483L315,481Z","lx":357,"ly":496.5},"se":{"d":"M545,234L544,239L545,241L547,242L548,247L546,249L546,253L544,254L541,253L540,256L544,261L544,264L548,267L553,265L559,256L564,252L568,251L565,248L560,245L560,243L549,236Z","lx":622,"ly":256,"ax":552.1,"ay":251.4},"sp":{"d":"M348,388L347,391L343,393L339,398L339,401L336,404L335,409L332,410L333,412L327,420L320,424L318,426L320,425L324,426L326,426L330,427L332,425L335,427L340,428L341,427L349,429L350,431L356,432L362,432L363,433L365,434L367,438L366,442L368,447L371,454L370,457L372,459L374,458L380,458L380,463L385,465L387,469L389,466L390,464L393,461L402,456L402,454L408,451L415,448L418,447L425,448L425,446L432,441L435,442L432,439L435,435L441,434L443,432L440,430L436,430L434,427L431,428L426,430L422,430L421,433L418,432L412,433L413,431L411,427L408,424L409,419L408,417L411,414L411,411L408,410L406,410L403,407L403,404L401,402L404,399L401,395L402,392L399,388L396,389L393,388L393,390L390,390L388,389L386,390L379,391L377,390L374,392L373,392L373,387L369,386L364,387L358,385L356,384Z","lx":385.4,"ly":424.1},"to":{"d":"M429,240L426,242L425,240L420,240L418,239L417,234L416,234L417,230L414,228L413,225L410,222L412,220L412,216L414,213L417,212L418,207L417,206L410,208L406,202L403,199L403,196L400,195L403,192L403,187L405,181L403,169L399,167L398,165L393,165L391,164L388,164L387,166L385,167L388,168L390,167L394,171L392,174L392,178L389,179L390,181L387,183L386,186L384,188L381,188L378,190L378,195L375,199L376,201L378,203L377,210L376,212L372,219L370,219L365,226L364,230L362,234L360,240L356,246L356,253L354,258L355,260L355,270L356,273L354,276L356,279L357,280L359,275L362,275L360,279L362,280L366,281L374,286L374,284L378,279L380,281L381,279L387,284L388,287L392,285L392,287L397,287L399,286L402,287L410,284L413,282L418,283L422,282L420,281L420,275L419,272L419,266L420,261L417,260L415,257L418,256L419,253L420,251L422,247L429,243Z","lx":390.2,"ly":245.1},"df":{"d":"M403,329L403,329L402,326L403,322L402,320L390,320L390,324L389,325L389,328Z","lx":428,"ly":302,"ax":396.1,"ay":324.6}}};
+
+  // ======================================================================
+  // Estado da página
+  // ======================================================================
+  var S = {
+    resumo: null, versaoMun: null, ordem: ['13', '22'],
+    cidades: [], porChave: new Map(), cont: null,
+    mapaTurno: 't2', ufSel: null,
+    visao: 't2', ordemTab: { col: 'nome', dir: 1 },
+    cidadeSel: null, cidadeEscolhida: false,
+    rk: { local: 'br', medida: 'votos', so100: true, cand: 0 },
+    vivo: { ok: null, br: null, uf: {}, ab: {}, quando: null },
+    ultimaLeitura: 0, falhaLeitura: false, renderizado: false
+  };
+
+  // ======================================================================
+  // Utilidades
+  // ======================================================================
+  function $(s, el) { return (el || document).querySelector(s); }
+  function $$(s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); }
+  var nf = new Intl.NumberFormat('pt-BR');
+  var nfc;
+  try { nfc = new Intl.NumberFormat('pt-BR', { notation: 'compact', maximumFractionDigits: 1 }); } catch (e) { nfc = nf; }
+  var MENOS = '−';
+  function ok(n) { return typeof n === 'number' && isFinite(n); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function fmtN(n) { return ok(n) ? nf.format(n) : '–'; }
+  function fmtC(n) { return ok(n) ? nfc.format(n) : '–'; }
+  function fmtP(x, casas) { casas = casas == null ? 2 : casas; return ok(x) ? x.toLocaleString('pt-BR', { minimumFractionDigits: casas, maximumFractionDigits: casas }) + '%' : '–'; }
+  function sinal(x) { return x > 0 ? '+' : x < 0 ? MENOS : ''; }
+  function fmtDN(n) { return ok(n) ? sinal(n) + nf.format(Math.abs(n)) : '–'; }
+  function fmtDC(n) { return ok(n) ? sinal(n) + nfc.format(Math.abs(n)) : '–'; }
+  function fmtDP(x, casas) {
+    casas = casas == null ? 1 : casas;
+    if (!ok(x)) return '–';
+    var r = Number(x.toFixed(casas));
+    return sinal(r) + Math.abs(r).toLocaleString('pt-BR', { minimumFractionDigits: casas, maximumFractionDigits: casas }) + '\u00a0p.p.';
+  }
+  function plural(n, um, varios) { return fmtN(n) + ' ' + (n === 1 ? um : varios); }
+  function normalizar(s) {
+    return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ').trim();
+  }
+  var MINUSCULAS = { de: 1, da: 1, 'do': 1, das: 1, dos: 1, e: 1, del: 1, la: 1, las: 1, los: 1, of: 1, el: 1, du: 1 };
+  function maiuscula(p) { return p.charAt(0).toUpperCase() + p.slice(1); }
+  function formatarNome(s) {
+    return String(s || '').toLowerCase().split(/(\s+|-)/).map(function (p, i) {
+      if (!p || /^\s+$/.test(p) || p === '-') return p;
+      if (i > 0 && MINUSCULAS[p]) return p;
+      var m = /^d['’](.+)$/.exec(p);
+      if (m) return "d'" + maiuscula(m[1]);
+      return maiuscula(p);
+    }).join('');
+  }
+  function carimbo(dt, ht) {
+    if (!dt) return '';
+    var x = String(dt).split('/');
+    return x.length === 3 ? x[2] + '-' + ('0' + x[1]).slice(-2) + '-' + ('0' + x[0]).slice(-2) + ' ' + (ht || '00:00:00') : '';
+  }
+  function horaDe(ts) { return ts ? ts.slice(11, 19) : ''; }
+  function dataDe(ts) { return ts ? ts.slice(8, 10) + '/' + ts.slice(5, 7) : ''; }
+  function inteiro(v) { var n = parseInt(v, 10); return isFinite(n) ? n : null; }
+  function decimal(v) {
+    if (v == null || v === '') return null;
+    var s = String(v);
+    var n = Number(s.indexOf(',') >= 0 ? s.replace(/\./g, '').replace(',', '.') : s);
+    return isFinite(n) ? n : null;
+  }
+  function sigla(uf) { return uf === 'zz' ? 'Exterior' : uf.toUpperCase(); }
+  function nomeLugar(c) { return c.nome + (c.uf === 'zz' ? ' (exterior)' : ' (' + c.uf.toUpperCase() + ')'); }
+  function avisar(msg) {
+    var el = $('#aviso'); el.textContent = msg; el.classList.add('visivel');
+    clearTimeout(avisar.t); avisar.t = setTimeout(function () { el.classList.remove('visivel'); }, 2600);
+  }
+  function guardar(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* sem armazenamento */ } }
+  function lembrar(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+
+  // ======================================================================
+  // Candidatos e dados normalizados
+  // ======================================================================
+  function cand(i) {
+    var n = S.ordem[i];
+    var base = CANDIDATOS[n] || {};
+    var r = (S.resumo && S.resumo.candidatos || []).filter(function (c) { return c && c.n === n; })[0] || {};
+    var nome = base.nome || formatarNome(r.nomeUrna) || ('Candidato ' + n);
+    return { n: n, nome: nome, curto: base.curto || nome, partido: base.partido || r.partido || '', classe: base.classe || (i === 0 ? 'lula' : 'flavio') };
+  }
+
+  function norm(r) {
+    if (!r) return null;
+    var c = r.cand || {};
+    var v = S.ordem.map(function (n) { return Number(c[n] && c[n].v) || 0; });
+    var soma = v[0] + v[1];
+    var vv = r.vv || soma;
+    var p = S.ordem.map(function (n, i) {
+      var x = c[n] && c[n].p;
+      if (ok(x) && soma > 0) return x;
+      return vv ? v[i] / vv * 100 : null;
+    });
+    return {
+      and: r.and || '', pst: ok(r.pst) ? r.pst : 0, te: r.te, c: r.c, a: r.a, pc: r.pc, pa: r.pa,
+      vv: vv, vb: r.vb, vn: r.vn, dt: r.dt || '', md: r.md || '', v: v, p: p,
+      // 'e' = 's' também marca quem foi ao 2º turno; só é eleito com a situação "Eleito(a)"
+      eleito: S.ordem.map(function (n) { return !!(c[n] && c[n].e === 's' && /^eleit/i.test(c[n].st || '')); }),
+      temVotos: soma > 0
+    };
+  }
+
+  // Dados de um estado ('br' = Brasil); no 2º turno usa a leitura direta do TSE se for mais nova
+  function bruto(t, uf) {
+    var tur = S.resumo && S.resumo.turnos && S.resumo.turnos[t];
+    var local = tur ? (uf === 'br' ? tur.br : (tur.uf || {})[uf]) : null;
+    if (t === 't2') {
+      var vivo = uf === 'br' ? S.vivo.br : S.vivo.uf[uf];
+      if (vivo && (!local || (vivo.dt || '') >= (local.dt || ''))) return vivo;
+    }
+    return local || null;
+  }
+  function dados(t, uf) { return norm(bruto(t, uf)); }
+
+  function lider(d) {
+    if (!d || !d.temVotos) return null;
+    if (d.v[0] === d.v[1]) return -1;
+    return d.v[0] > d.v[1] ? 0 : 1;
+  }
+  function nivel(d) {
+    var l = lider(d);
+    if (l === null) return { cls: 'sem', l: null };
+    if (l === -1) return { cls: 'empate', l: -1 };
+    var m = Math.abs(d.p[0] - d.p[1]);
+    return { cls: cand(l).classe + '-' + (m < 5 ? 3 : m < 15 ? 2 : 1), l: l, m: m };
+  }
+  function concluida(d) { return !!d && (d.and === 'f' || d.pst >= 100); }
+
+  // ======================================================================
+  // Leitura dos dados
+  // ======================================================================
+  function buscarJSON(url) {
+    return fetch(url, { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' em ' + url);
+      return r.json();
+    });
+  }
+
+  function montarCidades(m) {
+    if (m.candidatos && m.candidatos.length === 2) S.ordem = m.candidatos.slice();
+    var lista = [];
+    (m.linhas || []).forEach(function (l) {
+      function turno(k) {
+        var o = 6 + k * 6, and = l[o];
+        if (and == null || and === '') return null;
+        var v = [Number(l[o + 4]) || 0, Number(l[o + 5]) || 0];
+        var vv = l[o + 3] || (v[0] + v[1]);
+        return {
+          and: and, pst: ok(l[o + 1]) ? l[o + 1] : 0, c: l[o + 2], vv: vv, v: v,
+          p: v.map(function (x) { return vv ? x / vv * 100 : null; }),
+          temVotos: v[0] + v[1] > 0
+        };
+      }
+      var nome = formatarNome(l[2]);
+      lista.push({
+        uf: l[0], cd: l[1], chave: l[0] + l[1], nome: nome, busca: normalizar(nome),
+        capital: l[3] === 1, te: l[5] || 0, t1: turno(0), t2: turno(1)
+      });
+    });
+    S.cidades = lista;
+    S.porChave = new Map(lista.map(function (c) { return [c.chave, c]; }));
+  }
+
+  function carregar() {
+    return buscarJSON(DADOS + 'resumo.json?t=' + Date.now()).then(function (resumo) {
+      var mudou = !S.resumo || resumo.versao !== S.resumo.versao;
+      S.resumo = resumo;
+      if (resumo.candidatos && resumo.candidatos.length === 2) S.ordem = resumo.candidatos.map(function (c) { return c.n; });
+      if (resumo.versao === S.versaoMun) return mudou;
+      return buscarJSON(DADOS + 'municipios.json?v=' + encodeURIComponent(resumo.versao)).then(function (m) {
+        montarCidades(m);
+        S.versaoMun = resumo.versao;
+        return true;
+      });
+    }).then(function (mudou) {
+      S.falhaLeitura = false;
+      return mudou;
+    }, function (e) {
+      S.falhaLeitura = true;
+      if (window.console) console.warn('Falha ao ler os dados:', e.message);
+      return false;
+    });
+  }
+
+  // Leitura direta do TSE (placar nacional e estados do 2º turno), quando o navegador permite
+  function lerTSE(j) {
+    var cargos = j.carg || [];
+    var cargo = cargos.filter(function (c) { return String(c.cd) === '1'; })[0] || cargos[0] || {};
+    var cand = {};
+    (cargo.agr || []).forEach(function (agr) {
+      (agr.par || []).forEach(function (par) {
+        (par.cand || []).forEach(function (c) {
+          cand[String(c.n)] = { v: inteiro(c.vap) || 0, p: decimal(c.pvapn != null ? c.pvapn : c.pvap), e: c.e === 's' ? 's' : 'n', st: c.st || '' };
+        });
+      });
+    });
+    var s = j.s || {}, e = j.e || {}, v = j.v || {};
+    return {
+      and: j.and || '', dt: carimbo(j.dt, j.ht), md: j.md || '',
+      pst: decimal(s.pstn != null ? s.pstn : s.pst), te: inteiro(e.te), c: inteiro(e.c), a: inteiro(e.a),
+      pc: decimal(e.pcn != null ? e.pcn : e.pc), pa: decimal(e.pan != null ? e.pan : e.pa),
+      vv: inteiro(v.vv), vb: inteiro(v.vb), vn: inteiro(v.tvn != null ? v.tvn : v.vn), cand: cand
+    };
+  }
+
+  function lerDireto() {
+    var tse = S.resumo && S.resumo.tse;
+    var t2 = S.resumo && S.resumo.turnos && S.resumo.turnos.t2;
+    if (!LER_TSE_DIRETO || S.vivo.ok === false || !tse || !t2 || t2.completo) return Promise.resolve(false);
+    var ele = String(tse.eleicoes.t2);
+    var e6 = 'e' + ('000000' + ele).slice(-6), c4 = 'c' + ('0000' + (tse.cargo || 1)).slice(-4);
+    var raiz = tse.base + '/' + tse.ambiente + '/' + tse.ciclo + '/' + ele + '/dados';
+    return Promise.all([
+      buscarJSON(raiz + '/br/br-' + e6 + '-ab.json'),
+      buscarJSON(raiz + '/br/br-' + c4 + '-' + e6 + '-u.json')
+    ]).then(function (res) {
+      S.vivo.ok = true;
+      S.vivo.br = lerTSE(res[1]);
+      var fila = [];
+      (res[0].abr || []).forEach(function (a) {
+        if (a.tpabr !== 'uf') return;
+        var uf = String(a.cdabr).toLowerCase(), ts = carimbo(a.dt, a.ht);
+        if (ts && ts !== S.vivo.ab[uf]) fila.push([uf, ts]);
+      });
+      var lotes = [];
+      for (var i = 0; i < fila.length; i += 6) lotes.push(fila.slice(i, i + 6));
+      return lotes.reduce(function (p, lote) {
+        return p.then(function () {
+          return Promise.all(lote.map(function (x) {
+            return buscarJSON(raiz + '/' + x[0] + '/' + x[0] + '-' + c4 + '-' + e6 + '-u.json')
+              .then(function (j) { S.vivo.uf[x[0]] = lerTSE(j); S.vivo.ab[x[0]] = x[1]; }, function () { /* tenta no próximo minuto */ });
+          }));
+        });
+      }, Promise.resolve()).then(function () { S.vivo.quando = new Date(); return true; });
+    }, function (e) {
+      if (S.vivo.ok !== true) {
+        S.vivo.ok = false;
+        if (window.console) console.info('Leitura direta do TSE indisponível neste navegador; usando os dados do robô.', e && e.message);
+      }
+      return false;
+    });
+  }
+
+  // ======================================================================
+  // Contagem de cidades (só cidades com apuração do 2º turno concluída)
+  // ======================================================================
+  function contagens() {
+    function vazio() { return { total: 0, conc: 0, lidera: [0, 0], empate: 0, cresceu: [0, 0], caiu: [0, 0] }; }
+    var porUF = {}, br = vazio();
+    S.cidades.forEach(function (c) {
+      var alvos = [porUF[c.uf] || (porUF[c.uf] = vazio())];
+      if (c.uf !== 'zz') alvos.push(br);
+      alvos.forEach(function (a) { a.total++; });
+      if (!(c.t2 && concluida(c.t2) && c.t2.temVotos)) return;
+      var l = c.t2.v[0] === c.t2.v[1] ? -1 : (c.t2.v[0] > c.t2.v[1] ? 0 : 1);
+      alvos.forEach(function (a) {
+        a.conc++;
+        if (l === -1) a.empate++; else a.lidera[l]++;
+        if (c.t1) [0, 1].forEach(function (i) {
+          var d = c.t2.v[i] - c.t1.v[i];
+          if (d > 0) a.cresceu[i]++; else if (d < 0) a.caiu[i]++;
+        });
+      });
+    });
+    return { porUF: porUF, br: br };
+  }
+
+  // ======================================================================
+  // Componente: comparativo 1º x 2º turno
+  // ======================================================================
+  function comparativo(t1, t2, onde) {
+    var max = 1;
+    [0, 1].forEach(function (i) { max = Math.max(max, t1 ? t1.v[i] : 0, t2 ? t2.v[i] : 0); });
+    var tem2 = t2 && t2.temVotos, fim2 = tem2 && concluida(t2), tem1 = t1 && t1.temVotos;
+    var l2 = tem2 ? lider(t2) : null;
+    var html = '<div class="comp">';
+    [0, 1].forEach(function (i) {
+      var c = cand(i);
+      var etiqueta = '';
+      if (l2 === i) etiqueta = '<span class="etiqueta">' + (fim2 ? 'Venceu ' + onde + ' no 2º turno' : 'À frente ' + onde + ' no 2º turno') + '</span>';
+      var rot2 = '2º turno' + (tem2 && !fim2 ? '<small>' + fmtP(t2.pst, 0) + ' apurado</small>' : '');
+      html += '<div class="comp-c">' +
+        '<p class="comp-cab"><span class="marca ' + c.classe + '"></span><strong>' + esc(c.nome) + '</strong>' + etiqueta + '</p>' +
+        linhaComp('1º turno', tem1 ? t1.v[i] : null, tem1 ? t1.p[i] : null, max, c.classe + '-2') +
+        linhaComp(rot2, tem2 ? t2.v[i] : null, tem2 ? t2.p[i] : null, max, c.classe + '-1', tem2 ? '' : 'aguardando') +
+        deltaComp(t1, t2, i) + '</div>';
+    });
+    return html + '</div>';
+  }
+  function linhaComp(rotulo, v, p, max, cls, vazio) {
+    var w = ok(v) ? Math.max(0.6, v / max * 100) : 0;
+    var val = ok(v) ? '<b>' + fmtN(v) + '</b><span>' + fmtP(p, 1) + '</span>' : '<span>' + (vazio || '–') + '</span>';
+    return '<div class="comp-linha"><div class="comp-topo"><span class="rot">' + rotulo + '</span><span class="val">' + val + '</span></div>' +
+      '<div class="trilho"><span class="barra b-' + cls + '" style="width:' + w.toFixed(2) + '%"></span></div></div>';
+  }
+  function deltaComp(t1, t2, i) {
+    if (!(t1 && t1.temVotos && t2 && t2.temVotos)) {
+      return '<p class="comp-delta espera">A comparação aparece quando houver votos apurados nos dois turnos.</p>';
+    }
+    var dp = t2.p[i] - t1.p[i];
+    var pp = '<span class="pp">' + fmtDP(dp) + ' nos votos válidos</span>';
+    if (!concluida(t2)) {
+      return '<p class="comp-delta"><span class="seta" aria-hidden="true">' + (dp >= 0 ? '▲' : '▼') + '</span>' + pp +
+        '</p><p class="comp-delta espera">A diferença em votos sai quando a apuração terminar.</p>';
+    }
+    var dv = t2.v[i] - t1.v[i];
+    var txt = dv === 0 ? 'mesmo número de votos' : '<b>' + fmtN(Math.abs(dv)) + '</b> ' + (Math.abs(dv) === 1 ? 'voto' : 'votos') + (dv > 0 ? ' a mais' : ' a menos');
+    return '<p class="comp-delta"><span class="seta" aria-hidden="true">' + (dv > 0 ? '▲' : dv < 0 ? '▼' : '=') + '</span><span>' + txt + '</span>' + pp + '</p>';
+  }
+
+  // ======================================================================
+  // Topo e placar nacional
+  // ======================================================================
+  function renderSelo() {
+    var el = $('#selo'), br2 = dados('t2', 'br'), estado = 'carregando', txt = 'Carregando os dados do TSE…';
+    if (!S.resumo && S.falhaLeitura) { estado = 'erro'; txt = 'Os dados ainda não foram publicados. Tente de novo em alguns minutos.'; }
+    else if (br2) {
+      if (br2.and === 'f') { estado = 'fim'; txt = 'Apuração encerrada: totalização final do TSE'; }
+      else if (!br2.temVotos) { estado = 'antes'; txt = 'A apuração do 2º turno começa às 17h (horário de Brasília)'; }
+      else { estado = 'vivo'; txt = 'Apuração em andamento'; }
+    } else if (S.resumo) { estado = 'antes'; txt = 'Aguardando os primeiros dados do 2º turno'; }
+    el.setAttribute('data-estado', estado);
+    $('#selo-texto').textContent = txt;
+  }
+
+  function renderPlacar() {
+    var t2 = dados('t2', 'br'), t1 = dados('t1', 'br');
+    var tem = t2 && t2.temVotos;
+    [0, 1].forEach(function (i) {
+      var c = cand(i), box = $('#pc-' + i);
+      $('.pc-nome-txt', box).textContent = c.nome;
+      $('.pc-partido', box).textContent = c.partido ? c.partido + ', ' + c.n : c.n;
+      $('.pc-pct', box).textContent = tem ? fmtP(t2.p[i]) : '–';
+      $('.pc-votos', box).textContent = tem ? fmtN(t2.v[i]) + ' votos' : 'aguardando votos';
+      $('.pc-eleito', box).hidden = !(t2 && t2.eleito[i]);
+      $('#t1-' + i).textContent = t1 && t1.temVotos ? '1º turno: ' + fmtP(t1.p[i]) : '';
+    });
+    var a = $('#cabo-a'), b = $('#cabo-b');
+    a.style.flexGrow = tem ? t2.p[0] : 0;
+    b.style.flexGrow = tem ? t2.p[1] : 0;
+    $('#cabo').setAttribute('aria-label', tem
+      ? cand(0).nome + ' ' + fmtP(t2.p[0]) + ', ' + cand(1).nome + ' ' + fmtP(t2.p[1]) + ' dos votos válidos'
+      : 'Placar ainda sem votos apurados');
+    $('#diferenca').innerHTML = tem
+      ? 'Diferença entre os dois: <b>' + fmtN(Math.abs(t2.v[0] - t2.v[1])) + ' votos</b> (' + fmtDP(Math.abs(t2.p[0] - t2.p[1]), 2).replace(/^\+/, '') + ')'
+      : '';
+    var pst = t2 ? t2.pst : 0;
+    $('#medidor').style.width = Math.min(100, pst) + '%';
+    $('#apuracao-pct').innerHTML = '<b>' + fmtP(pst) + '</b> das seções apuradas';
+    var quando = t2 && t2.dt ? 'Dados do TSE de ' + dataDe(t2.dt) + ' às ' + horaDe(t2.dt) : '';
+    $('#apuracao-hora').textContent = quando;
+
+    function fato(rotulo, v2, v1) {
+      return '<div><dt>' + rotulo + '</dt><dd>' + (ok(v2) ? fmtP(v2, 1) : '–') +
+        '<small>1º turno: ' + (ok(v1) ? fmtP(v1, 1) : '–') + '</small></dd></div>';
+    }
+    function parte(d, campo) { return d && d.c ? d[campo] / d.c * 100 : null; }
+    $('#fatos').innerHTML =
+      fato('Comparecimento', tem ? t2.pc : null, t1 && t1.pc) +
+      fato('Abstenção', tem ? t2.pa : null, t1 && t1.pa) +
+      fato('Votos em branco', tem ? parte(t2, 'vb') : null, parte(t1, 'vb')) +
+      fato('Votos nulos', tem ? parte(t2, 'vn') : null, parte(t1, 'vn'));
+
+    var nota = $('#nota-tse');
+    if (t2 && t2.md === 's' && t2.and !== 'f') {
+      nota.hidden = false;
+      nota.textContent = 'O TSE indica que o resultado já está matematicamente definido, mesmo com a apuração ainda em andamento.';
+    } else nota.hidden = true;
+  }
+
+  // ======================================================================
+  // Mapa
+  // ======================================================================
+  function montarMapa() {
+    var svg = $('#mapa-svg');
+    svg.setAttribute('viewBox', MAPA.viewBox);
+    var e, uf, h = '<g class="estados">';
+    for (uf in MAPA.estados) {
+      e = MAPA.estados[uf];
+      h += '<path class="uf f-sem" data-uf="' + uf + '" d="' + e.d + '" tabindex="0" role="button" aria-label="' + esc(UFS[uf]) + '"></path>';
+    }
+    h += '</g><g class="alvos">';
+    ['df', 'se', 'al'].forEach(function (u) {
+      var x = MAPA.estados[u];
+      if (x) h += '<circle class="alvo" data-uf="' + u + '" cx="' + x.ax + '" cy="' + x.ay + '" r="9"></circle>';
+    });
+    h += '</g><g class="guias" aria-hidden="true">';
+    for (uf in MAPA.estados) {
+      e = MAPA.estados[uf];
+      if (e.ax != null) h += '<line x1="' + e.ax + '" y1="' + e.ay + '" x2="' + (e.lx - 16) + '" y2="' + e.ly + '"></line><circle cx="' + e.ax + '" cy="' + e.ay + '" r="1.9"></circle>';
+    }
+    h += '</g><g class="rotulos">';
+    for (uf in MAPA.estados) {
+      e = MAPA.estados[uf];
+      h += '<text data-uf="' + uf + '" x="' + e.lx + '" y="' + e.ly + '" class="' + (e.ax != null ? 'fora' : 'r-sem') + '" aria-hidden="true">' + uf.toUpperCase() + '</text>';
+    }
+    svg.innerHTML = h + '</g>';
+
+    var leg = '';
+    [0, 1].forEach(function (i) {
+      var c = cand(i);
+      leg += '<div class="leg-linha"><span class="leg-nome"><span class="marca ' + c.classe + '"></span>' + esc(c.nome) + ' à frente</span>' +
+        '<span class="leg-escala"><i class="s-' + c.classe + '-3"></i><i class="s-' + c.classe + '-2"></i><i class="s-' + c.classe + '-1"></i></span></div>';
+    });
+    leg += '<div class="leg-ticks"><span>Vantagem em pontos percentuais</span><span>até 5</span><span>5 a 15</span><span>mais de 15</span></div>';
+    leg += '<div class="leg-sem"><i class="s-sem"></i>Ainda sem votos apurados</div>';
+    $('#legenda').innerHTML = leg;
+  }
+
+  function rotuloEstado(uf, d, t) {
+    var nome = UFS[uf];
+    if (!d || !d.temVotos) return nome + ': sem votos apurados';
+    var l = lider(d);
+    var txt = nome + ': ' + cand(0).nome + ' ' + fmtP(d.p[0]) + ', ' + cand(1).nome + ' ' + fmtP(d.p[1]);
+    if (t === 't2' && !concluida(d)) txt += ', ' + fmtP(d.pst, 1) + ' apurado';
+    return txt + (l === -1 ? ', empate' : '');
+  }
+
+  function renderMapa() {
+    var t = S.mapaTurno, n = [0, 0], empates = 0, comVotos = 0, todosFinais = true;
+    Object.keys(MAPA.estados).forEach(function (uf) {
+      var d = dados(t, uf), nv = nivel(d);
+      var path = $('path[data-uf="' + uf + '"]'), txt = $('text[data-uf="' + uf + '"]');
+      path.setAttribute('class', 'uf f-' + nv.cls + (S.ufSel === uf ? ' sel' : ''));
+      path.setAttribute('aria-label', rotuloEstado(uf, d, t));
+      path.setAttribute('aria-pressed', S.ufSel === uf ? 'true' : 'false');
+      if (MAPA.estados[uf].ax == null) txt.setAttribute('class', 'r-' + nv.cls.replace(/-[23]$/, '-2'));
+      else txt.setAttribute('class', 'fora' + (S.ufSel === uf ? ' sel' : ''));
+      if (nv.l === 0 || nv.l === 1) n[nv.l]++;
+      if (nv.l === -1) empates++;
+      if (d && d.temVotos) comVotos++;
+      if (!concluida(d)) todosFinais = false;
+    });
+    if (S.ufSel) { var sel = $('path[data-uf="' + S.ufSel + '"]'); if (sel) sel.parentNode.appendChild(sel); }
+
+    var res;
+    if (!comVotos) {
+      res = t === 't2' ? 'Os estados ganham cor assim que os primeiros votos do 2º turno forem apurados.' : 'Sem dados do 1º turno por enquanto.';
+    } else {
+      var verbo = t === 't1' || todosFinais ? 'venceu' : 'está à frente';
+      var ini = t === 't1' ? 'No 1º turno, considerando só os dois, ' : '';
+      res = ini + cand(0).nome + ' ' + (t === 't1' ? 'ficou à frente' : verbo) + ' em ' + plural(n[0], 'estado', 'estados') +
+        ' e ' + cand(1).nome + ' em ' + fmtN(n[1]) + (empates ? '; ' + plural(empates, 'empate', 'empates') : '') +
+        '. O Distrito Federal entra na conta.';
+      if (comVotos < 27) res += ' ' + plural(27 - comVotos, 'estado ainda não tem', 'estados ainda não têm') + ' votos apurados.';
+    }
+    $('#resumo-mapa').textContent = res;
+  }
+
+  function renderPainel() {
+    var uf = S.ufSel, chave = uf || 'br';
+    var t1 = dados('t1', chave), t2 = dados('t2', chave);
+    var nome = uf ? UFS[uf] : 'Brasil';
+    var cont = S.cont ? (uf ? S.cont.porUF[uf] : S.cont.br) : null;
+    var apur = t2 && t2.temVotos
+      ? (concluida(t2) ? '2º turno: apuração concluída' : '2º turno: ' + fmtP(t2.pst) + ' das seções apuradas')
+      : '2º turno: apuração ainda não começou';
+    var h = '<div class="painel-cab"><div><h3>' + esc(nome) + '</h3><p class="painel-apur">' + apur + '</p></div>' +
+      (uf ? '<button type="button" class="botao-sec" data-acao="ver-brasil">Ver Brasil</button>' : '') + '</div>';
+    if (!uf) h += '<p class="painel-apur">Toque em um estado do mapa para ver os números dele.</p>';
+    h += comparativo(t1, t2, uf ? 'aqui' : 'no país');
+    if (cont && cont.total > 1) {
+      h += '<p class="painel-apur" style="margin-top:18px">' + blocoCidadesTexto(cont, uf) + '</p>';
+    }
+    if (uf) h += '<a class="ligar" href="#cidade" data-acao="cidades-uf" data-uf="' + uf + '">Ver as cidades de ' + esc(nome) + '</a>';
+    $('#painel').innerHTML = h;
+  }
+
+  function blocoCidadesTexto(cont, uf) {
+    var onde = uf ? 'neste estado' : 'no Brasil';
+    if (!cont.conc) return 'Nenhuma das ' + fmtN(cont.total) + ' cidades ' + onde + ' concluiu a apuração do 2º turno ainda.';
+    var ini = cont.conc === cont.total
+      ? (cont.total === 1 ? 'Apuração concluída: ' : 'Nas ' + fmtN(cont.total) + ' cidades ' + onde + ', todas com apuração concluída, ')
+      : 'Entre as ' + fmtN(cont.conc) + ' de ' + fmtN(cont.total) + ' cidades ' + onde + ' com apuração concluída, ';
+    return ini +
+      cand(0).nome + ' venceu em ' + fmtN(cont.lidera[0]) + ' e ' + cand(1).nome + ' em ' + fmtN(cont.lidera[1]) +
+      (cont.empate ? ' (' + plural(cont.empate, 'empate', 'empates') + ')' : '') + '.';
+  }
+
+  // Dica flutuante (mouse)
+  function ligarDica() {
+    var svg = $('#mapa-svg'), dica = $('#dica'), folha = $('.mapa-folha');
+    svg.addEventListener('pointermove', function (ev) {
+      if (ev.pointerType !== 'mouse') return;
+      var alvo = ev.target.closest('[data-uf]');
+      if (!alvo) { dica.classList.remove('visivel'); return; }
+      var uf = alvo.getAttribute('data-uf'), d = dados(S.mapaTurno, uf);
+      var r = folha.getBoundingClientRect();
+      var h = '<b>' + esc(UFS[uf]) + '</b>';
+      if (d && d.temVotos) {
+        h += esc(cand(0).nome) + ': ' + fmtP(d.p[0]) + '<br>' + esc(cand(1).nome) + ': ' + fmtP(d.p[1]);
+        if (S.mapaTurno === 't2' && !concluida(d)) h += '<br>' + fmtP(d.pst, 1) + ' apurado';
+      } else h += 'Sem votos apurados';
+      dica.innerHTML = h;
+      dica.style.left = Math.min(Math.max(ev.clientX - r.left, 90), r.width - 90) + 'px';
+      dica.style.top = (ev.clientY - r.top) + 'px';
+      dica.classList.add('visivel');
+    });
+    svg.addEventListener('pointerleave', function () { dica.classList.remove('visivel'); });
+  }
+
+  function selecionarUF(uf, rolar) {
+    S.ufSel = uf && UFS[uf] && uf !== 'zz' ? uf : null;
+    renderMapa();
+    renderPainel();
+    if (rolar) $('#mapa').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ======================================================================
+  // Tabela por estado
+  // ======================================================================
+  function renderTabela() {
+    var visao = S.visao;
+    var explica = {
+      t2: 'Percentual dos votos válidos de cada um no 2º turno e, embaixo, o número de votos. Toque no nome do estado para vê-lo no mapa.',
+      'var': 'Quanto mudou a fatia de cada um nos votos válidos do 1º para o 2º turno, em pontos percentuais, e, embaixo, a diferença em votos.',
+      cid: 'Em quantas cidades cada um venceu o 2º turno e, embaixo, em quantas teve mais (▲) ou menos (▼) votos do que no 1º turno. Só entram cidades com apuração concluída.'
+    }[visao];
+    $('#explica-tabela').textContent = explica;
+
+    var linhas = UFS_BR.map(function (uf) { return linhaUF(uf); });
+    var col = S.ordemTab.col, dir = S.ordemTab.dir;
+    linhas.sort(function (a, b) {
+      var x = valorOrdem(a, col), y = valorOrdem(b, col);
+      if (typeof x === 'string') return x.localeCompare(y, 'pt-BR') * dir;
+      if (x == null && y == null) return 0;
+      if (x == null) return 1;
+      if (y == null) return -1;
+      return (x - y) * dir;
+    });
+    linhas.unshift(linhaUF('br'));
+    linhas.push(linhaUF('zz'));
+
+    var c0 = cand(0), c1 = cand(1);
+    var ultima = { t2: 'Apurado', 'var': null, cid: null }[visao];
+    function th(id, html) {
+      var ativo = S.ordemTab.col === id;
+      var seta = ativo ? (S.ordemTab.dir === 1 ? '↑' : '↓') : '↕';
+      return '<th scope="col"' + (ativo ? ' aria-sort="' + (S.ordemTab.dir === 1 ? 'ascending' : 'descending') + '"' : '') +
+        '><button type="button" class="ordenar" data-ordenar="' + id + '">' + html + '<span class="seta-ord" aria-hidden="true">' + seta + '</span></button></th>';
+    }
+    var h = '<thead><tr>' + th('nome', 'Estado') +
+      th('c0', '<span class="th-cand"><span class="marca ' + c0.classe + '"></span>' + esc(c0.curto) + '</span>') +
+      th('c1', '<span class="th-cand"><span class="marca ' + c1.classe + '"></span>' + esc(c1.curto) + '</span>') +
+      (ultima ? th('ult', ultima) : '') + '</tr></thead><tbody>';
+    var algumParcial = false;
+    linhas.forEach(function (L) {
+      var nomeCel = L.uf === 'br' || L.uf === 'zz'
+        ? '<strong>' + esc(L.nome) + '</strong>'
+        : '<button type="button" class="nome-uf" data-uf-tab="' + L.uf + '">' + esc(L.nome) + '</button>';
+      if (visao === 'cid' && L.cont) nomeCel += '<span class="cel-sub">' + fmtN(L.cont.conc) + ' de ' + fmtN(L.cont.total) + ' concluídas</span>';
+      h += '<tr' + (L.uf === 'br' ? ' class="total"' : '') + '><td>' + nomeCel + '</td>';
+      if (visao === 't2') {
+        var d = L.t2, l = lider(d);
+        [0, 1].forEach(function (i) {
+          h += '<td>' + (d && d.temVotos
+            ? '<span class="cel-princ' + (l === i ? ' lider' : '') + '">' + (l === i ? '<span class="marca ' + cand(i).classe + '" title="à frente"></span>' : '') + fmtP(d.p[i]) + '</span><span class="cel-sub">' + fmtC(d.v[i]) + '</span>'
+            : '<span class="mudo">–</span>') + '</td>';
+        });
+        h += '<td>' + (d && d.temVotos ? (concluida(d) ? '100%' : fmtP(d.pst, 1)) : '<span class="mudo">0%</span>') + '</td>';
+      } else if (visao === 'var') {
+        [0, 1].forEach(function (i) {
+          var a = L.t1, b = L.t2;
+          if (a && a.temVotos && b && b.temVotos) {
+            var parc = !concluida(b);
+            if (parc) algumParcial = true;
+            h += '<td><span class="cel-princ">' + fmtDP(b.p[i] - a.p[i]) + '</span><span class="cel-sub' + (parc ? ' parcial' : '') + '">' + fmtDC(b.v[i] - a.v[i]) + '</span></td>';
+          } else h += '<td><span class="mudo">–</span></td>';
+        });
+      } else {
+        var k = L.cont;
+        [0, 1].forEach(function (i) {
+          h += '<td>' + (k && k.conc
+            ? '<span class="cel-princ">' + fmtN(k.lidera[i]) + '</span><span class="cel-sub"><span aria-hidden="true">▲</span><span class="sr">mais votos em</span> ' + fmtN(k.cresceu[i]) + ' &nbsp;<span aria-hidden="true">▼</span><span class="sr">menos votos em</span> ' + fmtN(k.caiu[i]) + '</span>'
+            : '<span class="mudo">–</span>') + '</td>';
+        });
+      }
+      h += '</tr>';
+    });
+    $('#tabela').innerHTML = h + '</tbody>';
+    $('#nota-tabela').textContent = visao === 'var'
+      ? (algumParcial ? '* Apuração em andamento: a diferença em votos ainda vai mudar. ' : '') + 'O Brasil inclui os votos do exterior.'
+      : visao === 'cid' ? 'Na linha do Brasil entram só as cidades brasileiras; o exterior aparece separado.' : 'O Brasil inclui os votos do exterior.';
+  }
+
+  function linhaUF(uf) {
+    return {
+      uf: uf, nome: uf === 'br' ? 'Brasil' : UFS[uf],
+      t1: dados('t1', uf), t2: dados('t2', uf),
+      cont: S.cont ? (uf === 'br' ? S.cont.br : S.cont.porUF[uf]) : null
+    };
+  }
+  function valorOrdem(L, col) {
+    if (col === 'nome') return L.nome;
+    var v = S.visao, i = col === 'c0' ? 0 : 1;
+    if (v === 't2') {
+      if (col === 'ult') return L.t2 && L.t2.temVotos ? L.t2.pst : null;
+      return L.t2 && L.t2.temVotos ? L.t2.p[i] : null;
+    }
+    if (v === 'var') return L.t1 && L.t2 && L.t2.temVotos ? L.t2.p[i] - L.t1.p[i] : null;
+    if (!L.cont) return null;
+    if (col === 'ult') return L.cont.total ? L.cont.conc / L.cont.total : null;
+    return L.cont.lidera[i];
+  }
+
+  // ======================================================================
+  // Cidade
+  // ======================================================================
+  function renderCidade() {
+    var uf = $('#busca-uf').value;
+    var base = S.cidades.filter(function (c) { return uf ? c.uf === uf : c.uf !== 'zz'; });
+    var maiores = base.slice().sort(function (a, b) { return b.te - a.te; }).slice(0, uf ? 6 : 8);
+    var sel = S.porChave.get(S.cidadeSel);
+    if (!sel || (uf && sel.uf !== uf && !S.cidadeEscolhida)) { sel = maiores[0] || null; S.cidadeSel = sel ? sel.chave : null; }
+    $('#chips').innerHTML = maiores.length
+      ? '<span class="chips-rot">Maiores eleitorados:</span>' + maiores.map(function (c) {
+        return '<button type="button" class="chip" data-chave="' + c.chave + '" aria-pressed="' + (sel && c.chave === sel.chave) + '">' + esc(c.nome) +
+          (uf ? '' : '<span>' + sigla(c.uf) + '</span>') + '</button>';
+      }).join('')
+      : '';
+    $('#cartao').innerHTML = sel ? cartaoCidade(sel) : '<p class="mudo">Os dados das cidades aparecem aqui assim que forem coletados.</p>';
+  }
+
+  function cartaoCidade(c) {
+    var t2 = c.t2, t1 = c.t1;
+    var apur = t2 && t2.temVotos
+      ? (concluida(t2) ? 'Apuração do 2º turno concluída' : 'Apuração do 2º turno: ' + fmtP(t2.pst) + ' das seções')
+      : 'A apuração do 2º turno ainda não começou aqui';
+    var lugar = c.uf === 'zz' ? 'Votação no exterior' : UFS[c.uf] + (c.capital ? ', capital' : '');
+    function comp(t) { return t && concluida(t) && c.te ? fmtP(t.c / c.te * 100, 1) : null; }
+    var c1 = comp(t1), c2 = comp(t2);
+    return '<div class="cartao-cab"><div><h3>' + esc(c.nome) + '</h3><p>' + esc(lugar) + '</p></div>' +
+      '<button type="button" class="botao-sec" data-acao="compartilhar">Compartilhar</button></div>' +
+      '<p class="painel-apur" style="margin-top:10px">' + apur + '</p>' +
+      comparativo(t1, t2, 'aqui') +
+      '<dl class="cartao-rodape">' +
+      '<div><dt>Eleitorado</dt><dd>' + fmtN(c.te) + '</dd></div>' +
+      '<div><dt>Comparecimento no 1º turno</dt><dd>' + (c1 || '–') + '</dd></div>' +
+      '<div><dt>Comparecimento no 2º turno</dt><dd>' + (c2 || (t2 && t2.temVotos ? '<small>ao fim da apuração</small>' : '–')) + '</dd></div>' +
+      '</dl>';
+  }
+
+  function selecionarCidade(chave, rolar) {
+    var c = S.porChave.get(chave);
+    if (!c) return;
+    S.cidadeSel = chave;
+    S.cidadeEscolhida = true;
+    guardar('apuracao2026:cidade', chave);
+    if (history.replaceState) history.replaceState(null, '', '#cidade=' + chave);
+    var selUF = $('#busca-uf');
+    if (selUF.value && selUF.value !== c.uf) selUF.value = '';
+    renderCidade();
+    if (rolar) $('#cidade').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Busca com sugestões
+  var sugestoes = [], ativa = -1;
+  function sugerir() {
+    var inp = $('#busca'), q = normalizar(inp.value), uf = $('#busca-uf').value;
+    sugestoes = [];
+    if (q.length >= 2) {
+      S.cidades.forEach(function (c) {
+        if (uf && c.uf !== uf) return;
+        var i = c.busca.indexOf(q);
+        if (i < 0) return;
+        sugestoes.push({ c: c, s: i === 0 ? 0 : (c.busca.indexOf(' ' + q) >= 0 ? 1 : 2) });
+      });
+      sugestoes.sort(function (a, b) { return a.s - b.s || b.c.te - a.c.te; });
+      sugestoes = sugestoes.slice(0, 8);
+    }
+    ativa = sugestoes.length ? 0 : -1;
+    desenharSugestoes();
+  }
+  function desenharSugestoes() {
+    var ul = $('#sugestoes'), inp = $('#busca');
+    if (!sugestoes.length) {
+      ul.hidden = true; inp.setAttribute('aria-expanded', 'false'); inp.removeAttribute('aria-activedescendant');
+      if (normalizar(inp.value).length >= 2) { ul.hidden = false; ul.innerHTML = '<li role="option" aria-disabled="true" class="mudo">Nenhuma cidade encontrada</li>'; inp.setAttribute('aria-expanded', 'true'); }
+      return;
+    }
+    ul.innerHTML = sugestoes.map(function (x, k) {
+      return '<li role="option" id="sug-' + k + '" data-chave="' + x.c.chave + '" aria-selected="' + (k === ativa) + '">' + esc(x.c.nome) +
+        '<span>' + (x.c.uf === 'zz' ? 'Exterior' : esc(UFS[x.c.uf])) + '</span></li>';
+    }).join('');
+    ul.hidden = false;
+    inp.setAttribute('aria-expanded', 'true');
+    if (ativa >= 0) inp.setAttribute('aria-activedescendant', 'sug-' + ativa);
+  }
+  function fecharSugestoes() { sugestoes = []; ativa = -1; $('#sugestoes').hidden = true; $('#busca').setAttribute('aria-expanded', 'false'); }
+
+  function compartilhar() {
+    var c = S.porChave.get(S.cidadeSel);
+    var url = location.href.split('#')[0] + (c ? '#cidade=' + c.chave : '');
+    var texto = c ? 'Resultado de ' + nomeLugar(c) + ' no 1º e no 2º turno para presidente' : document.title;
+    if (navigator.share) {
+      navigator.share({ title: document.title, text: texto, url: url }).catch(function () { /* cancelado */ });
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(function () { avisar('Link copiado'); }, function () { avisar(url); });
+    } else avisar(url);
+  }
+
+  // ======================================================================
+  // Ganhos e perdas
+  // ======================================================================
+  function calcularRanking() {
+    var rk = S.rk;
+    var noLocal = S.cidades.filter(function (c) { return rk.local === 'br' ? c.uf !== 'zz' : c.uf === rk.local; });
+    var comparaveis = noLocal.filter(function (c) { return c.t1 && c.t1.temVotos && c.t2 && c.t2.temVotos; });
+    var concluidas = comparaveis.filter(function (c) { return concluida(c.t2); });
+    var base = rk.so100 ? concluidas : comparaveis;
+    var res = [0, 1].map(function (i) {
+      var itens = [];
+      base.forEach(function (c) {
+        var d = rk.medida === 'votos' ? c.t2.v[i] - c.t1.v[i] : c.t2.p[i] - c.t1.p[i];
+        if (ok(d)) itens.push({ c: c, d: d });
+      });
+      var ganhos = itens.filter(function (x) { return x.d > 0; });
+      var perdas = itens.filter(function (x) { return x.d < 0; });
+      return {
+        cresceu: ganhos.length, caiu: perdas.length, igual: itens.length - ganhos.length - perdas.length,
+        ganhos: ganhos.sort(function (a, b) { return b.d - a.d || b.c.te - a.c.te; }).slice(0, 10),
+        perdas: perdas.sort(function (a, b) { return a.d - b.d || b.c.te - a.c.te; }).slice(0, 10)
+      };
+    });
+    return { total: noLocal.length, comparaveis: comparaveis.length, concluidas: concluidas.length, base: base.length, res: res };
+  }
+
+  function renderRanking() {
+    var r = calcularRanking(), rk = S.rk;
+    var onde = rk.local === 'br' ? 'no Brasil' : rk.local === 'zz' ? 'no exterior' : 'em ' + UFS[rk.local];
+    var txt;
+    if (!r.comparaveis) txt = 'Ainda não há votos apurados no 2º turno nas cidades ' + onde + '. Os rankings aparecem assim que a apuração começar.';
+    else if (rk.so100) {
+      txt = fmtN(r.concluidas) + ' de ' + fmtN(r.total) + ' cidades ' + onde + ' já concluíram a apuração do 2º turno e entram na comparação.';
+      if (!r.concluidas) txt += ' Desmarque a opção acima para ver resultados parciais.';
+    } else txt = 'Incluindo ' + fmtN(r.comparaveis - r.concluidas) + ' cidades ainda em apuração: a diferença em votos delas ainda vai mudar.';
+    $('#rk-contagem').textContent = txt;
+
+    var medida = rk.medida === 'votos' ? 'votos' : 'fatia dos votos válidos';
+    var h = '<caption>' + (rk.medida === 'votos' ? 'Em quantas cidades cada um teve mais ou menos votos do que no 1º turno' : 'Em quantas cidades a fatia de cada um nos votos válidos subiu ou caiu') + '</caption>' +
+      '<thead><tr><th scope="col"><span class="sr">Candidato</span></th>' +
+      '<th scope="col">' + (rk.medida === 'votos' ? 'Mais votos' : 'Subiu') + '</th><th scope="col">' + (rk.medida === 'votos' ? 'Menos votos' : 'Caiu') + '</th></tr></thead><tbody>';
+    [0, 1].forEach(function (i) {
+      var c = cand(i);
+      h += '<tr><td><span class="th-cand"><span class="marca ' + c.classe + '"></span>' + esc(c.nome) + '</span></td><td>' +
+        fmtN(r.res[i].cresceu) + '</td><td>' + fmtN(r.res[i].caiu) + '</td></tr>';
+    });
+    $('#placar-cidades').innerHTML = h + '</tbody>';
+    $('#placar-cidades').setAttribute('aria-label', 'Cidades onde cada um teve mais ou menos ' + medida);
+
+    [0, 1].forEach(function (i) {
+      var col = $('.rk-col[data-c="' + i + '"]');
+      $('.rk-nome', col).textContent = cand(i).nome;
+      $('[data-titulo="ganhos"]', col).textContent = rk.medida === 'votos' ? 'Onde mais ganhou votos' : 'Onde a fatia dele mais subiu';
+      $('[data-titulo="perdas"]', col).textContent = rk.medida === 'votos' ? 'Onde mais perdeu votos' : 'Onde a fatia dele mais caiu';
+      $('[data-lista="ganhos"]', col).innerHTML = itensRanking(r.res[i].ganhos, i, 'ganhos', r.base);
+      $('[data-lista="perdas"]', col).innerHTML = itensRanking(r.res[i].perdas, i, 'perdas', r.base);
+    });
+    $$('.rk-escolha button').forEach(function (b) {
+      var i = Number(b.getAttribute('data-rkc'));
+      b.textContent = cand(i).nome;
+      b.setAttribute('aria-pressed', String(i === rk.cand));
+    });
+    $('#rk-grade').setAttribute('data-mostrar', String(rk.cand));
+  }
+
+  function itensRanking(itens, i, tipo, base) {
+    if (!base) return '<li class="rk-vazio">Sem cidades para comparar nesta seleção ainda.</li>';
+    if (!itens.length) return '<li class="rk-vazio">' + (tipo === 'ganhos' ? 'Nenhuma cidade com aumento nesta seleção.' : 'Nenhuma cidade com queda nesta seleção.') + '</li>';
+    var max = Math.max.apply(null, itens.map(function (x) { return Math.abs(x.d); })) || 1;
+    var votos = S.rk.medida === 'votos', cls = cand(i).classe;
+    return itens.map(function (x, k) {
+      var c = x.c;
+      var de = votos
+        ? 'de ' + fmtN(c.t1.v[i]) + ' para ' + fmtN(c.t2.v[i]) + ' votos'
+        : 'de ' + fmtP(c.t1.p[i], 1) + ' para ' + fmtP(c.t2.p[i], 1);
+      if (!concluida(c.t2)) de += ' (' + fmtP(c.t2.pst, 0) + ' apurado)';
+      return '<li><button type="button" class="rk-item" data-chave="' + c.chave + '">' +
+        '<span class="rk-pos">' + (k + 1) + '</span>' +
+        '<span class="rk-cid">' + esc(c.nome) + '<span class="rk-uf">' + sigla(c.uf) + '</span></span>' +
+        '<span class="rk-delta">' + (votos ? fmtDN(x.d) : fmtDP(x.d, 2)) + '</span>' +
+        '<span class="rk-de">' + de + '</span>' +
+        '<span class="rk-barra"><i class="s-' + cls + '-' + (tipo === 'ganhos' ? 1 : 2) + '" style="width:' + (Math.abs(x.d) / max * 100).toFixed(1) + '%"></i></span>' +
+        '</button></li>';
+    }).join('');
+  }
+
+  // ======================================================================
+  // Rodapé e montagem geral
+  // ======================================================================
+  function renderRodape() {
+    var r = S.resumo, partes = [];
+    if (r && r.versao) {
+      var d = new Date(r.versao);
+      partes.push('Última coleta do robô: ' + d.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' (horário de Brasília).');
+      if (r.coleta && r.coleta.incompleto) partes.push('A última coleta não terminou; alguns números de cidades podem estar alguns minutos atrasados.');
+    }
+    $('#coleta').textContent = partes.join(' ');
+    $('#sobre-atualizacao').textContent = S.vivo.ok
+      ? 'O placar nacional e os estados são lidos direto do TSE a cada minuto. Os dados das cidades são coletados por um robô a cada 5 minutos, mais ou menos.'
+      : 'Os dados são coletados do TSE por um robô a cada 5 minutos, mais ou menos, e esta página confere se há novidade a cada minuto.';
+  }
+
+  function renderTudo() {
+    renderSelo();
+    if (!S.resumo) return;
+    S.cont = contagens();
+    renderPlacar();
+    renderMapa();
+    renderPainel();
+    renderTabela();
+    renderCidade();
+    renderRanking();
+    renderRodape();
+    S.renderizado = true;
+  }
+
+  function preencherSelects() {
+    var opcoes = UFS_BR.map(function (uf) { return '<option value="' + uf + '">' + esc(UFS[uf]) + '</option>'; }).join('') + '<option value="zz">Exterior</option>';
+    $('#busca-uf').insertAdjacentHTML('beforeend', opcoes);
+    $('#rk-local').insertAdjacentHTML('beforeend', opcoes);
+  }
+
+  function aplicarEndereco() {
+    var h = decodeURIComponent(location.hash || '');
+    var m = /^#cidade=([a-z]{2}\d{5})$/.exec(h);
+    if (m) { S.cidadeSel = m[1]; S.cidadeEscolhida = true; return 'cidade'; }
+    m = /^#uf=([a-z]{2})$/.exec(h);
+    if (m && UFS[m[1]]) { S.ufSel = m[1] === 'zz' ? null : m[1]; return 'uf'; }
+    var salva = lembrar('apuracao2026:cidade');
+    if (salva && /^[a-z]{2}\d{5}$/.test(salva)) { S.cidadeSel = salva; S.cidadeEscolhida = true; }
+    return null;
+  }
+
+  function ligarEventos() {
+    document.addEventListener('click', function (ev) {
+      var t = ev.target, el;
+      if ((el = t.closest('[data-mapa]'))) {
+        S.mapaTurno = el.getAttribute('data-mapa');
+        $$('[data-mapa]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === el)); });
+        renderMapa();
+        return;
+      }
+      if ((el = t.closest('#mapa-svg [data-uf]'))) {
+        var uf = el.getAttribute('data-uf');
+        selecionarUF(S.ufSel === uf ? null : uf, false);
+        if (window.matchMedia('(max-width: 919px)').matches && S.ufSel) $('#painel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+      if ((el = t.closest('[data-uf-tab]'))) { selecionarUF(el.getAttribute('data-uf-tab'), true); return; }
+      if ((el = t.closest('[data-visao]'))) {
+        S.visao = el.getAttribute('data-visao');
+        if (S.ordemTab.col === 'ult' && S.visao !== 't2') S.ordemTab = { col: 'nome', dir: 1 };
+        $$('[data-visao]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === el)); });
+        renderTabela();
+        return;
+      }
+      if ((el = t.closest('[data-ordenar]'))) {
+        var col = el.getAttribute('data-ordenar');
+        if (S.ordemTab.col === col) S.ordemTab.dir *= -1;
+        else S.ordemTab = { col: col, dir: col === 'nome' ? 1 : -1 };
+        renderTabela();
+        return;
+      }
+      if ((el = t.closest('[data-medida]'))) {
+        S.rk.medida = el.getAttribute('data-medida');
+        $$('[data-medida]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === el)); });
+        renderRanking();
+        return;
+      }
+      if ((el = t.closest('[data-rkc]'))) { S.rk.cand = Number(el.getAttribute('data-rkc')); renderRanking(); return; }
+      if ((el = t.closest('#sugestoes [data-chave]'))) { $('#busca').value = ''; fecharSugestoes(); selecionarCidade(el.getAttribute('data-chave'), false); return; }
+      if ((el = t.closest('.chip[data-chave]'))) { selecionarCidade(el.getAttribute('data-chave'), false); return; }
+      if ((el = t.closest('.rk-item[data-chave]'))) { selecionarCidade(el.getAttribute('data-chave'), true); return; }
+      if ((el = t.closest('[data-acao]'))) {
+        var acao = el.getAttribute('data-acao');
+        if (acao === 'ver-brasil') selecionarUF(null, false);
+        else if (acao === 'compartilhar') compartilhar();
+        else if (acao === 'cidades-uf') {
+          ev.preventDefault();
+          var u = el.getAttribute('data-uf');
+          $('#busca-uf').value = u; $('#rk-local').value = u; S.rk.local = u; S.cidadeEscolhida = false;
+          renderCidade(); renderRanking();
+          $('#cidade').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        return;
+      }
+      if (!t.closest('.campo')) fecharSugestoes();
+    });
+
+    $('#mapa-svg').addEventListener('keydown', function (ev) {
+      var el = ev.target.closest && ev.target.closest('[data-uf]');
+      if (!el || (ev.key !== 'Enter' && ev.key !== ' ')) return;
+      ev.preventDefault();
+      var uf = el.getAttribute('data-uf');
+      selecionarUF(S.ufSel === uf ? null : uf, false);
+      var novo = $('path[data-uf="' + uf + '"]');
+      if (novo) novo.focus();
+    });
+
+    var inp = $('#busca');
+    inp.addEventListener('input', sugerir);
+    inp.addEventListener('focus', function () { if (inp.value) sugerir(); });
+    inp.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowDown' && sugestoes.length) { ev.preventDefault(); ativa = (ativa + 1) % sugestoes.length; desenharSugestoes(); }
+      else if (ev.key === 'ArrowUp' && sugestoes.length) { ev.preventDefault(); ativa = (ativa - 1 + sugestoes.length) % sugestoes.length; desenharSugestoes(); }
+      else if (ev.key === 'Enter') {
+        ev.preventDefault();
+        if (ativa >= 0 && sugestoes[ativa]) { var ch = sugestoes[ativa].c.chave; inp.value = ''; fecharSugestoes(); selecionarCidade(ch, false); }
+      } else if (ev.key === 'Escape') fecharSugestoes();
+    });
+    $('#busca-uf').addEventListener('change', function () { S.cidadeEscolhida = false; renderCidade(); if (inp.value) sugerir(); });
+    $('#rk-local').addEventListener('change', function (ev) { S.rk.local = ev.target.value; renderRanking(); });
+    $('#rk-so100').addEventListener('change', function (ev) { S.rk.so100 = ev.target.checked; renderRanking(); });
+
+    // Destaca o atalho da parte visível
+    if ('IntersectionObserver' in window) {
+      var links = $$('.atalhos a');
+      var obs = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          links.forEach(function (a) { a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + en.target.id)); });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      ['mapa', 'estados', 'cidade', 'ganhos', 'sobre'].forEach(function (id) { obs.observe(document.getElementById(id)); });
+    }
+  }
+
+  // ======================================================================
+  // Ciclo de atualização
+  // ======================================================================
+  var rodando = false;
+  function ciclo() {
+    if (rodando) return Promise.resolve();
+    rodando = true;
+    return carregar().then(function (mudou) {
+      return lerDireto().then(function (vivo) {
+        if (mudou || vivo || !S.renderizado) renderTudo();
+        else renderSelo();
+        S.ultimaLeitura = Date.now();
+      });
+    }).catch(function (e) {
+      if (window.console) console.error(e);
+      renderSelo();
+    }).then(function () { rodando = false; });
+  }
+
+  function iniciar() {
+    preencherSelects();
+    montarMapa();
+    ligarDica();
+    ligarEventos();
+    var foco = aplicarEndereco();
+    ciclo().then(function () {
+      if (foco === 'cidade' && S.porChave.get(S.cidadeSel) && /^#cidade=/.test(location.hash)) {
+        $('#cidade').scrollIntoView({ block: 'start' });
+      } else if (foco === 'uf') {
+        $('#mapa').scrollIntoView({ block: 'start' });
+      }
+    });
+    setInterval(function () { if (!document.hidden) ciclo(); }, ATUALIZAR_A_CADA_SEG * 1000);
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden && Date.now() - S.ultimaLeitura > 20000) ciclo();
+    });
+  }
+
+  iniciar();
+})();
+</script>
+</body>
+</html>
