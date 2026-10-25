@@ -537,7 +537,7 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     visao: 't2', ordemTab: { col: 'nome', dir: 1 },
     cidadeSel: null, cidadeEscolhida: false,
     rk: { local: 'br', medida: 'votos', so100: true, cand: 0 },
-    vivo: { ok: null, br: null, uf: {}, ab: {}, quando: null },
+    vivo: { ok: null, br: null, uf: {}, ab: {}, quando: null, depois: 0 },
     ultimaLeitura: 0, falhaLeitura: false, renderizado: false
   };
 
@@ -627,6 +627,7 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     });
     return {
       and: r.and || '', pst: ok(r.pst) ? r.pst : 0, te: r.te, c: r.c, a: r.a, pc: r.pc, pa: r.pa,
+      secoes: r.secoes, secoesTot: r.secoesTot,
       vv: vv, vb: r.vb, vn: r.vn, dt: r.dt || '', md: r.md || '', v: v, p: p,
       // 'e' = 's' também marca quem foi ao 2º turno; só é eleito com a situação "Eleito(a)"
       eleito: S.ordem.map(function (n) { return !!(c[n] && c[n].e === 's' && /^eleit/i.test(c[n].st || '')); }),
@@ -742,7 +743,8 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     var s = j.s || {}, e = j.e || {}, v = j.v || {};
     return {
       and: j.and || '', dt: carimbo(j.dt, j.ht), md: j.md || '',
-      pst: decimal(s.pstn != null ? s.pstn : s.pst), te: inteiro(e.te), c: inteiro(e.c), a: inteiro(e.a),
+      pst: decimal(s.pstn != null ? s.pstn : s.pst), secoes: inteiro(s.ts), secoesTot: inteiro(s.st),
+      te: inteiro(e.te), c: inteiro(e.c), a: inteiro(e.a),
       pc: decimal(e.pcn != null ? e.pcn : e.pc), pa: decimal(e.pan != null ? e.pan : e.pa),
       vv: inteiro(v.vv), vb: inteiro(v.vb), vn: inteiro(v.tvn != null ? v.tvn : v.vn), cand: cand
     };
@@ -751,7 +753,8 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
   function lerDireto() {
     var tse = S.resumo && S.resumo.tse;
     var t2 = S.resumo && S.resumo.turnos && S.resumo.turnos.t2;
-    if (!LER_TSE_DIRETO || S.vivo.ok === false || !tse || !t2 || t2.completo) return Promise.resolve(false);
+    // Se o TSE recusou, tenta de novo só daqui a 5 minutos; depois do resultado final, não precisa mais
+    if (!LER_TSE_DIRETO || (S.vivo.ok === false && Date.now() < S.vivo.depois) || !tse || !t2 || t2.completo || (t2.br && t2.br.and === 'f')) return Promise.resolve(false);
     var ele = String(tse.eleicoes.t2);
     var e6 = 'e' + ('000000' + ele).slice(-6), c4 = 'c' + ('0000' + (tse.cargo || 1)).slice(-4);
     var raiz = tse.base + '/' + tse.ambiente + '/' + tse.ciclo + '/' + ele + '/dados';
@@ -780,7 +783,8 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     }, function (e) {
       if (S.vivo.ok !== true) {
         S.vivo.ok = false;
-        if (window.console) console.info('Leitura direta do TSE indisponível neste navegador; usando os dados do robô.', e && e.message);
+        S.vivo.depois = Date.now() + 5 * 60000;
+        if (window.console) console.info('Leitura direta do TSE indisponível agora; usando os dados do robô.', e && e.message);
       }
       return false;
     });
@@ -891,7 +895,9 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
       : '';
     var pst = t2 ? t2.pst : 0;
     $('#medidor').style.width = Math.min(100, pst) + '%';
-    $('#apuracao-pct').innerHTML = '<b>' + fmtP(pst) + '</b> das seções apuradas';
+    // Com o número de seções junto, até as primeiras urnas (do exterior, por exemplo) aparecem
+    var contaSecoes = t2 && ok(t2.secoes) && t2.secoes > 0 ? ' (' + fmtN(t2.secoesTot || 0) + ' de ' + fmtN(t2.secoes) + ')' : '';
+    $('#apuracao-pct').innerHTML = '<b>' + fmtP(pst) + '</b> das seções apuradas' + contaSecoes;
     var quando = t2 && t2.dt ? 'Dados do TSE de ' + dataDe(t2.dt) + ' às ' + horaDe(t2.dt) : '';
     $('#apuracao-hora').textContent = quando;
 
@@ -1337,7 +1343,7 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     var r = S.resumo, partes = [];
     if (r && r.versao) {
       var d = new Date(r.versao);
-      partes.push('Última atualização dos dados do robô: ' + d.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' (horário de Brasília).');
+      partes.push('O robô confere o TSE a cada poucos minutos e só grava quando algo muda. Última mudança nos dados dele: ' + d.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' (horário de Brasília).');
       if (r.coleta && r.coleta.incompleto) partes.push('A última coleta não terminou; alguns números de cidades podem estar alguns minutos atrasados.');
     }
     $('#coleta').textContent = partes.join(' ');
