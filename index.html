@@ -657,10 +657,21 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
   // ======================================================================
   // Leitura dos dados
   // ======================================================================
-  function buscarJSON(url) {
-    return fetch(url, { cache: 'no-cache' }).then(function (r) {
+  // Toda leitura tem prazo: uma resposta que não chega não pode travar a página
+  function buscarJSON(url, prazoSeg) {
+    var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+    var relogio = ctrl ? setTimeout(function () { ctrl.abort(); }, (prazoSeg || 20) * 1000) : null;
+    var opcoes = { cache: 'no-cache' };
+    if (ctrl) opcoes.signal = ctrl.signal;
+    return fetch(url, opcoes).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status + ' em ' + url);
       return r.json();
+    }).then(function (j) {
+      clearTimeout(relogio);
+      return j;
+    }, function (e) {
+      clearTimeout(relogio);
+      throw e;
     });
   }
 
@@ -739,8 +750,8 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     var e6 = 'e' + ('000000' + ele).slice(-6), c4 = 'c' + ('0000' + (tse.cargo || 1)).slice(-4);
     var raiz = tse.base + '/' + tse.ambiente + '/' + tse.ciclo + '/' + ele + '/dados';
     return Promise.all([
-      buscarJSON(raiz + '/br/br-' + e6 + '-ab.json'),
-      buscarJSON(raiz + '/br/br-' + c4 + '-' + e6 + '-u.json')
+      buscarJSON(raiz + '/br/br-' + e6 + '-ab.json', 10),
+      buscarJSON(raiz + '/br/br-' + c4 + '-' + e6 + '-u.json', 10)
     ]).then(function (res) {
       S.vivo.ok = true;
       S.vivo.br = lerTSE(res[1]);
@@ -755,7 +766,7 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
       return lotes.reduce(function (p, lote) {
         return p.then(function () {
           return Promise.all(lote.map(function (x) {
-            return buscarJSON(raiz + '/' + x[0] + '/' + x[0] + '-' + c4 + '-' + e6 + '-u.json')
+            return buscarJSON(raiz + '/' + x[0] + '/' + x[0] + '-' + c4 + '-' + e6 + '-u.json', 10)
               .then(function (j) { S.vivo.uf[x[0]] = lerTSE(j); S.vivo.ab[x[0]] = x[1]; }, function () { /* tenta no próximo minuto */ });
           }));
         });
@@ -1458,15 +1469,16 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
   // Ciclo de atualização
   // ======================================================================
   var rodando = false;
-  function ciclo() {
+  function ciclo(aoMostrar) {
     if (rodando) return Promise.resolve();
     rodando = true;
     return carregar().then(function (mudou) {
-      return lerDireto().then(function (vivo) {
-        if (mudou || vivo || !S.renderizado) renderTudo();
-        else renderSelo();
-        S.ultimaLeitura = Date.now();
-      });
+      // Mostra logo os dados do robô; a leitura direta do TSE vem depois e só redesenha se trouxer algo
+      if (mudou || !S.renderizado) renderTudo();
+      else renderSelo();
+      S.ultimaLeitura = Date.now();
+      if (aoMostrar) aoMostrar();
+      return lerDireto().then(function (vivo) { if (vivo) renderTudo(); });
     }).catch(function (e) {
       if (window.console) console.error(e);
       renderSelo();
@@ -1479,7 +1491,7 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     ligarDica();
     ligarEventos();
     var foco = aplicarEndereco();
-    ciclo().then(function () {
+    ciclo(function () {
       if (foco === 'cidade' && S.porChave.get(S.cidadeSel) && /^#cidade=/.test(location.hash)) {
         $('#cidade').scrollIntoView({ block: 'start' });
       } else if (foco === 'uf') {
