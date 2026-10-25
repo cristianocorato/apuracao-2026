@@ -539,6 +539,7 @@ async function main() {
   const bloqueio = await lerJSON(arquivo('bloqueio.json'));
   if (bloqueio?.ate && Date.now() < Date.parse(bloqueio.ate)) {
     aviso(`O TSE bloqueou este endereço há pouco. Nova tentativa depois de ${bloqueio.ate}.`);
+    await avisarActions(await andamentoSalvo(), Date.parse(bloqueio.ate) - Date.now());
     return;
   }
 
@@ -587,22 +588,31 @@ async function main() {
   const kb = (stats.bytes / 1024).toFixed(0);
   log(`Fim: ${stats.requisicoes} requisições (${stats.nao_encontrados} não encontradas, ${stats.erros} erros), ${kb} KB, ${((Date.now() - inicio) / 1000).toFixed(1)} s.`);
 
-  // No GitHub Actions: durante a apuração, a próxima rodada começa logo depois desta
-  // (o agendamento do GitHub atrasa nos horários de pico). Janela em ENCADEAR_DE/ENCADEAR_ATE.
-  if (env.GITHUB_OUTPUT) {
-    const agora = Date.now();
-    const and2 = estado.t2.br?.and || '';
-    const seguir = !interrompido && and2 !== 'f'
-      && agora >= Date.parse(env.ENCADEAR_DE || '') && agora <= Date.parse(env.ENCADEAR_ATE || '');
-    const espera = and2 === 'p' ? 0 : 120; // antes de a apuração começar, uma rodada a cada ~3 minutos basta
-    await fs.appendFile(env.GITHUB_OUTPUT, `seguir=${seguir}\nespera=${espera}\n`);
-    log(seguir
-      ? `A próxima rodada vem em seguida${espera ? ` (daqui a ${espera} s)` : ''}.`
-      : `Sem rodada extra${and2 === 'f' ? ': o TSE já publicou a totalização final do 2º turno' : ''}.`);
-  }
+  await avisarActions(estado.t2.br?.and || '', interrompido ? CFG.esperaBloqueioMin * 60_000 : null);
 }
 
-main().catch(e => {
+// Andamento do 2º turno no Brasil segundo os dados já salvos ('n', 'p' ou 'f')
+async function andamentoSalvo() {
+  return (await lerJSON(arquivo('resumo.json')))?.turnos?.t2?.br?.and || '';
+}
+
+// No GitHub Actions: durante a apuração, a próxima rodada começa logo depois desta, porque o
+// agendamento do GitHub atrasa nos horários de pico. Período em ENCADEAR_DE e ENCADEAR_ATE.
+async function avisarActions(and2, esperaMs = null) {
+  if (!env.GITHUB_OUTPUT) return;
+  const agora = Date.now();
+  const seguir = and2 !== 'f' && agora >= Date.parse(env.ENCADEAR_DE || '') && agora <= Date.parse(env.ENCADEAR_ATE || '');
+  // Antes de a apuração começar, uma rodada a cada ~3 minutos basta; depois de um bloqueio, espera ele passar
+  const espera = esperaMs != null ? Math.min(900, Math.ceil(esperaMs / 1000) + 15) : and2 === 'p' ? 0 : 120;
+  await fs.appendFile(env.GITHUB_OUTPUT, `seguir=${seguir}\nespera=${espera}\n`);
+  log(seguir
+    ? `A próxima rodada vem em seguida${espera ? ` (daqui a ${espera} s)` : ''}.`
+    : `Sem rodada extra${and2 === 'f' ? ': o TSE já publicou a totalização final do 2º turno' : ''}.`);
+}
+
+main().catch(async e => {
   console.error(e);
   process.exitCode = 1;
+  // Mesmo com erro, a sequência de rodadas continua (a próxima tenta de novo daqui a 1 minuto)
+  try { await avisarActions(await andamentoSalvo(), 45_000); } catch { /* sem saída para o Actions */ }
 });
