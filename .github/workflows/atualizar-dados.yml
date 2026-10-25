@@ -48,7 +48,7 @@ jobs:
         continue-on-error: true
         env:
           # Período em que uma rodada emenda na outra (UTC; 17h de Brasília = 20h UTC)
-          ENCADEAR_DE: '2026-10-25T17:20:00Z'
+          ENCADEAR_DE: '2026-10-25T17:00:00Z'
           ENCADEAR_ATE: '2026-10-26T15:00:00Z'
         run: node scripts/coletar.mjs
 
@@ -94,7 +94,7 @@ jobs:
     needs: coletar
     if: needs.coletar.outputs.seguir == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 20
     permissions:
       actions: write
     steps:
