@@ -1,5 +1,5 @@
 {
- "versao": "2026-10-29T11:20:03Z",
+ "versao": "2026-10-29T11:24:53Z",
  "fonte": "TSE, boletins de urna do 2º turno (bweb_2t) e eleitorado por local de votação 2026",
  "nota": "Horário de encerramento convertido para Brasília (o fuso de cada cidade sai do horário de abertura das urnas); no exterior, horário local. \"depois_17h00\" conta urnas encerradas a partir de 17h00min01s; as outras, a partir do minuto indicado.",
  "candidatos": [
@@ -2400,6 +2400,7 @@
   {
    "uf": "mg",
    "municipio": "41882",
+   "nome_municipio": "CHAPADA GAÚCHA",
    "zona": 320,
    "secao": 185,
    "encerramento": "23:04:42",
@@ -2415,6 +2416,7 @@
   {
    "uf": "rj",
    "municipio": "58319",
+   "nome_municipio": "DUAS BARRAS",
    "zona": 42,
    "secao": 108,
    "encerramento": "20:45:31",
@@ -2430,6 +2432,7 @@
   {
    "uf": "rj",
    "municipio": "60011",
+   "nome_municipio": "RIO DE JANEIRO",
    "zona": 179,
    "secao": 50,
    "encerramento": "19:57:46",
@@ -2445,6 +2448,7 @@
   {
    "uf": "ba",
    "municipio": "38652",
+   "nome_municipio": "SANTANA",
    "zona": 99,
    "secao": 190,
    "encerramento": "19:51:49",
@@ -2460,6 +2464,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 397,
    "encerramento": "19:47:21",
@@ -2475,6 +2480,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 143,
    "encerramento": "19:45:33",
@@ -2490,6 +2496,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 75,
    "encerramento": "19:44:21",
@@ -2505,6 +2512,7 @@
   {
    "uf": "es",
    "municipio": "57932",
+   "nome_municipio": "SANTA MARIA DE JETIBÁ",
    "zona": 9,
    "secao": 112,
    "encerramento": "19:43:21",
@@ -2520,6 +2528,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 265,
    "encerramento": "19:43:14",
@@ -2535,6 +2544,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 244,
    "encerramento": "19:41:24",
@@ -2550,6 +2560,7 @@
   {
    "uf": "rj",
    "municipio": "60011",
+   "nome_municipio": "RIO DE JANEIRO",
    "zona": 122,
    "secao": 298,
    "encerramento": "19:39:57",
@@ -2565,6 +2576,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 77,
    "encerramento": "19:37:19",
@@ -2580,6 +2592,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 395,
    "encerramento": "19:36:52",
@@ -2595,6 +2608,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 219,
    "encerramento": "19:36:14",
@@ -2610,6 +2624,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 76,
    "encerramento": "19:34:27",
@@ -2625,6 +2640,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 158,
    "encerramento": "19:34:16",
@@ -2640,6 +2656,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 398,
    "encerramento": "19:32:49",
@@ -2655,6 +2672,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 396,
    "encerramento": "19:32:39",
@@ -2670,6 +2688,7 @@
   {
    "uf": "rj",
    "municipio": "59277",
+   "nome_municipio": "ARRAIAL DO CABO",
    "zona": 146,
    "secao": 174,
    "encerramento": "19:26:17",
@@ -2685,6 +2704,7 @@
   {
    "uf": "ba",
    "municipio": "38490",
+   "nome_municipio": "SALVADOR",
    "zona": 6,
    "secao": 320,
    "encerramento": "19:21:19",
@@ -2700,6 +2720,7 @@
   {
    "uf": "pe",
    "municipio": "30015",
+   "nome_municipio": "FERNANDO DE NORONHA",
    "zona": 4,
    "secao": 372,
    "encerramento": "19:20:56",
@@ -2715,6 +2736,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 159,
    "encerramento": "19:20:13",
@@ -2730,6 +2752,7 @@
   {
    "uf": "pe",
    "municipio": "24570",
+   "nome_municipio": "JABOATÃO DOS GUARARAPES",
    "zona": 101,
    "secao": 699,
    "encerramento": "19:20:09",
@@ -2745,6 +2768,7 @@
   {
    "uf": "rj",
    "municipio": "59250",
+   "nome_municipio": "VOLTA REDONDA",
    "zona": 90,
    "secao": 215,
    "encerramento": "19:18:57",
@@ -2760,6 +2784,7 @@
   {
    "uf": "ba",
    "municipio": "38490",
+   "nome_municipio": "SALVADOR",
    "zona": 15,
    "secao": 414,
    "encerramento": "19:18:46",
