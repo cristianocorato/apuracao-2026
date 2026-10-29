@@ -321,6 +321,77 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
 .rk-barra i { display: block; height: 100%; border-radius: 0 2px 2px 0; }
 .rk-vazio { padding: 14px 4px; color: var(--tinta-2); border-bottom: 1px solid var(--linha); font-size: .95rem; }
 
+/* ---------- Urna por urna ---------- */
+.cartao .ligar { display: inline-block; margin-top: 16px; font-weight: 620; }
+.tarde { padding: 18px 18px 14px; margin-bottom: 22px; }
+.tarde h3 { font-size: 1.3rem; font-weight: 780; font-stretch: 88%; }
+.tarde-txt { color: var(--tinta-2); max-width: 74ch; margin-top: 8px; }
+.tarde-txt b { color: var(--tinta); }
+.tarde .tabela-rolagem { margin-top: 14px; border-top: 1px solid var(--linha); }
+.tarde td:first-child { white-space: nowrap; font-weight: 600; }
+.tarde tr.sel td { background: var(--azul-fundo); }
+.tarde .nota-tabela { margin: 10px 0 0; }
+@media (max-width: 560px) {
+  .tarde { padding: 16px 12px 12px; }
+  .tarde .so-largo { display: none; }
+}
+.urnas-filtros { display: grid; gap: 12px; margin-bottom: 12px; }
+@media (min-width: 760px) { .urnas-filtros { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.3fr); } }
+.urnas-filtros select:disabled, .urnas-filtros input:disabled { opacity: .6; cursor: not-allowed; }
+.urnas-opcoes { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin-bottom: 14px; }
+.campo-linha { display: flex; align-items: center; gap: 9px; }
+.campo-linha label { margin: 0; white-space: nowrap; }
+.campo-linha select { width: auto; min-height: 40px; padding: 7px 12px; }
+.urnas-grade { display: grid; gap: 16px; }
+@media (min-width: 920px) {
+  .urnas-grade { grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); align-items: start; }
+  #urnas-painel { max-height: 780px; overflow-y: auto; overscroll-behavior: contain; }
+}
+.urnas-mapa-folha { margin: 0; position: relative; }
+#urnas-painel, .urnas-mapa { scroll-margin-top: 66px; }
+.urnas-mapa { position: relative; z-index: 0; height: min(72vh, 600px); min-height: 380px; background: var(--trilho); border-radius: var(--raio) var(--raio) 0 0; }
+.urnas-mapa.leaflet-container { font: inherit; font-size: .78rem; background: var(--trilho); }
+.urnas-mapa.leaflet-container .leaflet-control-attribution { background: var(--vidro); color: var(--tinta-2); }
+.urnas-mapa.leaflet-container .leaflet-control-attribution a { color: var(--tinta-2); }
+.urnas-mapa .leaflet-bar a { background: var(--folha); color: var(--tinta); border-bottom-color: var(--linha); }
+.urnas-mapa .leaflet-bar a.leaflet-disabled { background: var(--trilho); color: var(--tinta-3); }
+.urnas-canvas { position: absolute; left: 0; top: 0; pointer-events: none; }
+.urnas-mapa-folha .dica { z-index: 6; }
+.urnas-aviso { position: absolute; z-index: 7; left: 50%; top: 42%; transform: translate(-50%, -50%); width: max-content; max-width: 86%; padding: 10px 16px; border-radius: 12px; background: var(--folha); color: var(--tinta); border: 1px solid var(--linha); box-shadow: 0 8px 24px rgba(14, 19, 27, .18); font-size: .93rem; font-weight: 620; text-align: center; }
+#urnas-legenda { margin: 0; padding: 12px 12px 14px; }
+.legenda .leg-sem i.leg-anel { width: 14px; height: 14px; border-radius: 50%; background: transparent; border: 2.5px solid var(--tinta); margin: 0 10px 0 10px; }
+.legenda .leg-sem i.leg-ponto { width: 12px; height: 12px; border-radius: 50%; background: var(--tinta-3); margin: 0 11px; }
+.legenda .leg-sem i.leg-tam { width: 34px; height: 14px; border-radius: 0; background: radial-gradient(circle at 7px 7px, var(--tinta-3) 3px, transparent 3.6px), radial-gradient(circle at 25px 7px, var(--tinta-3) 6.5px, transparent 7.1px); }
+.urnas-onde { font-size: .88rem; color: var(--tinta-2); font-weight: 620; margin-bottom: 4px; }
+#urnas-painel .painel-cab h3 { font-size: 1.32rem; line-height: 1.15; }
+.urnas-endereco { margin-top: 10px; color: var(--tinta-2); font-size: .95rem; }
+.urnas-nota { margin-top: 10px; padding: 8px 11px; border-radius: 9px; background: var(--trilho); color: var(--tinta-2); font-size: .88rem; }
+#urnas-painel .ligar { margin-top: 10px; }
+.urnas-numeros { margin-top: 14px; }
+.urnas-votos { margin-top: 16px; }
+.urnas-votos-tit { font-size: .86rem; font-weight: 650; color: var(--tinta-2); margin-bottom: 6px; }
+.urnas-votos .comp-linha + .comp-linha { margin-top: 8px; }
+.urnas-bn { margin-top: 7px; font-size: .85rem; color: var(--tinta-3); }
+.urnas-sub { font-size: 1rem; font-weight: 700; margin: 22px 0 8px; }
+.urnas-ajuda { margin-top: 12px; font-size: .9rem; color: var(--tinta-2); }
+.urnas-lista, .urnas-top { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linha); }
+.urna { display: grid; gap: 3px; padding: 10px 2px; border-bottom: 1px solid var(--linha); font-size: .92rem; }
+.urna-cab { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 8px; }
+.urna-cab > span { color: var(--tinta-3); font-size: .85rem; }
+.urna-cab > .urna-tag { color: var(--fundo); background: var(--tinta); border-radius: 999px; padding: 1px 9px; font-size: .74rem; font-weight: 700; }
+.urna-votos { display: flex; flex-wrap: wrap; align-items: center; gap: 3px 14px; font-variant-numeric: tabular-nums; }
+.urna-votos > span { display: inline-flex; align-items: center; gap: 6px; }
+.urna-votos .marca { width: 10px; height: 10px; }
+.urna-votos b { font-weight: 700; }
+.urna-hora { font-variant-numeric: tabular-nums; }
+.urna-tarde .urna-hora b { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.urna-extra { font-size: .84rem; color: var(--tinta-3); }
+.urnas-item { appearance: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1px 10px; width: 100%; padding: 9px 4px; border: 0; border-bottom: 1px solid var(--linha); background: none; color: var(--tinta); text-align: left; cursor: pointer; font-size: .93rem; }
+.urnas-item:hover { background: var(--trilho); }
+.urnas-item b { font-weight: 640; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.urnas-item .val { font-weight: 720; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.urnas-item small { grid-column: 1 / -1; color: var(--tinta-2); font-size: .83rem; }
+
 /* ---------- Rodapé ---------- */
 .rodape { padding-top: 56px; padding-bottom: 72px; color: var(--tinta-2); }
 .rodape h2 { color: var(--tinta); font-size: 1.25rem; margin-bottom: 12px; }
@@ -385,6 +456,7 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
       <a href="#mapa">Mapa</a>
       <a href="#estados">Estados</a>
       <a href="#cidade">Sua cidade</a>
+      <a href="#urnas">Urnas</a>
       <a href="#ganhos">Ganhos e perdas</a>
       <a href="#sobre">Sobre os dados</a>
     </div>
@@ -442,6 +514,52 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     <article class="cartao folha" id="cartao" aria-live="polite"></article>
   </section>
 
+  <section class="secao envelope" id="urnas" aria-labelledby="titulo-urnas">
+    <h2 id="titulo-urnas">Urna por urna, em cada local de votação</h2>
+    <p class="explica">O resultado de cada urna do 2º turno, pelos boletins de urna que o TSE publica depois da eleição. Escolha um estado e toque num ponto do mapa para ver o local de votação, as urnas que funcionaram nele, os votos de cada uma e a que horas cada urna foi encerrada.</p>
+    <div class="tarde folha" id="urnas-tarde" aria-live="polite"><p class="mudo">Carregando os números por urna…</p></div>
+    <div class="urnas-filtros">
+      <div class="campo">
+        <label for="urnas-uf">Estado</label>
+        <select id="urnas-uf"><option value="">Brasil: urnas encerradas tarde</option></select>
+      </div>
+      <div class="campo">
+        <label for="urnas-cidade">Cidade</label>
+        <select id="urnas-cidade" disabled><option value="">Todas as cidades</option></select>
+      </div>
+      <div class="campo urnas-busca-campo">
+        <label for="urnas-busca">Local de votação</label>
+        <input id="urnas-busca" type="search" placeholder="Escolha um estado primeiro" autocomplete="off" spellcheck="false" disabled
+          role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="urnas-sugestoes">
+        <ul class="sugestoes" id="urnas-sugestoes" role="listbox" aria-label="Locais de votação encontrados" hidden></ul>
+      </div>
+    </div>
+    <div class="urnas-opcoes">
+      <div class="alternar" id="urnas-modo" role="group" aria-label="Locais mostrados no mapa" hidden>
+        <button type="button" data-umodo="todos" aria-pressed="true">Todos os locais</button>
+        <button type="button" data-umodo="tarde" aria-pressed="false">Só com urna tarde</button>
+      </div>
+      <div class="campo campo-linha">
+        <label for="urnas-limite">Encerrada tarde: a partir de</label>
+        <select id="urnas-limite">
+          <option value="600">17h10</option>
+          <option value="1800" selected>17h30</option>
+          <option value="3600">18h</option>
+          <option value="7200">19h</option>
+        </select>
+      </div>
+    </div>
+    <div class="urnas-grade">
+      <figure class="urnas-mapa-folha folha">
+        <div class="urnas-mapa" id="urnas-mapa" role="region" aria-label="Mapa dos locais de votação"></div>
+        <p class="urnas-aviso" id="urnas-aviso" role="status" hidden></p>
+        <div class="dica" id="urnas-dica" aria-hidden="true"></div>
+        <figcaption class="legenda" id="urnas-legenda"></figcaption>
+      </figure>
+      <div class="painel folha" id="urnas-painel" aria-live="polite"></div>
+    </div>
+  </section>
+
   <section class="secao envelope" id="ganhos" aria-labelledby="titulo-ganhos">
     <h2 id="titulo-ganhos">Onde cada um mais ganhou e mais perdeu votos</h2>
     <p class="explica">Comparação, cidade por cidade, entre o 2º e o 1º turno. Em votos: quantos votos a mais ou a menos o candidato teve. Em pontos percentuais: quanto mudou a fatia dele nos votos válidos.</p>
@@ -489,6 +607,7 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     <li>Ordem dos candidatos pelo número na urna. Cores: vermelho para Lula, verde para Flávio Bolsonaro.</li>
     <li>O número de pessoas com a página aberta é aproximado: cada página aberta avisa um contador gratuito (<a href="https://abacus.jasoncameron.dev" rel="noopener">Abacus</a>) uma vez por minuto. A página não envia nada além desse aviso.</li>
     <li>Mapa: malha estadual do IBGE (projeto click_that_hood, licença MIT). Fonte tipográfica: Archivo (licença SIL OFL).</li>
+    <li>Urna por urna: boletins de urna do 2º turno e cadastro dos locais de votação (nome, endereço e coordenadas), do <a href="https://dadosabertos.tse.jus.br" rel="noopener">Portal de Dados Abertos do TSE</a>. A urna registra o horário local; aqui tudo está no horário de Brasília (no exterior, no horário local), com o fuso de cada cidade descoberto pelo horário de abertura das urnas. Alguns locais não têm coordenadas no cadastro do TSE ou têm coordenadas imprecisas. Mapa-base: © OpenStreetMap e CARTO, com a biblioteca Leaflet.</li>
     <li>Site independente, sem ligação com o TSE, partidos ou campanhas.</li>
   </ul>
   <p class="coleta" id="coleta"></p>
@@ -1188,7 +1307,8 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
       '<div><dt>Eleitorado</dt><dd>' + fmtN(c.te) + '</dd></div>' +
       '<div><dt>Comparecimento no 1º turno</dt><dd>' + (c1 || '–') + '</dd></div>' +
       '<div><dt>Comparecimento no 2º turno</dt><dd>' + (c2 || (t2 && t2.temVotos ? '<small>ao fim da apuração</small>' : '–')) + '</dd></div>' +
-      '</dl>';
+      '</dl>' +
+      '<a class="ligar" href="#urnas=' + c.uf + '/' + esc(c.cd) + '" data-acao="urnas-cidade" data-uf="' + c.uf + '" data-cd="' + esc(c.cd) + '">Ver os locais de votação e as urnas</a>';
   }
 
   function selecionarCidade(chave, rolar) {
@@ -1378,9 +1498,15 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     if (m) { S.cidadeSel = m[1]; S.cidadeEscolhida = true; return 'cidade'; }
     m = /^#uf=([a-z]{2})$/.exec(h);
     if (m && UFS[m[1]]) { S.ufSel = m[1] === 'zz' ? null : m[1]; return 'uf'; }
+    var foco = null;
+    m = /^#urnas(?:=([a-z]{2})(?:\/(\d{5}|z\d+s\d+))?)?$/.exec(h);
+    if (m) {
+      foco = 'urnas';
+      if (m[1] && UFS[m[1]]) U.alvo = { uf: m[1], sub: m[2] || '' };
+    }
     var salva = lembrar('apuracao2026:cidade');
     if (salva && /^[a-z]{2}\d{5}$/.test(salva)) { S.cidadeSel = salva; S.cidadeEscolhida = true; }
-    return null;
+    return foco;
   }
 
   function ligarEventos() {
@@ -1433,6 +1559,9 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
           $('#busca-uf').value = u; $('#rk-local').value = u; S.rk.local = u; S.cidadeEscolhida = false;
           renderCidade(); renderRanking();
           $('#cidade').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (acao === 'urnas-cidade') {
+          ev.preventDefault();
+          abrirUrnasCidade(el.getAttribute('data-uf'), el.getAttribute('data-cd'));
         }
         return;
       }
@@ -1473,8 +1602,787 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
           links.forEach(function (a) { a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + en.target.id)); });
         });
       }, { rootMargin: '-45% 0px -50% 0px' });
-      ['mapa', 'estados', 'cidade', 'ganhos', 'sobre'].forEach(function (id) { obs.observe(document.getElementById(id)); });
+      ['mapa', 'estados', 'cidade', 'urnas', 'ganhos', 'sobre'].forEach(function (id) { obs.observe(document.getElementById(id)); });
     }
+  }
+
+  // ======================================================================
+  // Urna por urna: mapa dos locais de votação (boletins de urna do TSE)
+  // Os dados são preparados por scripts/urnas.py em dados/urnas/. O mapa
+  // (Leaflet) só é carregado quando a parte das urnas chega perto da tela.
+  // ======================================================================
+  var URNAS = DADOS + 'urnas/';
+  var LEAFLET = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/';
+  var BASE_MAPA = {
+    claro: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+    escuro: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    creditos: '&copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" rel="noopener">CARTO</a>'
+  };
+  var BRASIL = [[-33.8, -74], [5.3, -34.7]];
+  var DEZESSETE = 17 * 3600;     // encerramento oficial: 17h de Brasília (no exterior, 17h locais)
+  var PRORROGACAO = 115 * 60;    // a partir de 18h55: urnas que ficaram abertas até as 19h
+  var LINHAS_TARDE = [[300, '17h05'], [600, '17h10'], [900, '17h15'], [1800, '17h30'], [3600, '18h'], [7200, '19h']];
+  var U = {
+    pronto: null, leaflet: null, resumo: null, tardias: null,
+    uf: '', cidade: '', local: null, modo: 'todos', limite: 1800,
+    dados: null, pedido: null, mapa: null, camada: null, base: null, pontos: [], alvo: null,
+    sug: [], ativa: -1
+  };
+
+  function dois(n) { return ('0' + n).slice(-2); }
+  function hora(seg, comSegundos) {
+    if (!ok(seg)) return '–';
+    seg = Math.round(seg);
+    var h = Math.floor(seg / 3600), m = Math.floor(seg % 3600 / 60);
+    return comSegundos ? dois(h) + ':' + dois(m) + ':' + dois(seg % 60) : h + 'h' + dois(m);
+  }
+  function chaveLimite(lim) { return 'depois_' + hora(DEZESSETE + lim); }
+  function rotuloLimite(lim) { return hora(DEZESSETE + lim).replace(/h00$/, 'h'); }
+  function estreito() { return window.matchMedia('(max-width: 919px)').matches; }
+  function votosOrdem(g) { return S.ordem.map(function (n) { return Number(g['votos_' + n]) || 0; }); }
+
+  // Nomes de locais e endereços: sem caixa alta, mas mantendo siglas (EMEF, CIEP, E.E., BR...)
+  var SIGLAS = {};
+  ('EE EM EF EEF EEM EEEF EEEM EEEFM EEFM EMEF EMEI EMEIF EMEB EMEBS EMEFM EMF EMI EEB EBM CE CEE CEF CEM CED CEI CEU CIEP ' +
+    'CAIC CMEI CMEF CEMEI CEPI CETI CEJA CEEJA CRAS CREAS UBS USF APAE SESI SENAI SESC SENAC SEST SENAT ETEC FATEC CEFET ' +
+    'IFSP IFRJ IFMG IFBA IFCE IFPE IFPB IFRN IFPI IFMA IFPA IFAM IFGO IFMT IFMS IFPR IFSC IFRS IFES IFAL IFS IFTO IFRO ' +
+    'IFAC IFAP IFRR IFB IFF IF UFRJ UFMG UFBA UFPE UFC UFPB UFRN UFPI UFMA UFPA UFAM UFG UFMT UFMS UFPR UFSC UFRGS UFES UFAL ' +
+    'UFS UFT UNIR UFAC UNIFAP UFRR UNB USP UNESP UNICAMP UERJ UNEB UEFS UESC UFF UFRRJ UFU UFV UFJF UFOP UEL UEM UEPG PUC ' +
+    'ULBRA IECLB CNEC COHAB CDHU CTG ACM AABB LBV ETE EJA SN BR AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN ' +
+    'RS RO RR SC SP SE TO').split(' ').forEach(function (s) { SIGLAS[s] = 1; });
+  var MIN_LOCAL = {};
+  'de da do das dos e a o as os em na no nas nos à ao aos com para'.split(' ').forEach(function (k) { MIN_LOCAL[k] = 1; });
+  function formatarLocal(s) {
+    var primeiro = true;
+    return String(s || '').trim().split(/(\s+|-|\/|\(|\)|,)/).map(function (p) {
+      if (!p || /^(\s+|-|\/|\(|\)|,)$/.test(p)) return p;
+      var base = p.replace(/[.,;:]+$/, ''), resto = p.slice(base.length), saida;
+      if (/^(?:[A-Z]\.)+[A-Z]?$/.test(p) && p.length > 2) saida = p;                       // E.E. / E.M.E.F.
+      else if (SIGLAS[base] || (/^[IVXLC]+$/.test(base) && /^C{0,3}(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/.test(base))) saida = p;
+      else if (/^\d/.test(base)) saida = p.toLowerCase();
+      else {
+        var min = base.toLowerCase();
+        saida = (!primeiro && MIN_LOCAL[min]) ? min + resto : formatarNome(min) + resto;
+      }
+      primeiro = false;
+      return saida;
+    }).join('');
+  }
+  function cep(c) { c = String(c || '').replace(/\D/g, ''); return c.length === 8 ? c.slice(0, 5) + '-' + c.slice(5) : c; }
+  function nomeCidadeU(m) { return formatarNome((U.dados && U.dados.municipios && U.dados.municipios[m]) || m); }
+  function avisoUrnas(txt) { var el = $('#urnas-aviso'); el.textContent = txt || ''; el.hidden = !txt; }
+
+  // Biblioteca do mapa: carregada só quando precisa
+  function carregarLeaflet() {
+    if (window.L && window.L.map) return Promise.resolve(window.L);
+    if (U.leaflet) return U.leaflet;
+    U.leaflet = new Promise(function (resolve, reject) {
+      var faltam = 2, acabou = false;
+      function fim(erro) {
+        if (acabou) return;
+        if (!erro && --faltam > 0) return;
+        acabou = true;
+        if (!erro && window.L && window.L.map) resolve(window.L);
+        else { U.leaflet = null; reject(erro || new Error('Leaflet')); }
+      }
+      var css = document.createElement('link');
+      css.rel = 'stylesheet'; css.href = LEAFLET + 'leaflet.min.css';
+      css.onload = function () { fim(); }; css.onerror = function () { fim(new Error('CSS do mapa')); };
+      document.head.appendChild(css);
+      var js = document.createElement('script');
+      js.src = LEAFLET + 'leaflet.min.js'; js.async = true;
+      js.onload = function () { fim(); }; js.onerror = function () { fim(new Error('biblioteca do mapa')); };
+      document.head.appendChild(js);
+      setTimeout(function () { fim(new Error('tempo esgotado')); }, 30000);
+    });
+    return U.leaflet;
+  }
+
+  // Totais de cada local e índice das seções (zona|seção -> local)
+  function prepararUF(d) {
+    var campos = d.campos_secao || [];
+    var iv = S.ordem.map(function (n, i) { var k = campos.indexOf('votos_' + n); return k >= 0 ? k : 4 + i; });
+    d.iv = iv;
+    d.porSecao = {};
+    d.municipios = d.municipios || {};
+    d.locais.forEach(function (l, i) {
+      var t = { urnas: l.s.length, aptos: 0, comp: 0, v: [0, 0], b: 0, n: 0 }, fim = null;
+      l.s.forEach(function (s) {
+        t.aptos += s[2]; t.comp += s[3]; t.v[0] += s[iv[0]]; t.v[1] += s[iv[1]]; t.b += s[6]; t.n += s[7];
+        if (ok(s[8]) && (fim === null || s[8] > fim)) fim = s[8];
+        d.porSecao[s[0] + '|' + s[1]] = l;
+      });
+      l.i = i; l.tot = t; l.fim = fim; l.chave = 'z' + l.s[0][0] + 's' + l.s[0][1];
+    });
+    return d;
+  }
+
+  function classeVotos(v) {
+    var vv = v[0] + v[1];
+    if (!vv) return 'sem';
+    if (v[0] === v[1]) return 'empate';
+    var l = v[0] > v[1] ? 0 : 1, m = Math.abs(v[0] - v[1]) / vv * 100;
+    return cand(l).classe + '-' + (m < 5 ? 3 : m < 15 ? 2 : 1);
+  }
+
+  function urnasTarde(p) {
+    var lim = DEZESSETE + U.limite, n = 0;
+    if (p.tipo === 'brasil') { p.ref.t.forEach(function (x) { if (x >= lim) n++; }); return n; }
+    if (!(p.ref.fim >= lim)) return 0;
+    p.ref.s.forEach(function (s) { if (ok(s[8]) && s[8] >= lim) n++; });
+    return n;
+  }
+
+  function pontosEstado() {
+    var mapa = U.mapa, lista = [];
+    U.dados.locais.forEach(function (l) {
+      if (!ok(l.la) || !ok(l.lo)) return;
+      var p0 = l.p0 || (l.p0 = mapa.project([l.la, l.lo], 0));
+      lista.push({ x0: p0.x, y0: p0.y, f: Math.max(0.6, Math.min(1.8, Math.sqrt(l.tot.aptos / 1200))), cls: classeVotos(l.tot.v), ref: l, tipo: 'local' });
+    });
+    return lista;
+  }
+  function pontosBrasil() {
+    var mapa = U.mapa, lista = [], troca = S.ordem[0] !== '13';
+    ((U.tardias && U.tardias.locais) || []).forEach(function (t) {
+      if (!ok(t.la) || !ok(t.lo)) return;
+      var p0 = t.p0 || (t.p0 = mapa.project([t.la, t.lo], 0));
+      lista.push({ x0: p0.x, y0: p0.y, f: 1, cls: classeVotos(troca ? [t.v[1], t.v[0]] : t.v), ref: t, tipo: 'brasil' });
+    });
+    return lista;
+  }
+  function trocarPontos() {
+    if (!U.mapa || !U.camada) return;
+    U.pontos = U.uf ? (U.dados ? pontosEstado() : []) : pontosBrasil();
+    atualizarPontos();
+  }
+  function atualizarPontos() {
+    if (!U.camada) return;
+    var brasil = !U.uf;
+    U.pontos.forEach(function (p) {
+      p.n = urnasTarde(p);
+      p.tarde = p.n > 0;
+      p.oculto = (brasil || U.modo === 'tarde') && !p.tarde;
+      if (brasil) p.f = Math.max(0.9, Math.min(2.4, Math.sqrt(p.n / 1.5)));
+    });
+    U.camada.definir(U.pontos);
+  }
+
+  function coresUrnas() {
+    var cs = getComputedStyle(document.documentElement), c = {};
+    ['lula-1', 'lula-2', 'lula-3', 'flavio-1', 'flavio-2', 'flavio-3', 'empate', 'tinta', 'azul', 'folha'].forEach(function (k) { c[k] = cs.getPropertyValue('--' + k).trim(); });
+    c.sem = cs.getPropertyValue('--sem-dado').trim();
+    var escuro = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    c.contorno = escuro ? 'rgba(233, 237, 243, .38)' : 'rgba(20, 27, 43, .42)';
+    return c;
+  }
+
+  // Camada própria em canvas: dezenas de milhares de pontos sem pesar o navegador
+  function criarCamada(mapa) {
+    var Lf = window.L, pane = mapa.createPane('urnas');
+    pane.style.zIndex = 450;
+    pane.style.pointerEvents = 'none';
+    var tela = Lf.DomUtil.create('canvas', 'urnas-canvas', pane), ctx = tela.getContext('2d');
+    var itens = [], xs = null, ys = null, rs = null, quadro = 0;
+    var RAIOS = [1.4, 1.4, 1.4, 1.5, 1.6, 2, 2.4, 3, 3.6, 4.4, 5.2, 6.2, 7.2, 8.2, 9, 9.5, 10, 10, 10, 10];
+    function desenhar() {
+      if (quadro) { cancelAnimationFrame(quadro); quadro = 0; }
+      var tam = mapa.getSize(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var canto = mapa.containerPointToLayerPoint([0, 0]);
+      Lf.DomUtil.setPosition(tela, canto);
+      var w = Math.max(1, Math.round(tam.x * dpr)), h = Math.max(1, Math.round(tam.y * dpr));
+      if (tela.width !== w || tela.height !== h) {
+        tela.width = w; tela.height = h; tela.style.width = tam.x + 'px'; tela.style.height = tam.y + 'px';
+      }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, tam.x, tam.y);
+      tela.style.visibility = '';
+      var z = mapa.getZoom(), esc0 = Math.pow(2, z), org = mapa.getPixelOrigin();
+      var dx = -org.x - canto.x, dy = -org.y - canto.y;
+      var rb = RAIOS[Math.max(0, Math.min(19, Math.round(z)))] * (U.uf ? 1 : 1.3);
+      // No mapa do Brasil todos os pontos já são de urnas encerradas tarde: o contorno escuro só aparece nos estados
+      var anel = !!U.uf, cores = coresUrnas(), grupos = {}, tardes = {}, comTarde = [], sel = -1;
+      xs = new Float32Array(itens.length); ys = new Float32Array(itens.length); rs = new Float32Array(itens.length);
+      for (var i = 0; i < itens.length; i++) {
+        var p = itens[i];
+        xs[i] = NaN;
+        if (p.oculto) continue;
+        var r = Math.max(1.3, rb * p.f), x = p.x0 * esc0 + dx, y = p.y0 * esc0 + dy;
+        if (x < -r || y < -r || x > tam.x + r || y > tam.y + r) continue;
+        xs[i] = x; ys[i] = y; rs[i] = r;
+        if (U.local && p.ref === U.local) sel = i;
+        if (p.tarde && anel) { (tardes[p.cls] || (tardes[p.cls] = [])).push(i); comTarde.push(i); }
+        else (grupos[p.cls] || (grupos[p.cls] = [])).push(i);
+      }
+      function circulos(lista, extra) {
+        ctx.beginPath();
+        lista.forEach(function (k) { ctx.moveTo(xs[k] + rs[k] + extra, ys[k]); ctx.arc(xs[k], ys[k], rs[k] + extra, 0, 6.2832); });
+      }
+      ctx.lineWidth = anel ? 0.8 : 1;
+      ctx.strokeStyle = cores.contorno;
+      Object.keys(grupos).forEach(function (cls) {
+        circulos(grupos[cls], 0);
+        ctx.fillStyle = cores[cls] || cores.sem;
+        ctx.fill();
+        if (rb >= 2.4 || !anel) ctx.stroke();
+      });
+      Object.keys(tardes).forEach(function (cls) {
+        circulos(tardes[cls], 0);
+        ctx.fillStyle = cores[cls] || cores.sem;
+        ctx.fill();
+      });
+      if (comTarde.length) {
+        // contorno por fora do ponto, para a cor de quem venceu continuar visível
+        var esp = rb >= 4 ? 2 : 1.3;
+        circulos(comTarde, esp / 2 + 0.4);
+        ctx.lineWidth = esp;
+        ctx.strokeStyle = cores.tinta;
+        ctx.stroke();
+      }
+      if (sel >= 0) {
+        ctx.beginPath();
+        ctx.arc(xs[sel], ys[sel], rs[sel] + 4.5, 0, 6.2832);
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = cores.azul;
+        ctx.stroke();
+      }
+    }
+    function agendar() { if (!quadro) quadro = requestAnimationFrame(function () { quadro = 0; desenhar(); }); }
+    mapa.on('move', agendar);
+    mapa.on('moveend zoomend resize viewreset', desenhar);
+    mapa.on('zoomstart', function () { tela.style.visibility = 'hidden'; });
+    return {
+      definir: function (lista) { itens = lista; desenhar(); },
+      desenhar: desenhar,
+      achar: function (pt) {
+        if (!xs) return null;
+        var melhor = null, dist = Infinity;
+        for (var i = 0; i < itens.length; i++) {
+          if (isNaN(xs[i])) continue;
+          var ex = xs[i] - pt.x, ey = ys[i] - pt.y, d2 = ex * ex + ey * ey, lim = rs[i] + 6;
+          if (d2 > lim * lim) continue;
+          if (itens[i].tarde) d2 *= 0.6;
+          if (d2 < dist) { dist = d2; melhor = itens[i]; }
+        }
+        return melhor;
+      }
+    };
+  }
+
+  function urlBaseMapa() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? BASE_MAPA.escuro : BASE_MAPA.claro;
+  }
+
+  function montarMapaUrnas() {
+    var Lf = window.L, el = $('#urnas-mapa'), dica = $('#urnas-dica');
+    var mapa = U.mapa = Lf.map(el, { scrollWheelZoom: false, minZoom: 2, maxZoom: 18, worldCopyJump: true });
+    U.base = Lf.tileLayer(urlBaseMapa(), { subdomains: 'abcd', maxZoom: 19, attribution: BASE_MAPA.creditos }).addTo(mapa);
+    mapa.fitBounds(BRASIL);
+    U.camada = criarCamada(mapa);
+    // A roda do mouse só dá zoom depois de clicar no mapa, para não atrapalhar a rolagem da página
+    mapa.on('click focus', function () { mapa.scrollWheelZoom.enable(); });
+    el.addEventListener('mouseleave', function () { mapa.scrollWheelZoom.disable(); });
+    mapa.on('click', function (e) {
+      var p = U.camada.achar(e.containerPoint);
+      if (!p) return;
+      dica.classList.remove('visivel');
+      if (p.tipo === 'brasil') abrirLocalU(p.ref.u, p.ref.z, p.ref.k);
+      else selecionarLocalU(p.ref, false);
+    });
+    mapa.on('mousemove', function (e) {
+      var p = U.camada.achar(e.containerPoint);
+      el.style.cursor = p ? 'pointer' : '';
+      if (!p) { dica.classList.remove('visivel'); return; }
+      dica.innerHTML = textoDica(p);
+      dica.style.left = Math.min(Math.max(e.containerPoint.x, 110), el.clientWidth - 110) + 'px';
+      dica.style.top = e.containerPoint.y + 'px';
+      dica.classList.add('visivel');
+    });
+    mapa.on('mouseout dragstart zoomstart', function () { dica.classList.remove('visivel'); el.style.cursor = ''; });
+    var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq) {
+      var trocarTema = function () { U.base.setUrl(urlBaseMapa()); U.camada.desenhar(); };
+      if (mq.addEventListener) mq.addEventListener('change', trocarTema);
+      else if (mq.addListener) mq.addListener(trocarTema);
+    }
+  }
+
+  function textoDica(p) {
+    var r = p.ref, rot = rotuloLimite(U.limite);
+    if (p.tipo === 'brasil') {
+      return '<b>' + esc(formatarLocal(r.n)) + '</b>' + esc(formatarNome(r.mn)) + ' (' + sigla(r.u) + ')<br>' +
+        plural(p.n, 'urna encerrada', 'urnas encerradas') + ' a partir de ' + rot + '<br>A última às ' + hora(r.t[r.t.length - 1]);
+    }
+    var v = r.tot.v, vv = v[0] + v[1];
+    return '<b>' + esc(formatarLocal(r.n)) + '</b>' + esc(nomeCidadeU(r.m)) + '<br>' +
+      (vv ? esc(cand(0).curto) + ' ' + fmtP(v[0] / vv * 100, 0) + ' × ' + esc(cand(1).curto) + ' ' + fmtP(v[1] / vv * 100, 0) + ' · ' : '') +
+      plural(r.s.length, 'urna', 'urnas') + '<br>' +
+      (ok(r.fim) ? (r.s.length > 1 ? 'Última urna encerrada às ' : 'Encerrada às ') + hora(r.fim) : 'Sem horário de encerramento') +
+      (p.tarde ? ' · ' + plural(p.n, 'encerrada', 'encerradas') + ' a partir de ' + rot : '');
+  }
+
+  function limitesDe(locais, corte) {
+    var la = [], lo = [];
+    locais.forEach(function (l) { if (ok(l.la) && ok(l.lo) && !l.ap) { la.push(l.la); lo.push(l.lo); } });
+    if (!la.length) locais.forEach(function (l) { if (ok(l.la) && ok(l.lo)) { la.push(l.la); lo.push(l.lo); } });
+    if (!la.length) return null;
+    la.sort(function (a, b) { return a - b; });
+    lo.sort(function (a, b) { return a - b; });
+    var k = Math.floor(la.length * (corte || 0));
+    return [[la[k], lo[k]], [la[la.length - 1 - k], lo[lo.length - 1 - k]]];
+  }
+
+  function ajustarMapa() {
+    var m = U.mapa;
+    if (!m) return;
+    if (U.local && ok(U.local.la)) { m.setView([U.local.la, U.local.lo], Math.max(m.getZoom(), 15)); return; }
+    var b = null;
+    if (U.dados && U.cidade) b = limitesDe(U.dados.locais.filter(function (l) { return l.m === U.cidade; }), 0);
+    else if (U.dados) b = limitesDe(U.dados.locais, U.uf === 'zz' ? 0 : 0.01);
+    if (!b) { m.fitBounds(BRASIL); return; }
+    if (b[0][0] === b[1][0] && b[0][1] === b[1][1]) m.setView(b[0], 15);
+    else m.fitBounds(b, { padding: [24, 24], maxZoom: 15 });
+  }
+
+  function hashUrnas() {
+    if (!history.replaceState) return;
+    var h = '#urnas' + (U.uf ? '=' + U.uf + (U.local ? '/' + U.local.chave : U.cidade ? '/' + U.cidade : '') : '');
+    if (location.hash !== h) history.replaceState(null, '', h);
+  }
+
+  function prepararControlesU() {
+    var d = U.dados, selCid = $('#urnas-cidade'), busca = $('#urnas-busca');
+    if (d && selCid.getAttribute('data-uf') !== d.uf) {
+      var cids = Object.keys(d.municipios).map(function (m) { return [m, formatarNome(d.municipios[m])]; })
+        .sort(function (a, b) { return a[1].localeCompare(b[1], 'pt-BR'); });
+      selCid.innerHTML = '<option value="">Todas as cidades</option>' + cids.map(function (c) { return '<option value="' + c[0] + '">' + esc(c[1]) + '</option>'; }).join('');
+      selCid.setAttribute('data-uf', d.uf);
+    } else if (!d) {
+      selCid.innerHTML = '<option value="">Todas as cidades</option>';
+      selCid.removeAttribute('data-uf');
+    }
+    selCid.disabled = !d;
+    selCid.value = U.cidade || '';
+    busca.disabled = !d;
+    busca.placeholder = d ? 'Nome da escola, rua ou bairro' : (U.uf ? 'Carregando…' : 'Escolha um estado primeiro');
+    $('#urnas-modo').hidden = !U.uf;
+    renderLegendaU();
+  }
+
+  function renderLegendaU() {
+    var leg = '';
+    [0, 1].forEach(function (i) {
+      var c = cand(i);
+      leg += '<div class="leg-linha"><span class="leg-nome"><span class="marca ' + c.classe + '"></span>' + esc(c.nome) + ' venceu no local</span>' +
+        '<span class="leg-escala"><i class="s-' + c.classe + '-3"></i><i class="s-' + c.classe + '-2"></i><i class="s-' + c.classe + '-1"></i></span></div>';
+    });
+    leg += '<div class="leg-ticks"><span>Vantagem em pontos percentuais</span><span>até 5</span><span>5 a 15</span><span>mais de 15</span></div>';
+    leg += '<div class="leg-sem"><i class="' + (U.uf ? 'leg-anel' : 'leg-ponto') + '"></i>' + (U.uf ? 'Com contorno: local com urna encerrada a partir de ' : 'No mapa: só os locais com urna encerrada a partir de ') + rotuloLimite(U.limite) + '</div>';
+    leg += '<div class="leg-sem"><i class="leg-tam"></i>' + (U.uf ? 'Tamanho do ponto: eleitores aptos no local' : 'Tamanho do ponto: número de urnas encerradas nesse horário') + '</div>';
+    $('#urnas-legenda').innerHTML = leg;
+  }
+
+  // Quantas urnas fecharam depois das 17h e a votação delas
+  function renderTarde() {
+    var el = $('#urnas-tarde'), r = U.resumo;
+    if (!r || !r.total || !r.depois_do_horario) {
+      el.innerHTML = '<p class="mudo">Os números por urna aparecem aqui assim que os boletins de urna do TSE forem processados.</p>';
+      return;
+    }
+    var tot = r.total, dh = r.depois_do_horario, fx = r.faixas_de_encerramento || {};
+    var sem = (r.sem_horario_de_encerramento || {}).urnas || 0, com = tot.urnas - sem;
+    var depois = dh.depois_17h00 ? dh.depois_17h00.urnas : null;
+    var cedo = (fx.ate_17h00min59s ? fx.ate_17h00min59s.urnas : 0) + (fx['17h01_a_17h04'] ? fx['17h01_a_17h04'].urnas : 0);
+    var g19 = dh.depois_19h00;
+    var txt = ok(depois)
+      ? (depois === com ? 'Todas as <b>' + fmtN(com) + '</b> urnas com horário registrado foram encerradas depois das 17h.'
+        : '<b>' + fmtN(depois) + '</b> das ' + fmtN(com) + ' urnas com horário registrado foram encerradas depois das 17h.') +
+        ' É assim em toda eleição: quem chega até as 17h ainda vota, e cada urna só é encerrada depois do último eleitor da fila.' +
+        (cedo ? ' A maioria (' + fmtP(cedo / com * 100, 0) + ') fechou até 17h04.' : '')
+      : '';
+    if (g19) {
+      txt += ' Já as <b>' + fmtN(g19.urnas) + '</b> urnas encerradas a partir das 19h são, em geral, de seções que ainda estavam abertas quando o STF prorrogou a votação até as 19h, no fim da tarde do dia 25; as urnas que já tinham sido encerradas não puderam reabrir.';
+    }
+    var linhas = [['Todas', tot, null]];
+    LINHAS_TARDE.forEach(function (x) { var g = dh[chaveLimite(x[0])]; if (g) linhas.push([x[1], g, x[0]]); });
+    var c0 = cand(0), c1 = cand(1);
+    var h = '<h3>Quantas urnas fecharam depois das 17h</h3><p class="tarde-txt">' + txt + '</p>' +
+      '<div class="tabela-rolagem"><table><thead><tr><th scope="col">Encerradas<br>a partir de</th><th scope="col">Urnas</th>' +
+      '<th scope="col"><span class="th-cand"><span class="marca ' + c0.classe + '"></span>' + esc(c0.curto) + '</span></th>' +
+      '<th scope="col"><span class="th-cand"><span class="marca ' + c1.classe + '"></span>' + esc(c1.curto) + '</span></th></tr></thead><tbody>';
+    linhas.forEach(function (x) {
+      var g = x[1], v = votosOrdem(g), vv = v[0] + v[1], l = v[0] === v[1] ? -1 : (v[0] > v[1] ? 0 : 1);
+      h += '<tr' + (x[2] === null ? ' class="total"' : (x[2] === U.limite ? ' class="sel"' : '')) + '><td>' + x[0] + '</td>' +
+        '<td><span class="cel-princ">' + fmtN(g.urnas) + '</span><span class="cel-sub so-largo">' + fmtC(g.comparecimento) + ' votaram</span></td>';
+      [0, 1].forEach(function (i) {
+        h += '<td><span class="cel-princ' + (l === i ? ' lider' : '') + '">' + (l === i ? '<span class="marca ' + cand(i).classe + '"></span>' : '') +
+          fmtP(vv ? v[i] / vv * 100 : null, 1) + '</span><span class="cel-sub">' + fmtN(v[i]) + '</span></td>';
+      });
+      h += '</tr>';
+    });
+    h += '</tbody></table></div><p class="nota-tabela">Horário de Brasília (no exterior, horário local de cada país). Percentuais sobre os votos válidos das urnas de cada linha.' +
+      (sem ? ' ' + plural(sem, 'urna não tem', 'urnas não têm') + ' horário de encerramento no boletim e ' + (sem === 1 ? 'fica' : 'ficam') + ' fora das linhas por horário.' : '') +
+      ' Fonte: boletins de urna do TSE.</p>';
+    el.innerHTML = h;
+  }
+
+  // Painel ao lado do mapa
+  function renderPainelU() {
+    var h;
+    if (U.local) h = painelLocal(U.local);
+    else if (U.uf && U.dados) h = painelArea();
+    else if (U.uf) h = '<p class="mudo">Carregando os locais de votação…</p>';
+    else h = painelBrasil();
+    $('#urnas-painel').innerHTML = h;
+  }
+
+  function barrasVotos(t, titulo) {
+    var vv = t.v[0] + t.v[1], max = Math.max(1, t.v[0], t.v[1]);
+    var h = '<div class="urnas-votos">' + (titulo ? '<p class="urnas-votos-tit">' + titulo + '</p>' : '');
+    [0, 1].forEach(function (i) {
+      var c = cand(i);
+      h += linhaComp('<span class="th-cand"><span class="marca ' + c.classe + '"></span>' + esc(c.nome) + '</span>', t.v[i], vv ? t.v[i] / vv * 100 : null, max, c.classe + '-1');
+    });
+    return h + '<p class="urnas-bn">Brancos: ' + fmtN(t.b) + ' · Nulos: ' + fmtN(t.n) + '</p></div>';
+  }
+
+  function painelBrasil() {
+    var r = U.resumo, lim = U.limite, rot = rotuloLimite(lim);
+    var h = '<div class="painel-cab"><div><p class="urnas-onde">Brasil e exterior</p><h3>Urnas encerradas a partir de ' + rot + '</h3></div></div>';
+    if (!r) return h + '<p class="urnas-ajuda">Escolha um estado para ver os locais de votação e as urnas.</p>';
+    var g = (r.depois_do_horario || {})[chaveLimite(lim)];
+    var nLoc = U.tardias ? U.tardias.locais.filter(function (t) { return t.t[t.t.length - 1] >= DEZESSETE + lim; }).length : null;
+    if (g) {
+      h += '<p class="urnas-ajuda">' + plural(g.urnas, 'urna', 'urnas') + (ok(nLoc) ? ', em ' + plural(nLoc, 'local', 'locais') + ' de votação' : '') +
+        '. Cada ponto do mapa é um desses locais; toque num deles para ver as urnas. Para ver todos os locais, inclusive os que fecharam no horário, escolha um estado.</p>';
+      h += barrasVotos({ v: votosOrdem(g), b: g.brancos, n: g.nulos }, 'Votos nessas urnas');
+      var ufs = Object.keys(g.por_uf || {}).map(function (u) { return [u, g.por_uf[u]]; })
+        .sort(function (a, b) { return b[1].urnas - a[1].urnas; }).slice(0, 8);
+      if (ufs.length) {
+        h += '<h4 class="urnas-sub">Onde mais urnas fecharam a partir de ' + rot + '</h4><ol class="urnas-top">' + ufs.map(function (x) {
+          var v = votosOrdem(x[1]);
+          return '<li><button type="button" class="urnas-item" data-uuf="' + x[0] + '"><b>' + esc(x[0] === 'zz' ? 'Exterior' : UFS[x[0]]) + '</b>' +
+            '<span class="val">' + plural(x[1].urnas, 'urna', 'urnas') + '</span><small>' + esc(cand(0).curto) + ' ' + fmtN(v[0]) + ' · ' + esc(cand(1).curto) + ' ' + fmtN(v[1]) + ' votos</small></button></li>';
+        }).join('') + '</ol>';
+      }
+    }
+    var ult = (r.ultimas_a_fechar || []).slice(0, 8);
+    if (ult.length) {
+      h += '<h4 class="urnas-sub">As últimas urnas a fechar</h4><ol class="urnas-top">' + ult.map(function (u) {
+        return '<li><button type="button" class="urnas-item" data-ulocal="' + u.uf + '|' + u.zona + '|' + u.secao + '"><b>' + esc(formatarLocal(u.local) || 'Seção ' + u.secao) + '</b>' +
+          '<span class="val">' + esc(String(u.encerramento || '').slice(0, 5).replace(':', 'h')) + '</span><small>' + esc(formatarNome(u.nome_municipio || u.municipio)) + ' (' + sigla(u.uf) + ') · seção ' + u.secao + ', zona ' + u.zona + '</small></button></li>';
+      }).join('') + '</ol>';
+    }
+    return h;
+  }
+
+  function itemLocal(l) {
+    return '<li><button type="button" class="urnas-item" data-uidx="' + l.i + '"><b>' + esc(formatarLocal(l.n)) + '</b><span class="val">' + hora(l.fim) + '</span>' +
+      '<small>' + esc(nomeCidadeU(l.m)) + (l.b ? ' · ' + esc(formatarLocal(l.b)) : '') + ' · ' + plural(l.s.length, 'urna', 'urnas') + '</small></button></li>';
+  }
+
+  function painelArea() {
+    var d = U.dados, uf = U.uf, cid = U.cidade, iv = d.iv;
+    var locais = cid ? d.locais.filter(function (l) { return l.m === cid; }) : d.locais;
+    var nomeUF = uf === 'zz' ? 'Exterior' : UFS[uf];
+    var lim = DEZESSETE + U.limite, rot = rotuloLimite(U.limite);
+    var t = { urnas: 0, aptos: 0, comp: 0, v: [0, 0], b: 0, n: 0 }, tt = { urnas: 0, locais: 0, comp: 0, v: [0, 0], b: 0, n: 0 };
+    locais.forEach(function (l) {
+      var a = l.tot;
+      t.urnas += a.urnas; t.aptos += a.aptos; t.comp += a.comp; t.v[0] += a.v[0]; t.v[1] += a.v[1]; t.b += a.b; t.n += a.n;
+      if (!(l.fim >= lim)) return;
+      tt.locais++;
+      l.s.forEach(function (s) {
+        if (ok(s[8]) && s[8] >= lim) { tt.urnas++; tt.comp += s[3]; tt.v[0] += s[iv[0]]; tt.v[1] += s[iv[1]]; tt.b += s[6]; tt.n += s[7]; }
+      });
+    });
+    var h = '<div class="painel-cab"><div><p class="urnas-onde">' + (cid ? esc(nomeUF) : 'Boletins de urna do 2º turno') + '</p><h3>' + esc(cid ? nomeCidadeU(cid) : nomeUF) + '</h3></div>' +
+      '<button type="button" class="botao-sec" data-uacao="' + (cid ? 'ver-uf' : 'ver-brasil') + '">' + (cid ? 'Ver o estado' : 'Ver Brasil') + '</button></div>';
+    h += '<dl class="cartao-rodape urnas-numeros"><div><dt>Urnas</dt><dd>' + fmtN(t.urnas) + '</dd></div>' +
+      '<div><dt>Locais de votação</dt><dd>' + fmtN(locais.length) + '</dd></div>' +
+      '<div><dt>Compareceram</dt><dd>' + fmtN(t.comp) + ' <small>' + (t.aptos ? fmtP(t.comp / t.aptos * 100, 1) : '') + '</small></dd></div></dl>';
+    h += barrasVotos(t, 'Votos nas urnas' + (uf === 'zz' && !cid ? ' do exterior' : ''));
+    h += '<h4 class="urnas-sub">Urnas encerradas a partir de ' + rot + '</h4>';
+    if (!tt.urnas) {
+      h += '<p class="painel-apur">Nenhuma urna ' + (cid ? 'desta cidade' : uf === 'zz' ? 'do exterior' : 'deste estado') + ' foi encerrada a partir de ' + rot + '.</p>';
+    } else {
+      h += '<p class="painel-apur">' + plural(tt.urnas, 'urna', 'urnas') + ' em ' + plural(tt.locais, 'local', 'locais') + ', com ' + plural(tt.comp, 'eleitor', 'eleitores') + ' que votaram.</p>' + barrasVotos(tt);
+      var top = locais.filter(function (l) { return l.fim >= lim; }).sort(function (a, b) { return b.fim - a.fim; }).slice(0, 8);
+      h += '<h4 class="urnas-sub">Onde as urnas fecharam mais tarde</h4><ol class="urnas-top">' + top.map(itemLocal).join('') + '</ol>';
+    }
+    var semMapa = locais.filter(function (l) { return !ok(l.la); }).length;
+    h += '<p class="urnas-ajuda">Toque num ponto do mapa ou procure o local de votação pelo nome para ver as urnas dele.' +
+      (semMapa ? ' ' + plural(semMapa, 'local não aparece', 'locais não aparecem') + ' no mapa por falta de coordenadas, mas ' + (semMapa === 1 ? 'pode' : 'podem') + ' ser encontrados na busca.' : '') + '</p>';
+    return h;
+  }
+
+  function painelLocal(l) {
+    var d = U.dados, uf = d.uf, t = l.tot;
+    var onde = nomeCidadeU(l.m) + (uf === 'zz' ? ' (exterior)' : ' (' + uf.toUpperCase() + ')') + ' · zona ' + l.s[0][0];
+    var h = '<div class="painel-cab"><div><p class="urnas-onde">' + esc(onde) + '</p><h3>' + esc(formatarLocal(l.n)) + '</h3></div>' +
+      '<button type="button" class="botao-sec" data-uacao="fechar-local">Voltar</button></div>';
+    var bairro = l.b && normalizar(l.e).indexOf(normalizar(l.b)) < 0 ? formatarLocal(l.b) : '';
+    var end = [formatarLocal(l.e), bairro, l.c ? 'CEP ' + cep(l.c) : ''].filter(Boolean).join(' · ');
+    if (end) h += '<p class="urnas-endereco">' + esc(end) + '</p>';
+    if (l.t && !/^convencional$/i.test(l.t)) h += '<p class="painel-apur">Tipo de local: ' + esc(formatarLocal(l.t)) + '</p>';
+    if (l.ap) h += '<p class="urnas-nota">O cadastro do TSE não traz as coordenadas deste local; no mapa, o ponto fica no meio dos outros locais da cidade.</p>';
+    else if (!ok(l.la)) h += '<p class="urnas-nota">O cadastro do TSE não traz as coordenadas deste local, por isso ele não aparece no mapa.</p>';
+    else h += '<a class="ligar" href="https://www.google.com/maps/search/?api=1&amp;query=' + l.la + '%2C' + l.lo + '" target="_blank" rel="noopener">Ver no Google Maps</a>';
+    h += '<dl class="cartao-rodape urnas-numeros"><div><dt>Urnas</dt><dd>' + fmtN(t.urnas) + '</dd></div>' +
+      '<div><dt>Eleitores aptos</dt><dd>' + fmtN(t.aptos) + '</dd></div>' +
+      '<div><dt>Compareceram</dt><dd>' + fmtN(t.comp) + ' <small>' + (t.aptos ? fmtP(t.comp / t.aptos * 100, 1) : '') + '</small></dd></div></dl>';
+    h += barrasVotos(t, 'Votos no local');
+    h += '<h4 class="urnas-sub">' + (t.urnas === 1 ? 'A urna deste local' : 'As ' + fmtN(t.urnas) + ' urnas deste local') + '</h4>' + listaUrnas(l);
+    return h;
+  }
+
+  function listaUrnas(l) {
+    var d = U.dados, iv = d.iv, local = d.horario === 'local';
+    return '<ol class="urnas-lista">' + l.s.slice().sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; }).map(function (s) {
+      var enc = s[8], atraso = ok(enc) ? enc - DEZESSETE : null;
+      var tarde = ok(atraso) && atraso >= U.limite;
+      var prorrogada = ok(atraso) && atraso >= PRORROGACAO && atraso < 3 * 3600;   // de 18h55 a 20h
+      var tipo = d.tipos_urna && d.tipos_urna[s[10]];
+      var tag = prorrogada ? 'aberta até as 19h' : (tarde || (ok(atraso) && atraso >= PRORROGACAO)) ? 'encerrada tarde' : '';
+      return '<li class="urna' + (tarde ? ' urna-tarde' : '') + '">' +
+        '<div class="urna-cab"><b>Seção ' + s[1] + '</b><span>zona ' + s[0] + '</span>' + (tag ? '<span class="urna-tag">' + tag + '</span>' : '') + '</div>' +
+        '<div class="urna-votos"><span><span class="marca ' + cand(0).classe + '"></span>' + esc(cand(0).curto) + ' <b>' + fmtN(s[iv[0]]) + '</b></span>' +
+        '<span><span class="marca ' + cand(1).classe + '"></span>' + esc(cand(1).curto) + ' <b>' + fmtN(s[iv[1]]) + '</b></span>' +
+        '<span class="mudo">brancos ' + fmtN(s[6]) + ' · nulos ' + fmtN(s[7]) + '</span></div>' +
+        '<div class="urna-hora">' + (ok(s[11]) ? 'Abriu às ' + hora(s[11]) + ' · ' : '') +
+        (ok(enc) ? 'encerrada às <b>' + hora(enc, true) + '</b>' + (local ? ' (hora local)' : '') : 'sem horário de encerramento no boletim') + '</div>' +
+        '<div class="urna-extra">' + fmtN(s[3]) + ' de ' + fmtN(s[2]) + ' eleitores votaram' +
+        (s[9] ? ' · seções agregadas: ' + esc(s[9]) : '') + (tipo && tipo !== 'Apurada' ? ' · ' + esc(tipo) : '') + '</div></li>';
+    }).join('') + '</ol>';
+  }
+
+  // Seleções
+  function mostrarBrasilU() {
+    U.uf = ''; U.dados = null; U.pedido = null; U.cidade = ''; U.local = null;
+    $('#urnas-uf').value = '';
+    prepararControlesU();
+    trocarPontos();
+    if (U.mapa) U.mapa.fitBounds(BRASIL);
+    renderPainelU();
+  }
+
+  function selecionarUFUrnas(uf, semAjuste) {
+    uf = uf && UFS[uf] ? uf : '';
+    fecharSugestoesU();
+    $('#urnas-busca').value = '';
+    if (!uf) { mostrarBrasilU(); hashUrnas(); return Promise.resolve(); }
+    $('#urnas-uf').value = uf;
+    U.cidade = ''; U.local = null;
+    if (U.uf === uf && U.dados) {
+      prepararControlesU(); trocarPontos();
+      if (!semAjuste) ajustarMapa();
+      renderPainelU(); hashUrnas();
+      return Promise.resolve();
+    }
+    U.uf = uf; U.dados = null;
+    prepararControlesU(); trocarPontos(); renderPainelU(); hashUrnas();
+    avisoUrnas('Carregando os locais de votação ' + (uf === 'zz' ? 'do exterior' : 'de ' + UFS[uf]) + '…');
+    var pedido = U.pedido = buscarJSON(URNAS + uf + '.json', 120).then(function (d) {
+      if (U.pedido !== pedido) return;
+      U.dados = prepararUF(d);
+      avisoUrnas('');
+      prepararControlesU(); trocarPontos();
+      if (!semAjuste) ajustarMapa();
+      renderPainelU();
+    }, function (e) {
+      if (U.pedido !== pedido) return;
+      if (window.console) console.warn('Falha ao ler as urnas de ' + uf + ':', e && e.message);
+      avisoUrnas('Não consegui carregar os locais de votação agora. Tente de novo em instantes.');
+      U.uf = ''; U.pedido = null;
+      $('#urnas-uf').value = '';
+      prepararControlesU(); trocarPontos(); renderPainelU();
+      setTimeout(function () { if (!U.uf) avisoUrnas(''); }, 6000);
+    });
+    return pedido;
+  }
+
+  function selecionarCidadeU(m) {
+    if (!U.dados) return;
+    U.cidade = m && U.dados.municipios[m] ? m : '';
+    U.local = null;
+    $('#urnas-cidade').value = U.cidade;
+    if (U.camada) U.camada.desenhar();
+    ajustarMapa();
+    renderPainelU();
+    hashUrnas();
+  }
+
+  function selecionarLocalU(l, voar) {
+    if (!l) return;
+    U.local = l;
+    U.cidade = l.m;
+    $('#urnas-cidade').value = l.m;
+    if (U.camada) U.camada.desenhar();
+    if (voar && U.mapa && ok(l.la)) U.mapa.setView([l.la, l.lo], Math.max(U.mapa.getZoom(), 15));
+    renderPainelU();
+    hashUrnas();
+    if (estreito()) {
+      var p = $('#urnas-painel'), topo = p.getBoundingClientRect().top;
+      if (topo < 0 || topo > window.innerHeight * 0.55) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function abrirLocalU(uf, zona, secao) {
+    return selecionarUFUrnas(uf, true).then(function () {
+      if (U.uf !== uf || !U.dados) return;
+      var l = U.dados.porSecao[zona + '|' + secao];
+      if (l) selecionarLocalU(l, true);
+      else ajustarMapa();
+    });
+  }
+
+  function abrirUrnasCidade(uf, cd) {
+    $('#urnas').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    iniciarUrnas();
+    selecionarUFUrnas(uf, true).then(function () { if (U.uf === uf && U.dados) selecionarCidadeU(cd); });
+  }
+
+  // Busca de local de votação (dentro do estado escolhido)
+  function sugerirLocaisU() {
+    var inp = $('#urnas-busca'), q = normalizar(inp.value), d = U.dados;
+    U.sug = [];
+    if (d && q.length >= 2) {
+      var termos = q.split(' ');
+      d.locais.forEach(function (l) {
+        if (U.cidade && l.m !== U.cidade) return;
+        if (!l.busca) l.busca = normalizar(l.n + ' ' + l.e + ' ' + l.b + ' ' + (d.municipios[l.m] || ''));
+        for (var k = 0; k < termos.length; k++) if (l.busca.indexOf(termos[k]) < 0) return;
+        var nn = l.nn || (l.nn = normalizar(l.n)), pos = nn.indexOf(q);
+        U.sug.push({ l: l, s: pos === 0 ? 0 : pos > 0 ? 1 : 2 });
+      });
+      U.sug.sort(function (a, b) { return a.s - b.s || b.l.tot.aptos - a.l.tot.aptos; });
+      U.sug = U.sug.slice(0, 8);
+    }
+    U.ativa = U.sug.length ? 0 : -1;
+    desenharSugestoesU();
+  }
+  function desenharSugestoesU() {
+    var ul = $('#urnas-sugestoes'), inp = $('#urnas-busca');
+    inp.removeAttribute('aria-activedescendant');
+    if (!U.sug.length) {
+      var buscou = normalizar(inp.value).length >= 2 && U.dados;
+      ul.hidden = !buscou;
+      if (buscou) ul.innerHTML = '<li role="option" aria-disabled="true" class="mudo">Nenhum local encontrado' + (U.cidade ? ' nesta cidade' : '') + '</li>';
+      inp.setAttribute('aria-expanded', String(!!buscou));
+      return;
+    }
+    ul.innerHTML = U.sug.map(function (x, k) {
+      return '<li role="option" id="usug-' + k + '" data-uidx="' + x.l.i + '" aria-selected="' + (k === U.ativa) + '">' + esc(formatarLocal(x.l.n)) +
+        '<span>' + esc(nomeCidadeU(x.l.m)) + '</span></li>';
+    }).join('');
+    ul.hidden = false;
+    inp.setAttribute('aria-expanded', 'true');
+    if (U.ativa >= 0) inp.setAttribute('aria-activedescendant', 'usug-' + U.ativa);
+  }
+  function fecharSugestoesU() {
+    U.sug = []; U.ativa = -1;
+    $('#urnas-sugestoes').hidden = true;
+    $('#urnas-busca').setAttribute('aria-expanded', 'false');
+  }
+
+  function iniciarUrnas() {
+    if (U.pronto) return U.pronto;
+    prepararControlesU();
+    renderPainelU();
+    var dadosP = Promise.all([
+      buscarJSON(URNAS + 'resumo.json', 30).catch(function () { return null; }),
+      buscarJSON(URNAS + 'tardias.json', 60).catch(function () { return null; })
+    ]).then(function (r) {
+      U.resumo = r[0]; U.tardias = r[1];
+      renderTarde();
+      if (!U.uf) renderPainelU();
+    });
+    avisoUrnas('Carregando o mapa…');
+    var mapaP = carregarLeaflet().then(function () {
+      montarMapaUrnas();
+    }, function (e) {
+      if (window.console) console.warn('Mapa indisponível:', e && e.message);
+      avisoUrnas('Não consegui carregar o mapa agora. Os números, a lista de locais e a busca continuam funcionando.');
+    });
+    U.pronto = Promise.all([dadosP, mapaP]).then(function () {
+      if (U.mapa) {
+        if (!U.pedido || U.dados) avisoUrnas('');
+        trocarPontos();
+        if (U.uf && U.dados) ajustarMapa();
+      }
+      var alvo = U.alvo;
+      U.alvo = null;
+      if (alvo) {
+        return selecionarUFUrnas(alvo.uf, !!alvo.sub).then(function () {
+          if (U.uf !== alvo.uf || !U.dados || !alvo.sub) return;
+          var m = /^z(\d+)s(\d+)$/.exec(alvo.sub);
+          if (m) {
+            var l = U.dados.porSecao[m[1] + '|' + m[2]];
+            if (l) selecionarLocalU(l, true); else ajustarMapa();
+          } else selecionarCidadeU(alvo.sub);
+        });
+      }
+    });
+    return U.pronto;
+  }
+
+  function ligarUrnas(jaComeca) {
+    var sec = $('#urnas'), inp = $('#urnas-busca');
+    $('#urnas-uf').insertAdjacentHTML('beforeend', UFS_BR.map(function (uf) { return '<option value="' + uf + '">' + esc(UFS[uf]) + '</option>'; }).join('') + '<option value="zz">Exterior</option>');
+    renderLegendaU();
+    $('#urnas-uf').addEventListener('change', function (ev) { iniciarUrnas(); selecionarUFUrnas(ev.target.value); });
+    $('#urnas-cidade').addEventListener('change', function (ev) { selecionarCidadeU(ev.target.value); });
+    $('#urnas-limite').addEventListener('change', function (ev) {
+      U.limite = Number(ev.target.value) || 1800;
+      atualizarPontos(); renderTarde(); renderPainelU(); renderLegendaU();
+    });
+    inp.addEventListener('input', sugerirLocaisU);
+    inp.addEventListener('focus', function () { if (inp.value) sugerirLocaisU(); });
+    inp.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowDown' && U.sug.length) { ev.preventDefault(); U.ativa = (U.ativa + 1) % U.sug.length; desenharSugestoesU(); }
+      else if (ev.key === 'ArrowUp' && U.sug.length) { ev.preventDefault(); U.ativa = (U.ativa - 1 + U.sug.length) % U.sug.length; desenharSugestoesU(); }
+      else if (ev.key === 'Enter') {
+        ev.preventDefault();
+        if (U.ativa >= 0 && U.sug[U.ativa]) { var l = U.sug[U.ativa].l; inp.value = ''; fecharSugestoesU(); selecionarLocalU(l, true); }
+      } else if (ev.key === 'Escape') fecharSugestoesU();
+    });
+    sec.addEventListener('click', function (ev) {
+      var t = ev.target, el;
+      if ((el = t.closest('[data-umodo]'))) {
+        U.modo = el.getAttribute('data-umodo');
+        $$('[data-umodo]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === el)); });
+        atualizarPontos();
+        return;
+      }
+      if ((el = t.closest('[data-uidx]'))) {
+        if (el.closest('#urnas-sugestoes')) { inp.value = ''; fecharSugestoesU(); }
+        if (U.dados) selecionarLocalU(U.dados.locais[Number(el.getAttribute('data-uidx'))], true);
+        return;
+      }
+      if ((el = t.closest('[data-uuf]'))) { selecionarUFUrnas(el.getAttribute('data-uuf')); return; }
+      if ((el = t.closest('[data-ulocal]'))) {
+        var p = el.getAttribute('data-ulocal').split('|');
+        abrirLocalU(p[0], p[1], p[2]);
+        return;
+      }
+      if ((el = t.closest('[data-uacao]'))) {
+        var a = el.getAttribute('data-uacao');
+        if (a === 'ver-brasil') selecionarUFUrnas('');
+        else if (a === 'ver-uf') { selecionarCidadeU(''); }
+        else if (a === 'fechar-local') {
+          U.local = null;
+          if (U.camada) U.camada.desenhar();
+          renderPainelU(); hashUrnas();
+          if (estreito()) $('#urnas-mapa').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    });
+    document.addEventListener('click', function (ev) { if (!ev.target.closest('.urnas-busca-campo')) fecharSugestoesU(); });
+    if (jaComeca || !('IntersectionObserver' in window)) { iniciarUrnas(); return; }
+    var io = new IntersectionObserver(function (entradas) {
+      if (entradas.some(function (e) { return e.isIntersecting; })) { io.disconnect(); iniciarUrnas(); }
+    }, { rootMargin: '700px 0px' });
+    io.observe(sec);
   }
 
   // ======================================================================
@@ -1546,11 +2454,14 @@ input[type="search"]:focus, select:focus { outline: 3px solid var(--azul); outli
     ligarDica();
     ligarEventos();
     var foco = aplicarEndereco();
+    ligarUrnas(foco === 'urnas');
     ciclo(function () {
       if (foco === 'cidade' && S.porChave.get(S.cidadeSel) && /^#cidade=/.test(location.hash)) {
         $('#cidade').scrollIntoView({ block: 'start' });
       } else if (foco === 'uf') {
         $('#mapa').scrollIntoView({ block: 'start' });
+      } else if (foco === 'urnas') {
+        $('#urnas').scrollIntoView({ block: 'start' });
       }
     });
     setInterval(function () { if (!document.hidden) ciclo(); }, ATUALIZAR_A_CADA_SEG * 1000);
