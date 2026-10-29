@@ -1,0 +1,56 @@
+name: Preparar dados por urna
+
+# Baixa os boletins de urna do 2º turno e os locais de votação (Portal de Dados
+# Abertos do TSE), prepara os arquivos do mapa por urna em dados/urnas/ e publica
+# o site. Rode quando quiser: Actions → Preparar dados por urna → Run workflow.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: dados-urnas
+  cancel-in-progress: false
+
+jobs:
+  preparar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write   # para guardar os arquivos no repositório
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar os dados por urna
+        run: python3 scripts/urnas.py
+
+      - name: Guardar os dados no repositório
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dados/urnas
+          if git diff --cached --quiet; then
+            echo "Nenhuma mudança nos dados por urna."
+          else
+            git commit -q -m "Dados por urna do 2º turno (boletins de urna do TSE)"
+            git pull -q --rebase origin "${GITHUB_REF_NAME}"
+            git push -q
+          fi
+
+      - name: Empacotar o site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  publicar:
+    needs: preparar
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publicar.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: publicar
+        uses: actions/deploy-pages@v4
