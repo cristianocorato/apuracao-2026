@@ -19,7 +19,7 @@ Site com os resultados oficiais do TSE, atualizado automaticamente, que compara 
 
 | Arquivo | Para que serve |
 |---|---|
-| `index.html` | O site inteiro (HTML, CSS e JavaScript; de fora vêm só a fonte, do Google Fonts, e, na parte das urnas, a biblioteca Leaflet e o mapa-base da CARTO) |
+| `index.html` | O site inteiro (HTML, CSS e JavaScript; de fora vêm só a fonte, do Google Fonts, e, na parte das urnas, a biblioteca Leaflet e o mapa-base do OpenStreetMap) |
 | `scripts/coletar.mjs` | Robô que baixa os arquivos oficiais do TSE e grava em `dados/` |
 | `.github/workflows/atualizar-dados.yml` | Roda o robô no GitHub e publica o site |
 | `scripts/urnas.py` | Prepara os dados urna por urna em `dados/urnas/` (boletins de urna e locais de votação) |
@@ -115,7 +115,7 @@ Ajustes opcionais (variáveis de ambiente do robô):
 
 - Dados: Tribunal Superior Eleitoral (resultados e Portal de Dados Abertos).
 - Mapa: malha estadual do IBGE, via projeto click_that_hood (licença MIT).
-- Mapa por urna: biblioteca Leaflet (licença BSD-2) e mapa-base © OpenStreetMap e CARTO.
+- Mapa por urna: biblioteca Leaflet (licença BSD-2) e mapa-base © colaboradores do OpenStreetMap (ODbL).
 - Fonte: Archivo, The Archivo Project Authors (SIL Open Font License 1.1), servida pelo Google Fonts.
 
 Site independente, sem ligação com o TSE, partidos ou campanhas.
