@@ -14,10 +14,11 @@ Gera:
                           depois das 17h
 
 Horários: a votação foi das 8h às 17h de Brasília em todo o país (no exterior,
-17h no horário local). A urna registra o horário local, por isso o script
-descobre o horário oficial de encerramento de cada cidade pelos próprios
-boletins (a maioria das urnas fecha na hora) e converte tudo para o horário de
-Brasília. No exterior, os horários ficam no horário local.
+17h no horário local); no dia, o STF prorrogou até as 19h a votação nas seções
+que ainda estavam abertas. A urna registra o horário local, por isso o script
+descobre o fuso de cada cidade pelo horário de abertura das urnas (8h de
+Brasília em todo o país) e converte tudo para o horário de Brasília. No
+exterior, os horários ficam no horário local.
 
 Só usa a biblioteca padrão do Python 3. Uso:  python3 scripts/urnas.py
 Para testar sem internet: URNAS_PASTA_LOCAL=/pasta/com/os/zips python3 scripts/urnas.py
@@ -396,6 +397,28 @@ def hora_oficial_local(encerramentos):
     return int(round(p25 / 3600))
 
 
+def hora_pela_abertura(aberturas):
+    """Hora oficial de encerramento no relógio local, pelo horário de abertura das urnas.
+
+    A votação abriu às 8h de Brasília em todo o país, e a prorrogação até as 19h não
+    mexeu na abertura. Se as urnas de uma cidade abriram às 6h no relógio local, o
+    fuso é de duas horas a menos e o encerramento oficial foi às 15h locais."""
+    validos = [s for s in aberturas if s is not None and 4 * 3600 <= s <= 12 * 3600]
+    if len(validos) < 1:
+        return None
+    return 17 + int(round(statistics.median(validos) / 3600)) - 8
+
+
+def horas_esperadas(uf, nome_mun):
+    """Horas locais de encerramento possíveis em cada lugar (fusos do Brasil)."""
+    if uf == 'pe' and 'NORONHA' in (nome_mun or '').upper():
+        return {18}
+    return {'ac': {15}, 'am': {15, 16}, 'ms': {16}, 'mt': {16}, 'ro': {16}, 'rr': {16}}.get(uf, {17})
+
+
+HORA_PADRAO = {'ac': 15, 'am': 16, 'ms': 16, 'mt': 16, 'ro': 16, 'rr': 16}
+
+
 # ---------------------------------------------------------------------------
 
 def main():
@@ -436,20 +459,37 @@ def main():
         if not PASTA_LOCAL:
             os.remove(caminho)
 
-        # Hora oficial de encerramento no relógio de cada cidade (fuso), pelos próprios boletins
+        # Hora oficial de encerramento no relógio de cada cidade (fuso). Vem do horário de
+        # abertura das urnas (8h de Brasília em todo o país): o de encerramento não serve,
+        # porque cidades inteiras ficaram abertas até as 19h com a prorrogação.
         por_mun = defaultdict(list)
+        ab_mun = defaultdict(list)
         for (mun, _, _), u in urnas.items():
             por_mun[mun].append(u['enc'])
-        hora_uf = hora_oficial_local([s for lst in por_mun.values() for s in lst])
+            ab_mun[mun].append(u['ab'])
         oficial = {}
-        for mun, lst in por_mun.items():
-            h = hora_oficial_local(lst) if sum(1 for s in lst if s is not None) >= 3 else None
-            oficial[mun] = h if h is not None else hora_uf
+        divergentes = {}
+        for mun in por_mun:
+            nome_mun = nomes_mun.get(mun, mun)
+            esperadas = horas_esperadas(uf, nome_mun)
+            pela_abertura = hora_pela_abertura(ab_mun[mun])
+            pelo_fim = hora_oficial_local(por_mun[mun]) if sum(1 for s in por_mun[mun] if s is not None) >= 3 else None
+            if pela_abertura in esperadas:
+                h = pela_abertura
+            elif pelo_fim in esperadas:
+                h = pelo_fim
+            elif uf == 'zz':
+                h = 17
+            else:
+                h = 18 if 'NORONHA' in nome_mun.upper() and uf == 'pe' else HORA_PADRAO.get(uf, 17)
+            if pela_abertura != h or (pelo_fim is not None and pelo_fim != h):
+                divergentes[nome_mun] = {'usada': h, 'pela_abertura': pela_abertura, 'pelo_encerramento': pelo_fim,
+                                         'urnas': len(por_mun[mun])}
+            oficial[mun] = h
         fusos[uf] = dict(Counter(oficial.values()))
-        esperadas = {'ac': {15}, 'am': {15, 16}, 'ms': {16}, 'mt': {16}, 'ro': {16}, 'rr': {16}}.get(uf, {17})
-        fora = {f'{nomes_mun.get(m, m)}': (h, len(por_mun[m])) for m, h in oficial.items() if h not in esperadas}
-        if fora:
-            log(f'  {uf.upper()}: cidades com hora oficial inferida fora do esperado {sorted(esperadas)} -> {fora}')
+        if divergentes:
+            log(f'  {uf.upper()}: {len(divergentes)} cidades em que abertura e encerramento indicam horas diferentes: '
+                + json.dumps(dict(list(divergentes.items())[:30]), ensure_ascii=False))
 
         if uf == 'zz':
             diferentes = {m: h for m, h in oficial.items() if h is not None and h != 17}
@@ -575,8 +615,9 @@ def main():
         dist[nome] = soma(grupo)
 
     # "depois_17h00": encerrada a partir de 17h00min01s; as outras, a partir do minuto indicado
-    limites = {'depois_17h00': 1, 'depois_17h01': 60, 'depois_17h05': 5 * 60, 'depois_17h15': 15 * 60,
-               'depois_17h30': 30 * 60, 'depois_18h00': 60 * 60}
+    limites = {'depois_17h00': 1, 'depois_17h01': 60, 'depois_17h05': 5 * 60, 'depois_17h10': 10 * 60,
+               'depois_17h15': 15 * 60, 'depois_17h30': 30 * 60, 'depois_18h00': 60 * 60,
+               'depois_18h55': 115 * 60, 'depois_19h00': 120 * 60}
     depois = {}
     for nome, lim in limites.items():
         grupo = [x for x in com_horario if x[5] >= lim]
@@ -603,8 +644,9 @@ def main():
     resumo = {
         'versao': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
         'fonte': 'TSE, boletins de urna do 2º turno (bweb_2t) e eleitorado por local de votação 2026',
-        'nota': 'Horário de encerramento convertido para Brasília; no exterior, horário local. '
-                '"depois_17h00" conta urnas encerradas a partir de 17h00min01s.',
+        'nota': 'Horário de encerramento convertido para Brasília (o fuso de cada cidade sai do horário de '
+                'abertura das urnas); no exterior, horário local. "depois_17h00" conta urnas encerradas a '
+                'partir de 17h00min01s; as outras, a partir do minuto indicado.',
         'candidatos': list(CANDIDATOS),
         'total': soma(todas),
         'sem_horario_de_encerramento': soma(sem_horario),
