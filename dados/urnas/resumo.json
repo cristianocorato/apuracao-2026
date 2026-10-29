@@ -1,5 +1,5 @@
 {
- "versao": "2026-10-29T11:02:35Z",
+ "versao": "2026-10-29T11:06:30Z",
  "fonte": "TSE, boletins de urna do 2º turno (bweb_2t) e eleitorado por local de votação 2026",
  "nota": "Horário de encerramento convertido para Brasília; no exterior, horário local. \"depois_17h00\" conta urnas encerradas a partir de 17h00min01s.",
  "candidatos": [
@@ -7,155 +7,2383 @@
   "22"
  ],
  "total": {
-  "urnas": 0,
-  "aptos": 0,
-  "comparecimento": 0,
-  "votos_13": 0,
-  "votos_22": 0,
-  "brancos": 0,
-  "nulos": 0
+  "urnas": 499205,
+  "aptos": 158744977,
+  "comparecimento": 128236074,
+  "votos_13": 64256232,
+  "votos_22": 59826041,
+  "brancos": 1430496,
+  "nulos": 2723305
  },
  "sem_horario_de_encerramento": {
-  "urnas": 0,
-  "aptos": 0,
-  "comparecimento": 0,
-  "votos_13": 0,
-  "votos_22": 0,
-  "brancos": 0,
-  "nulos": 0
+  "urnas": 27,
+  "aptos": 1952,
+  "comparecimento": 831,
+  "votos_13": 445,
+  "votos_22": 353,
+  "brancos": 12,
+  "nulos": 21
  },
  "faixas_de_encerramento": {
   "ate_17h00min59s": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0
+   "urnas": 125671,
+   "aptos": 38906686,
+   "comparecimento": 31612957,
+   "votos_13": 15009236,
+   "votos_22": 15612835,
+   "brancos": 351270,
+   "nulos": 639616
   },
   "17h01_a_17h04": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0
+   "urnas": 315370,
+   "aptos": 100091186,
+   "comparecimento": 80878015,
+   "votos_13": 40705159,
+   "votos_22": 37554675,
+   "brancos": 901267,
+   "nulos": 1716914
   },
   "17h05_a_17h14": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0
+   "urnas": 48999,
+   "aptos": 16467798,
+   "comparecimento": 13124260,
+   "votos_13": 7133524,
+   "votos_22": 5539373,
+   "brancos": 148580,
+   "nulos": 302783
   },
   "17h15_a_17h29": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0
+   "urnas": 1548,
+   "aptos": 538485,
+   "comparecimento": 414545,
+   "votos_13": 232973,
+   "votos_22": 167527,
+   "brancos": 4495,
+   "nulos": 9550
   },
   "17h30_a_17h59": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0
+   "urnas": 530,
+   "aptos": 176672,
+   "comparecimento": 140942,
+   "votos_13": 79644,
+   "votos_22": 56302,
+   "brancos": 1572,
+   "nulos": 3424
   },
   "18h00_a_18h59": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0
+   "urnas": 750,
+   "aptos": 266254,
+   "comparecimento": 213684,
+   "votos_13": 113751,
+   "votos_22": 92702,
+   "brancos": 2310,
+   "nulos": 4921
   },
   "19h_ou_depois": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0
+   "urnas": 6310,
+   "aptos": 2295944,
+   "comparecimento": 1850840,
+   "votos_13": 981500,
+   "votos_22": 802274,
+   "brancos": 20990,
+   "nulos": 46076
   }
  },
  "depois_do_horario": {
   "depois_17h00": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0,
-   "por_uf": {}
+   "urnas": 499170,
+   "aptos": 158740469,
+   "comparecimento": 128233237,
+   "votos_13": 64254190,
+   "votos_22": 59825333,
+   "brancos": 1430470,
+   "nulos": 2723244,
+   "por_uf": {
+    "ac": {
+     "urnas": 2270,
+     "aptos": 613715,
+     "comparecimento": 453654,
+     "votos_13": 144513,
+     "votos_22": 287715,
+     "brancos": 5016,
+     "nulos": 16410
+    },
+    "al": {
+     "urnas": 7101,
+     "aptos": 2442081,
+     "comparecimento": 1951632,
+     "votos_13": 1152621,
+     "votos_22": 744140,
+     "brancos": 16983,
+     "nulos": 37888
+    },
+    "am": {
+     "urnas": 8157,
+     "aptos": 2798661,
+     "comparecimento": 2192059,
+     "votos_13": 1145783,
+     "votos_22": 975245,
+     "brancos": 18324,
+     "nulos": 52707
+    },
+    "ap": {
+     "urnas": 1914,
+     "aptos": 576910,
+     "comparecimento": 429975,
+     "votos_13": 222968,
+     "votos_22": 198674,
+     "brancos": 3320,
+     "nulos": 5013
+    },
+    "ba": {
+     "urnas": 35476,
+     "aptos": 11312891,
+     "comparecimento": 9422047,
+     "votos_13": 6485258,
+     "votos_22": 2608761,
+     "brancos": 92721,
+     "nulos": 235307
+    },
+    "ce": {
+     "urnas": 23765,
+     "aptos": 6996521,
+     "comparecimento": 6024843,
+     "votos_13": 4036124,
+     "votos_22": 1819478,
+     "brancos": 56386,
+     "nulos": 112855
+    },
+    "df": {
+     "urnas": 6969,
+     "aptos": 2258995,
+     "comparecimento": 1868280,
+     "votos_13": 825224,
+     "votos_22": 979542,
+     "brancos": 22386,
+     "nulos": 41128
+    },
+    "es": {
+     "urnas": 9844,
+     "aptos": 2991515,
+     "comparecimento": 2409214,
+     "votos_13": 1001965,
+     "votos_22": 1294504,
+     "brancos": 33080,
+     "nulos": 79665
+    },
+    "go": {
+     "urnas": 15686,
+     "aptos": 5080385,
+     "comparecimento": 4047280,
+     "votos_13": 1585555,
+     "votos_22": 2345334,
+     "brancos": 43214,
+     "nulos": 73177
+    },
+    "ma": {
+     "urnas": 18093,
+     "aptos": 5183049,
+     "comparecimento": 4127771,
+     "votos_13": 2808231,
+     "votos_22": 1229971,
+     "brancos": 30855,
+     "nulos": 58714
+    },
+    "mg": {
+     "urnas": 52062,
+     "aptos": 16372144,
+     "comparecimento": 13044203,
+     "votos_13": 6351099,
+     "votos_22": 6241786,
+     "brancos": 164141,
+     "nulos": 287177
+    },
+    "ms": {
+     "urnas": 7106,
+     "aptos": 2024437,
+     "comparecimento": 1594460,
+     "votos_13": 628973,
+     "votos_22": 927892,
+     "brancos": 14958,
+     "nulos": 22637
+    },
+    "mt": {
+     "urnas": 8287,
+     "aptos": 2637879,
+     "comparecimento": 2085334,
+     "votos_13": 694167,
+     "votos_22": 1351099,
+     "brancos": 15431,
+     "nulos": 24637
+    },
+    "pa": {
+     "urnas": 20827,
+     "aptos": 6262063,
+     "comparecimento": 4989573,
+     "votos_13": 2690449,
+     "votos_22": 2199940,
+     "brancos": 36501,
+     "nulos": 62683
+    },
+    "pb": {
+     "urnas": 10712,
+     "aptos": 3248434,
+     "comparecimento": 2743560,
+     "votos_13": 1794059,
+     "votos_22": 865210,
+     "brancos": 25943,
+     "nulos": 58348
+    },
+    "pe": {
+     "urnas": 21410,
+     "aptos": 7220671,
+     "comparecimento": 6124461,
+     "votos_13": 4115916,
+     "votos_22": 1832199,
+     "brancos": 56744,
+     "nulos": 119602
+    },
+    "pi": {
+     "urnas": 10225,
+     "aptos": 2704695,
+     "comparecimento": 2239830,
+     "votos_13": 1653989,
+     "votos_22": 525859,
+     "brancos": 16137,
+     "nulos": 43845
+    },
+    "pr": {
+     "urnas": 27142,
+     "aptos": 8613628,
+     "comparecimento": 7059339,
+     "votos_13": 2566504,
+     "votos_22": 4291444,
+     "brancos": 82572,
+     "nulos": 118819
+    },
+    "rj": {
+     "urnas": 37675,
+     "aptos": 12857526,
+     "comparecimento": 10077449,
+     "votos_13": 4565393,
+     "votos_22": 5169033,
+     "brancos": 111682,
+     "nulos": 231341
+    },
+    "rn": {
+     "urnas": 8115,
+     "aptos": 2659867,
+     "comparecimento": 2232823,
+     "votos_13": 1413596,
+     "votos_22": 737409,
+     "brancos": 19939,
+     "nulos": 61879
+    },
+    "ro": {
+     "urnas": 4698,
+     "aptos": 1265926,
+     "comparecimento": 988489,
+     "votos_13": 294446,
+     "votos_22": 674382,
+     "brancos": 8361,
+     "nulos": 11300
+    },
+    "rr": {
+     "urnas": 1519,
+     "aptos": 401540,
+     "comparecimento": 308597,
+     "votos_13": 83505,
+     "votos_22": 219675,
+     "brancos": 2176,
+     "nulos": 3241
+    },
+    "rs": {
+     "urnas": 27547,
+     "aptos": 8522318,
+     "comparecimento": 6889638,
+     "votos_13": 2824552,
+     "votos_22": 3874378,
+     "brancos": 89463,
+     "nulos": 101245
+    },
+    "sc": {
+     "urnas": 17326,
+     "aptos": 5734687,
+     "comparecimento": 4762303,
+     "votos_13": 1418314,
+     "votos_22": 3220071,
+     "brancos": 48674,
+     "nulos": 75244
+    },
+    "se": {
+     "urnas": 5923,
+     "aptos": 1740093,
+     "comparecimento": 1466659,
+     "votos_13": 989041,
+     "votos_22": 433354,
+     "brancos": 13135,
+     "nulos": 31129
+    },
+    "sp": {
+     "urnas": 103656,
+     "aptos": 34123591,
+     "comparecimento": 27364389,
+     "votos_13": 12119274,
+     "votos_22": 14139178,
+     "brancos": 389606,
+     "nulos": 716331
+    },
+    "to": {
+     "urnas": 4384,
+     "aptos": 1182041,
+     "comparecimento": 954763,
+     "votos_13": 442962,
+     "votos_22": 467916,
+     "brancos": 8059,
+     "nulos": 35826
+    },
+    "zz": {
+     "urnas": 1281,
+     "aptos": 914206,
+     "comparecimento": 380612,
+     "votos_13": 199709,
+     "votos_22": 171144,
+     "brancos": 4663,
+     "nulos": 5096
+    }
+   }
   },
   "depois_17h01": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0,
-   "por_uf": {}
+   "urnas": 373507,
+   "aptos": 119836339,
+   "comparecimento": 96622286,
+   "votos_13": 49246551,
+   "votos_22": 44212853,
+   "brancos": 1079214,
+   "nulos": 2083668,
+   "por_uf": {
+    "ac": {
+     "urnas": 1579,
+     "aptos": 430626,
+     "comparecimento": 319751,
+     "votos_13": 101550,
+     "votos_22": 203129,
+     "brancos": 3611,
+     "nulos": 11461
+    },
+    "al": {
+     "urnas": 5824,
+     "aptos": 2013879,
+     "comparecimento": 1611999,
+     "votos_13": 947671,
+     "votos_22": 619031,
+     "brancos": 14081,
+     "nulos": 31216
+    },
+    "am": {
+     "urnas": 6743,
+     "aptos": 2321037,
+     "comparecimento": 1821451,
+     "votos_13": 947331,
+     "votos_22": 814961,
+     "brancos": 15337,
+     "nulos": 43822
+    },
+    "ap": {
+     "urnas": 1480,
+     "aptos": 448927,
+     "comparecimento": 335228,
+     "votos_13": 172488,
+     "votos_22": 156149,
+     "brancos": 2619,
+     "nulos": 3972
+    },
+    "ba": {
+     "urnas": 29039,
+     "aptos": 9355763,
+     "comparecimento": 7796005,
+     "votos_13": 5361096,
+     "votos_22": 2161312,
+     "brancos": 77285,
+     "nulos": 196312
+    },
+    "ce": {
+     "urnas": 16603,
+     "aptos": 4915171,
+     "comparecimento": 4235492,
+     "votos_13": 2821771,
+     "votos_22": 1294799,
+     "brancos": 39834,
+     "nulos": 79088
+    },
+    "df": {
+     "urnas": 6774,
+     "aptos": 2198448,
+     "comparecimento": 1818131,
+     "votos_13": 802899,
+     "votos_22": 953340,
+     "brancos": 21833,
+     "nulos": 40059
+    },
+    "es": {
+     "urnas": 6212,
+     "aptos": 1893366,
+     "comparecimento": 1523916,
+     "votos_13": 635083,
+     "votos_22": 817723,
+     "brancos": 20914,
+     "nulos": 50196
+    },
+    "go": {
+     "urnas": 9948,
+     "aptos": 3238080,
+     "comparecimento": 2577660,
+     "votos_13": 1019530,
+     "votos_22": 1483919,
+     "brancos": 27724,
+     "nulos": 46487
+    },
+    "ma": {
+     "urnas": 14632,
+     "aptos": 4191052,
+     "comparecimento": 3335339,
+     "votos_13": 2273870,
+     "votos_22": 989106,
+     "brancos": 24861,
+     "nulos": 47502
+    },
+    "mg": {
+     "urnas": 35109,
+     "aptos": 11081595,
+     "comparecimento": 8821523,
+     "votos_13": 4318623,
+     "votos_22": 4197574,
+     "brancos": 111180,
+     "nulos": 194146
+    },
+    "ms": {
+     "urnas": 4913,
+     "aptos": 1409496,
+     "comparecimento": 1108673,
+     "votos_13": 439067,
+     "votos_22": 643412,
+     "brancos": 10459,
+     "nulos": 15735
+    },
+    "mt": {
+     "urnas": 6768,
+     "aptos": 2159368,
+     "comparecimento": 1702956,
+     "votos_13": 560643,
+     "votos_22": 1109939,
+     "brancos": 12514,
+     "nulos": 19860
+    },
+    "pa": {
+     "urnas": 16327,
+     "aptos": 4911587,
+     "comparecimento": 3910896,
+     "votos_13": 2106314,
+     "votos_22": 1726899,
+     "brancos": 28627,
+     "nulos": 49056
+    },
+    "pb": {
+     "urnas": 7397,
+     "aptos": 2250883,
+     "comparecimento": 1899587,
+     "votos_13": 1236392,
+     "votos_22": 605110,
+     "brancos": 18143,
+     "nulos": 39942
+    },
+    "pe": {
+     "urnas": 18411,
+     "aptos": 6245112,
+     "comparecimento": 5301737,
+     "votos_13": 3537010,
+     "votos_22": 1612249,
+     "brancos": 49369,
+     "nulos": 103109
+    },
+    "pi": {
+     "urnas": 7531,
+     "aptos": 2001539,
+     "comparecimento": 1658121,
+     "votos_13": 1223892,
+     "votos_22": 389881,
+     "brancos": 11945,
+     "nulos": 32403
+    },
+    "pr": {
+     "urnas": 16778,
+     "aptos": 5366641,
+     "comparecimento": 4392897,
+     "votos_13": 1599713,
+     "votos_22": 2666605,
+     "brancos": 51840,
+     "nulos": 74739
+    },
+    "rj": {
+     "urnas": 32583,
+     "aptos": 11218420,
+     "comparecimento": 8790599,
+     "votos_13": 4006952,
+     "votos_22": 4484460,
+     "brancos": 97218,
+     "nulos": 201969
+    },
+    "rn": {
+     "urnas": 6255,
+     "aptos": 2046429,
+     "comparecimento": 1717576,
+     "votos_13": 1090097,
+     "votos_22": 564411,
+     "brancos": 15420,
+     "nulos": 47648
+    },
+    "ro": {
+     "urnas": 3913,
+     "aptos": 1056678,
+     "comparecimento": 824971,
+     "votos_13": 249788,
+     "votos_22": 558609,
+     "brancos": 7011,
+     "nulos": 9563
+    },
+    "rr": {
+     "urnas": 1214,
+     "aptos": 321541,
+     "comparecimento": 247638,
+     "votos_13": 66244,
+     "votos_22": 176997,
+     "brancos": 1776,
+     "nulos": 2621
+    },
+    "rs": {
+     "urnas": 15602,
+     "aptos": 4856510,
+     "comparecimento": 3908168,
+     "votos_13": 1658596,
+     "votos_22": 2140025,
+     "brancos": 51347,
+     "nulos": 58200
+    },
+    "sc": {
+     "urnas": 9187,
+     "aptos": 3056787,
+     "comparecimento": 2531067,
+     "votos_13": 763323,
+     "votos_22": 1701470,
+     "brancos": 25815,
+     "nulos": 40459
+    },
+    "se": {
+     "urnas": 4121,
+     "aptos": 1215135,
+     "comparecimento": 1023116,
+     "votos_13": 689776,
+     "votos_22": 302664,
+     "brancos": 9006,
+     "nulos": 21670
+    },
+    "sp": {
+     "urnas": 83930,
+     "aptos": 27820629,
+     "comparecimento": 22295350,
+     "votos_13": 10078614,
+     "votos_22": 11308475,
+     "brancos": 318593,
+     "nulos": 589668
+    },
+    "to": {
+     "urnas": 3382,
+     "aptos": 916564,
+     "comparecimento": 740363,
+     "votos_13": 343073,
+     "votos_22": 363195,
+     "brancos": 6299,
+     "nulos": 27796
+    },
+    "zz": {
+     "urnas": 1252,
+     "aptos": 895076,
+     "comparecimento": 372076,
+     "votos_13": 195145,
+     "votos_22": 167409,
+     "brancos": 4553,
+     "nulos": 4969
+    }
+   }
   },
   "depois_17h05": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0,
-   "por_uf": {}
+   "urnas": 58137,
+   "aptos": 19745153,
+   "comparecimento": 15744271,
+   "votos_13": 8541392,
+   "votos_22": 6658178,
+   "brancos": 177947,
+   "nulos": 366754,
+   "por_uf": {
+    "ac": {
+     "urnas": 111,
+     "aptos": 30572,
+     "comparecimento": 22205,
+     "votos_13": 7163,
+     "votos_22": 13999,
+     "brancos": 259,
+     "nulos": 784
+    },
+    "al": {
+     "urnas": 706,
+     "aptos": 246775,
+     "comparecimento": 197612,
+     "votos_13": 117484,
+     "votos_22": 74569,
+     "brancos": 1733,
+     "nulos": 3826
+    },
+    "am": {
+     "urnas": 1102,
+     "aptos": 382785,
+     "comparecimento": 303318,
+     "votos_13": 158606,
+     "votos_22": 134952,
+     "brancos": 2559,
+     "nulos": 7201
+    },
+    "ap": {
+     "urnas": 135,
+     "aptos": 40722,
+     "comparecimento": 30535,
+     "votos_13": 15895,
+     "votos_22": 14062,
+     "brancos": 219,
+     "nulos": 359
+    },
+    "ba": {
+     "urnas": 7682,
+     "aptos": 2693826,
+     "comparecimento": 2257682,
+     "votos_13": 1565426,
+     "votos_22": 605086,
+     "brancos": 23915,
+     "nulos": 63255
+    },
+    "ce": {
+     "urnas": 1422,
+     "aptos": 420277,
+     "comparecimento": 361257,
+     "votos_13": 239880,
+     "votos_22": 111215,
+     "brancos": 3452,
+     "nulos": 6710
+    },
+    "df": {
+     "urnas": 2139,
+     "aptos": 703379,
+     "comparecimento": 580035,
+     "votos_13": 256016,
+     "votos_22": 304108,
+     "brancos": 7026,
+     "nulos": 12885
+    },
+    "es": {
+     "urnas": 392,
+     "aptos": 118927,
+     "comparecimento": 95215,
+     "votos_13": 40155,
+     "votos_22": 50451,
+     "brancos": 1369,
+     "nulos": 3240
+    },
+    "go": {
+     "urnas": 689,
+     "aptos": 226577,
+     "comparecimento": 179882,
+     "votos_13": 73267,
+     "votos_22": 101457,
+     "brancos": 1936,
+     "nulos": 3222
+    },
+    "ma": {
+     "urnas": 2283,
+     "aptos": 638707,
+     "comparecimento": 505053,
+     "votos_13": 355298,
+     "votos_22": 139152,
+     "brancos": 3522,
+     "nulos": 7081
+    },
+    "mg": {
+     "urnas": 2491,
+     "aptos": 790218,
+     "comparecimento": 626144,
+     "votos_13": 305428,
+     "votos_22": 298947,
+     "brancos": 7954,
+     "nulos": 13815
+    },
+    "ms": {
+     "urnas": 332,
+     "aptos": 94318,
+     "comparecimento": 73496,
+     "votos_13": 32376,
+     "votos_22": 39482,
+     "brancos": 652,
+     "nulos": 986
+    },
+    "mt": {
+     "urnas": 888,
+     "aptos": 287199,
+     "comparecimento": 225034,
+     "votos_13": 75450,
+     "votos_22": 145457,
+     "brancos": 1608,
+     "nulos": 2519
+    },
+    "pa": {
+     "urnas": 1966,
+     "aptos": 586100,
+     "comparecimento": 466276,
+     "votos_13": 257392,
+     "votos_22": 199667,
+     "brancos": 3376,
+     "nulos": 5841
+    },
+    "pb": {
+     "urnas": 1091,
+     "aptos": 351840,
+     "comparecimento": 297150,
+     "votos_13": 176288,
+     "votos_22": 112450,
+     "brancos": 2786,
+     "nulos": 5626
+    },
+    "pe": {
+     "urnas": 3955,
+     "aptos": 1368334,
+     "comparecimento": 1163604,
+     "votos_13": 756471,
+     "votos_22": 373949,
+     "brancos": 10772,
+     "nulos": 22412
+    },
+    "pi": {
+     "urnas": 761,
+     "aptos": 200625,
+     "comparecimento": 166258,
+     "votos_13": 125293,
+     "votos_22": 36605,
+     "brancos": 1175,
+     "nulos": 3185
+    },
+    "pr": {
+     "urnas": 1114,
+     "aptos": 362281,
+     "comparecimento": 296311,
+     "votos_13": 109218,
+     "votos_22": 178305,
+     "brancos": 3607,
+     "nulos": 5181
+    },
+    "rj": {
+     "urnas": 9273,
+     "aptos": 3373757,
+     "comparecimento": 2641957,
+     "votos_13": 1226258,
+     "votos_22": 1325478,
+     "brancos": 28884,
+     "nulos": 61337
+    },
+    "rn": {
+     "urnas": 650,
+     "aptos": 212075,
+     "comparecimento": 177930,
+     "votos_13": 115036,
+     "votos_22": 56423,
+     "brancos": 1585,
+     "nulos": 4886
+    },
+    "ro": {
+     "urnas": 517,
+     "aptos": 143525,
+     "comparecimento": 112199,
+     "votos_13": 36025,
+     "votos_22": 73831,
+     "brancos": 957,
+     "nulos": 1386
+    },
+    "rr": {
+     "urnas": 118,
+     "aptos": 31133,
+     "comparecimento": 23861,
+     "votos_13": 7879,
+     "votos_22": 15603,
+     "brancos": 138,
+     "nulos": 241
+    },
+    "rs": {
+     "urnas": 850,
+     "aptos": 264199,
+     "comparecimento": 210739,
+     "votos_13": 96276,
+     "votos_22": 108540,
+     "brancos": 2713,
+     "nulos": 3210
+    },
+    "sc": {
+     "urnas": 402,
+     "aptos": 132475,
+     "comparecimento": 109314,
+     "votos_13": 33358,
+     "votos_22": 73014,
+     "brancos": 1140,
+     "nulos": 1802
+    },
+    "se": {
+     "urnas": 453,
+     "aptos": 135596,
+     "comparecimento": 113762,
+     "votos_13": 77698,
+     "votos_22": 32667,
+     "brancos": 974,
+     "nulos": 2423
+    },
+    "sp": {
+     "urnas": 15552,
+     "aptos": 5280184,
+     "comparecimento": 4214734,
+     "votos_13": 2126669,
+     "votos_22": 1909713,
+     "brancos": 60505,
+     "nulos": 117847
+    },
+    "to": {
+     "urnas": 330,
+     "aptos": 86700,
+     "comparecimento": 69659,
+     "votos_13": 34574,
+     "votos_22": 31717,
+     "brancos": 604,
+     "nulos": 2764
+    },
+    "zz": {
+     "urnas": 733,
+     "aptos": 542047,
+     "comparecimento": 223049,
+     "votos_13": 120513,
+     "votos_22": 97279,
+     "brancos": 2527,
+     "nulos": 2730
+    }
+   }
   },
   "depois_17h15": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0,
-   "por_uf": {}
+   "urnas": 9138,
+   "aptos": 3277355,
+   "comparecimento": 2620011,
+   "votos_13": 1407868,
+   "votos_22": 1118805,
+   "brancos": 29367,
+   "nulos": 63971,
+   "por_uf": {
+    "ac": {
+     "urnas": 3,
+     "aptos": 740,
+     "comparecimento": 529,
+     "votos_13": 124,
+     "votos_22": 382,
+     "brancos": 8,
+     "nulos": 15
+    },
+    "al": {
+     "urnas": 23,
+     "aptos": 7590,
+     "comparecimento": 6002,
+     "votos_13": 3927,
+     "votos_22": 1896,
+     "brancos": 62,
+     "nulos": 117
+    },
+    "am": {
+     "urnas": 53,
+     "aptos": 17715,
+     "comparecimento": 13922,
+     "votos_13": 8007,
+     "votos_22": 5460,
+     "brancos": 108,
+     "nulos": 347
+    },
+    "ap": {
+     "urnas": 5,
+     "aptos": 1650,
+     "comparecimento": 1251,
+     "votos_13": 571,
+     "votos_22": 656,
+     "brancos": 9,
+     "nulos": 15
+    },
+    "ba": {
+     "urnas": 1251,
+     "aptos": 452192,
+     "comparecimento": 380099,
+     "votos_13": 264337,
+     "votos_22": 101313,
+     "brancos": 3859,
+     "nulos": 10590
+    },
+    "ce": {
+     "urnas": 50,
+     "aptos": 14598,
+     "comparecimento": 12648,
+     "votos_13": 8489,
+     "votos_22": 3817,
+     "brancos": 97,
+     "nulos": 245
+    },
+    "df": {
+     "urnas": 100,
+     "aptos": 32161,
+     "comparecimento": 26593,
+     "votos_13": 11779,
+     "votos_22": 13914,
+     "brancos": 322,
+     "nulos": 578
+    },
+    "es": {
+     "urnas": 9,
+     "aptos": 2783,
+     "comparecimento": 2286,
+     "votos_13": 859,
+     "votos_22": 1313,
+     "brancos": 24,
+     "nulos": 90
+    },
+    "go": {
+     "urnas": 19,
+     "aptos": 6132,
+     "comparecimento": 4909,
+     "votos_13": 1836,
+     "votos_22": 2925,
+     "brancos": 53,
+     "nulos": 95
+    },
+    "ma": {
+     "urnas": 101,
+     "aptos": 26633,
+     "comparecimento": 20759,
+     "votos_13": 15564,
+     "votos_22": 4789,
+     "brancos": 115,
+     "nulos": 291
+    },
+    "mg": {
+     "urnas": 60,
+     "aptos": 18376,
+     "comparecimento": 14600,
+     "votos_13": 7684,
+     "votos_22": 6455,
+     "brancos": 172,
+     "nulos": 289
+    },
+    "ms": {
+     "urnas": 8,
+     "aptos": 2293,
+     "comparecimento": 1755,
+     "votos_13": 879,
+     "votos_22": 829,
+     "brancos": 11,
+     "nulos": 36
+    },
+    "mt": {
+     "urnas": 23,
+     "aptos": 8107,
+     "comparecimento": 6431,
+     "votos_13": 2289,
+     "votos_22": 4024,
+     "brancos": 48,
+     "nulos": 70
+    },
+    "pa": {
+     "urnas": 96,
+     "aptos": 27708,
+     "comparecimento": 22490,
+     "votos_13": 13568,
+     "votos_22": 8473,
+     "brancos": 161,
+     "nulos": 288
+    },
+    "pb": {
+     "urnas": 332,
+     "aptos": 116712,
+     "comparecimento": 99708,
+     "votos_13": 51764,
+     "votos_22": 45501,
+     "brancos": 831,
+     "nulos": 1612
+    },
+    "pe": {
+     "urnas": 787,
+     "aptos": 279610,
+     "comparecimento": 237844,
+     "votos_13": 151250,
+     "votos_22": 79922,
+     "brancos": 2205,
+     "nulos": 4467
+    },
+    "pi": {
+     "urnas": 27,
+     "aptos": 6903,
+     "comparecimento": 5780,
+     "votos_13": 4334,
+     "votos_22": 1277,
+     "brancos": 33,
+     "nulos": 136
+    },
+    "pr": {
+     "urnas": 24,
+     "aptos": 7711,
+     "comparecimento": 6190,
+     "votos_13": 2503,
+     "votos_22": 3512,
+     "brancos": 86,
+     "nulos": 89
+    },
+    "rj": {
+     "urnas": 3496,
+     "aptos": 1309259,
+     "comparecimento": 1029776,
+     "votos_13": 464530,
+     "votos_22": 529703,
+     "brancos": 11131,
+     "nulos": 24412
+    },
+    "rn": {
+     "urnas": 28,
+     "aptos": 9700,
+     "comparecimento": 8159,
+     "votos_13": 5190,
+     "votos_22": 2679,
+     "brancos": 60,
+     "nulos": 230
+    },
+    "ro": {
+     "urnas": 11,
+     "aptos": 3024,
+     "comparecimento": 2383,
+     "votos_13": 887,
+     "votos_22": 1451,
+     "brancos": 17,
+     "nulos": 28
+    },
+    "rr": {
+     "urnas": 9,
+     "aptos": 2174,
+     "comparecimento": 1576,
+     "votos_13": 407,
+     "votos_22": 1144,
+     "brancos": 8,
+     "nulos": 17
+    },
+    "rs": {
+     "urnas": 24,
+     "aptos": 7425,
+     "comparecimento": 5887,
+     "votos_13": 2990,
+     "votos_22": 2732,
+     "brancos": 75,
+     "nulos": 90
+    },
+    "sc": {
+     "urnas": 11,
+     "aptos": 3620,
+     "comparecimento": 2909,
+     "votos_13": 819,
+     "votos_22": 2017,
+     "brancos": 26,
+     "nulos": 47
+    },
+    "se": {
+     "urnas": 64,
+     "aptos": 20804,
+     "comparecimento": 17573,
+     "votos_13": 11284,
+     "votos_22": 5735,
+     "brancos": 165,
+     "nulos": 389
+    },
+    "sp": {
+     "urnas": 2446,
+     "aptos": 833948,
+     "comparecimento": 662636,
+     "votos_13": 358109,
+     "votos_22": 276024,
+     "brancos": 9407,
+     "nulos": 19096
+    },
+    "to": {
+     "urnas": 4,
+     "aptos": 841,
+     "comparecimento": 688,
+     "votos_13": 296,
+     "votos_22": 366,
+     "brancos": 8,
+     "nulos": 18
+    },
+    "zz": {
+     "urnas": 74,
+     "aptos": 56946,
+     "comparecimento": 24628,
+     "votos_13": 13592,
+     "votos_22": 10496,
+     "brancos": 266,
+     "nulos": 274
+    }
+   }
   },
   "depois_17h30": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0,
-   "por_uf": {}
+   "urnas": 7590,
+   "aptos": 2738870,
+   "comparecimento": 2205466,
+   "votos_13": 1174895,
+   "votos_22": 951278,
+   "brancos": 24872,
+   "nulos": 54421,
+   "por_uf": {
+    "ac": {
+     "urnas": 1,
+     "aptos": 265,
+     "comparecimento": 207,
+     "votos_13": 45,
+     "votos_22": 160,
+     "brancos": 1,
+     "nulos": 1
+    },
+    "al": {
+     "urnas": 7,
+     "aptos": 2531,
+     "comparecimento": 1990,
+     "votos_13": 1366,
+     "votos_22": 557,
+     "brancos": 27,
+     "nulos": 40
+    },
+    "am": {
+     "urnas": 9,
+     "aptos": 3071,
+     "comparecimento": 2279,
+     "votos_13": 1290,
+     "votos_22": 927,
+     "brancos": 13,
+     "nulos": 49
+    },
+    "ap": {
+     "urnas": 1,
+     "aptos": 358,
+     "comparecimento": 261,
+     "votos_13": 113,
+     "votos_22": 145,
+     "brancos": 2,
+     "nulos": 1
+    },
+    "ba": {
+     "urnas": 1051,
+     "aptos": 385249,
+     "comparecimento": 324605,
+     "votos_13": 225540,
+     "votos_22": 86621,
+     "brancos": 3321,
+     "nulos": 9123
+    },
+    "ce": {
+     "urnas": 14,
+     "aptos": 4164,
+     "comparecimento": 3554,
+     "votos_13": 2266,
+     "votos_22": 1194,
+     "brancos": 34,
+     "nulos": 60
+    },
+    "df": {
+     "urnas": 33,
+     "aptos": 9866,
+     "comparecimento": 8323,
+     "votos_13": 3872,
+     "votos_22": 4177,
+     "brancos": 99,
+     "nulos": 175
+    },
+    "es": {
+     "urnas": 4,
+     "aptos": 1241,
+     "comparecimento": 1042,
+     "votos_13": 371,
+     "votos_22": 624,
+     "brancos": 11,
+     "nulos": 36
+    },
+    "go": {
+     "urnas": 5,
+     "aptos": 1769,
+     "comparecimento": 1459,
+     "votos_13": 515,
+     "votos_22": 887,
+     "brancos": 22,
+     "nulos": 35
+    },
+    "ma": {
+     "urnas": 17,
+     "aptos": 4151,
+     "comparecimento": 3171,
+     "votos_13": 2538,
+     "votos_22": 570,
+     "brancos": 20,
+     "nulos": 43
+    },
+    "mg": {
+     "urnas": 17,
+     "aptos": 4442,
+     "comparecimento": 3506,
+     "votos_13": 1847,
+     "votos_22": 1554,
+     "brancos": 40,
+     "nulos": 65
+    },
+    "ms": {
+     "urnas": 1,
+     "aptos": 308,
+     "comparecimento": 260,
+     "votos_13": 102,
+     "votos_22": 150,
+     "brancos": 1,
+     "nulos": 7
+    },
+    "mt": {
+     "urnas": 13,
+     "aptos": 4824,
+     "comparecimento": 3868,
+     "votos_13": 1186,
+     "votos_22": 2602,
+     "brancos": 27,
+     "nulos": 53
+    },
+    "pa": {
+     "urnas": 19,
+     "aptos": 5712,
+     "comparecimento": 4728,
+     "votos_13": 2764,
+     "votos_22": 1844,
+     "brancos": 40,
+     "nulos": 80
+    },
+    "pb": {
+     "urnas": 316,
+     "aptos": 111761,
+     "comparecimento": 95534,
+     "votos_13": 49355,
+     "votos_22": 43862,
+     "brancos": 792,
+     "nulos": 1525
+    },
+    "pe": {
+     "urnas": 688,
+     "aptos": 244990,
+     "comparecimento": 208365,
+     "votos_13": 132273,
+     "votos_22": 70238,
+     "brancos": 1944,
+     "nulos": 3910
+    },
+    "pi": {
+     "urnas": 14,
+     "aptos": 3650,
+     "comparecimento": 3086,
+     "votos_13": 2224,
+     "votos_22": 768,
+     "brancos": 21,
+     "nulos": 73
+    },
+    "pr": {
+     "urnas": 3,
+     "aptos": 1016,
+     "comparecimento": 798,
+     "votos_13": 320,
+     "votos_22": 454,
+     "brancos": 9,
+     "nulos": 15
+    },
+    "rj": {
+     "urnas": 3320,
+     "aptos": 1246177,
+     "comparecimento": 979946,
+     "votos_13": 441677,
+     "votos_22": 504389,
+     "brancos": 10606,
+     "nulos": 23274
+    },
+    "rn": {
+     "urnas": 7,
+     "aptos": 2375,
+     "comparecimento": 2012,
+     "votos_13": 1201,
+     "votos_22": 754,
+     "brancos": 15,
+     "nulos": 42
+    },
+    "ro": {
+     "urnas": 2,
+     "aptos": 467,
+     "comparecimento": 370,
+     "votos_13": 103,
+     "votos_22": 260,
+     "brancos": 2,
+     "nulos": 5
+    },
+    "rs": {
+     "urnas": 9,
+     "aptos": 2861,
+     "comparecimento": 2224,
+     "votos_13": 1108,
+     "votos_22": 1050,
+     "brancos": 35,
+     "nulos": 31
+    },
+    "sc": {
+     "urnas": 3,
+     "aptos": 917,
+     "comparecimento": 748,
+     "votos_13": 206,
+     "votos_22": 535,
+     "brancos": 2,
+     "nulos": 5
+    },
+    "se": {
+     "urnas": 55,
+     "aptos": 17836,
+     "comparecimento": 15050,
+     "votos_13": 9602,
+     "votos_22": 4964,
+     "brancos": 147,
+     "nulos": 337
+    },
+    "sp": {
+     "urnas": 1974,
+     "aptos": 673825,
+     "comparecimento": 536188,
+     "votos_13": 292157,
+     "votos_22": 220992,
+     "brancos": 7625,
+     "nulos": 15414
+    },
+    "zz": {
+     "urnas": 7,
+     "aptos": 5044,
+     "comparecimento": 1892,
+     "votos_13": 854,
+     "votos_22": 1000,
+     "brancos": 16,
+     "nulos": 22
+    }
+   }
   },
   "depois_18h00": {
-   "urnas": 0,
-   "aptos": 0,
-   "comparecimento": 0,
-   "votos_13": 0,
-   "votos_22": 0,
-   "brancos": 0,
-   "nulos": 0,
-   "por_uf": {}
+   "urnas": 7060,
+   "aptos": 2562198,
+   "comparecimento": 2064524,
+   "votos_13": 1095251,
+   "votos_22": 894976,
+   "brancos": 23300,
+   "nulos": 50997,
+   "por_uf": {
+    "ac": {
+     "urnas": 1,
+     "aptos": 265,
+     "comparecimento": 207,
+     "votos_13": 45,
+     "votos_22": 160,
+     "brancos": 1,
+     "nulos": 1
+    },
+    "al": {
+     "urnas": 2,
+     "aptos": 692,
+     "comparecimento": 535,
+     "votos_13": 362,
+     "votos_22": 154,
+     "brancos": 7,
+     "nulos": 12
+    },
+    "am": {
+     "urnas": 1,
+     "aptos": 430,
+     "comparecimento": 313,
+     "votos_13": 185,
+     "votos_22": 119,
+     "brancos": 0,
+     "nulos": 9
+    },
+    "ba": {
+     "urnas": 994,
+     "aptos": 364911,
+     "comparecimento": 307824,
+     "votos_13": 214043,
+     "votos_22": 81968,
+     "brancos": 3154,
+     "nulos": 8659
+    },
+    "ce": {
+     "urnas": 1,
+     "aptos": 328,
+     "comparecimento": 262,
+     "votos_13": 227,
+     "votos_22": 28,
+     "brancos": 3,
+     "nulos": 4
+    },
+    "df": {
+     "urnas": 17,
+     "aptos": 4568,
+     "comparecimento": 3842,
+     "votos_13": 1718,
+     "votos_22": 1994,
+     "brancos": 53,
+     "nulos": 77
+    },
+    "es": {
+     "urnas": 2,
+     "aptos": 615,
+     "comparecimento": 530,
+     "votos_13": 167,
+     "votos_22": 338,
+     "brancos": 5,
+     "nulos": 20
+    },
+    "go": {
+     "urnas": 2,
+     "aptos": 758,
+     "comparecimento": 625,
+     "votos_13": 181,
+     "votos_22": 419,
+     "brancos": 7,
+     "nulos": 18
+    },
+    "ma": {
+     "urnas": 4,
+     "aptos": 1096,
+     "comparecimento": 886,
+     "votos_13": 720,
+     "votos_22": 148,
+     "brancos": 4,
+     "nulos": 14
+    },
+    "mg": {
+     "urnas": 4,
+     "aptos": 922,
+     "comparecimento": 762,
+     "votos_13": 311,
+     "votos_22": 437,
+     "brancos": 6,
+     "nulos": 8
+    },
+    "mt": {
+     "urnas": 9,
+     "aptos": 3464,
+     "comparecimento": 2778,
+     "votos_13": 804,
+     "votos_22": 1919,
+     "brancos": 17,
+     "nulos": 38
+    },
+    "pa": {
+     "urnas": 9,
+     "aptos": 2975,
+     "comparecimento": 2551,
+     "votos_13": 1373,
+     "votos_22": 1102,
+     "brancos": 26,
+     "nulos": 50
+    },
+    "pb": {
+     "urnas": 312,
+     "aptos": 110480,
+     "comparecimento": 94451,
+     "votos_13": 48699,
+     "votos_22": 43473,
+     "brancos": 781,
+     "nulos": 1498
+    },
+    "pe": {
+     "urnas": 671,
+     "aptos": 239087,
+     "comparecimento": 203342,
+     "votos_13": 128986,
+     "votos_22": 68627,
+     "brancos": 1899,
+     "nulos": 3830
+    },
+    "pi": {
+     "urnas": 10,
+     "aptos": 2668,
+     "comparecimento": 2248,
+     "votos_13": 1644,
+     "votos_22": 540,
+     "brancos": 14,
+     "nulos": 50
+    },
+    "pr": {
+     "urnas": 1,
+     "aptos": 342,
+     "comparecimento": 285,
+     "votos_13": 93,
+     "votos_22": 180,
+     "brancos": 4,
+     "nulos": 8
+    },
+    "rj": {
+     "urnas": 3192,
+     "aptos": 1206331,
+     "comparecimento": 947877,
+     "votos_13": 424249,
+     "votos_22": 490679,
+     "brancos": 10333,
+     "nulos": 22616
+    },
+    "rn": {
+     "urnas": 3,
+     "aptos": 1059,
+     "comparecimento": 891,
+     "votos_13": 527,
+     "votos_22": 346,
+     "brancos": 5,
+     "nulos": 13
+    },
+    "ro": {
+     "urnas": 1,
+     "aptos": 231,
+     "comparecimento": 183,
+     "votos_13": 61,
+     "votos_22": 120,
+     "brancos": 1,
+     "nulos": 1
+    },
+    "rs": {
+     "urnas": 4,
+     "aptos": 1270,
+     "comparecimento": 999,
+     "votos_13": 516,
+     "votos_22": 459,
+     "brancos": 13,
+     "nulos": 11
+    },
+    "sc": {
+     "urnas": 1,
+     "aptos": 370,
+     "comparecimento": 290,
+     "votos_13": 83,
+     "votos_22": 203,
+     "brancos": 2,
+     "nulos": 2
+    },
+    "se": {
+     "urnas": 54,
+     "aptos": 17618,
+     "comparecimento": 14868,
+     "votos_13": 9460,
+     "votos_22": 4927,
+     "brancos": 146,
+     "nulos": 335
+    },
+    "sp": {
+     "urnas": 1762,
+     "aptos": 599437,
+     "comparecimento": 476859,
+     "votos_13": 260145,
+     "votos_22": 196198,
+     "brancos": 6810,
+     "nulos": 13706
+    },
+    "zz": {
+     "urnas": 3,
+     "aptos": 2281,
+     "comparecimento": 1116,
+     "votos_13": 652,
+     "votos_22": 438,
+     "brancos": 9,
+     "nulos": 17
+    }
+   }
   }
  },
- "urnas_por_minuto_depois_das_17h": {},
- "ultimas_a_fechar": [],
- "hora_oficial_local_por_uf": {},
- "tipos_de_urna": {},
+ "urnas_por_minuto_depois_das_17h": {
+  "-30": 4,
+  "-27": 1,
+  "-8": 1,
+  "-1": 2,
+  "0": 125663,
+  "1": 154607,
+  "2": 83299,
+  "3": 48067,
+  "4": 29397,
+  "5": 18955,
+  "6": 11665,
+  "7": 6969,
+  "8": 4266,
+  "9": 2588,
+  "10": 1781,
+  "11": 1163,
+  "12": 745,
+  "13": 513,
+  "14": 354,
+  "15": 269,
+  "16": 200,
+  "17": 186,
+  "18": 137,
+  "19": 125,
+  "20": 99,
+  "21": 101,
+  "22": 93,
+  "23": 68,
+  "24": 58,
+  "25": 57,
+  "26": 51,
+  "27": 35,
+  "28": 31,
+  "29": 38,
+  "30": 32,
+  "31": 30,
+  "32": 31,
+  "33": 23,
+  "34": 16,
+  "35": 22,
+  "36": 14,
+  "37": 18,
+  "38": 16,
+  "39": 8,
+  "40": 12,
+  "41": 11,
+  "42": 9,
+  "43": 10,
+  "44": 6,
+  "45": 4,
+  "46": 12,
+  "47": 24,
+  "48": 23,
+  "49": 22,
+  "50": 17,
+  "51": 15,
+  "52": 13,
+  "53": 11,
+  "54": 22,
+  "55": 20,
+  "56": 33,
+  "57": 19,
+  "58": 20,
+  "59": 17,
+  "60": 18,
+  "61": 11,
+  "62": 22,
+  "63": 16,
+  "64": 17,
+  "65": 21,
+  "66": 12,
+  "67": 16,
+  "68": 16,
+  "69": 13,
+  "70": 7,
+  "71": 7,
+  "72": 13,
+  "73": 18,
+  "74": 9,
+  "75": 9,
+  "76": 13,
+  "77": 9,
+  "78": 11,
+  "79": 13,
+  "80": 5,
+  "81": 4,
+  "82": 1,
+  "83": 6,
+  "84": 12,
+  "85": 15,
+  "86": 5,
+  "87": 6,
+  "88": 4,
+  "89": 4,
+  "90": 3,
+  "91": 2,
+  "92": 1,
+  "95": 5,
+  "96": 1,
+  "97": 2,
+  "99": 2,
+  "100": 1,
+  "101": 1,
+  "102": 3,
+  "104": 1,
+  "105": 4,
+  "106": 1,
+  "107": 1,
+  "108": 2,
+  "109": 1,
+  "110": 5,
+  "111": 2,
+  "112": 6,
+  "113": 4,
+  "114": 10,
+  "115": 8,
+  "116": 11,
+  "117": 22,
+  "118": 74,
+  "119": 244,
+  "120": 1973,
+  "121": 1470,
+  "122": 928,
+  "123": 681,
+  "124": 485,
+  "125": 281,
+  "126": 190,
+  "127": 111,
+  "128": 51,
+  "129": 45,
+  "130": 29,
+  "131": 8,
+  "132": 6,
+  "133": 7,
+  "134": 9,
+  "135": 3,
+  "136": 3,
+  "137": 2,
+  "138": 5,
+  "140": 3,
+  "141": 1,
+  "146": 1,
+  "152": 2,
+  "154": 2,
+  "156": 2,
+  "157": 1,
+  "159": 1,
+  "161": 1,
+  "163": 2,
+  "164": 1,
+  "165": 1,
+  "167": 1,
+  "171": 1,
+  "177": 1,
+  "225": 1,
+  "300": 1
+ },
+ "ultimas_a_fechar": [
+  {
+   "uf": "mg",
+   "municipio": "41882",
+   "zona": 320,
+   "secao": 185,
+   "encerramento": "23:04:42",
+   "minutos_depois": 364.7,
+   "local": "ESCOLA MUNICIPAL GUIMARÃES ROSA",
+   "endereco": "DISTRITO VILA BOM JESUS DE MINAS",
+   "bairro": "ZONA RURAL",
+   "aptos": 102,
+   "comparecimento": 96,
+   "votos_13": 78,
+   "votos_22": 18
+  },
+  {
+   "uf": "rj",
+   "municipio": "58319",
+   "zona": 42,
+   "secao": 108,
+   "encerramento": "20:45:31",
+   "minutos_depois": 225.5,
+   "local": "ESCOLA MUNICIPALIZADA PEDRO JOSE DE ANDRADE",
+   "endereco": "VARGEM GRANDE",
+   "bairro": "VARGEM GRANDE",
+   "aptos": 280,
+   "comparecimento": 221,
+   "votos_13": 55,
+   "votos_22": 158
+  },
+  {
+   "uf": "rj",
+   "municipio": "60011",
+   "zona": 179,
+   "secao": 50,
+   "encerramento": "19:57:46",
+   "minutos_depois": 177.8,
+   "local": "ESCOLA MUNICIPAL AVERTANO ROCHA",
+   "endereco": "RUA REBOUCAS 97",
+   "bairro": "CIDADE DE DEUS",
+   "aptos": 420,
+   "comparecimento": 356,
+   "votos_13": 212,
+   "votos_22": 123
+  },
+  {
+   "uf": "ba",
+   "municipio": "38652",
+   "zona": 99,
+   "secao": 190,
+   "encerramento": "19:51:49",
+   "minutos_depois": 171.8,
+   "local": "PREDIO ESCOLAR FRANCELINO TAVARES DA COSTA",
+   "endereco": "POVOADO CANABRAVA - ZONA RURAL",
+   "bairro": "POVOADO CANABRAVA",
+   "aptos": 218,
+   "comparecimento": 177,
+   "votos_13": 146,
+   "votos_22": 28
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 397,
+   "encerramento": "19:47:21",
+   "minutos_depois": 167.3,
+   "local": "CIEP MUNICIPALIZADO RUBENS MACHADO",
+   "endereco": "RUA NOSSA SENHORA DAS GRAÇAS, 491",
+   "bairro": "VERDE VALE",
+   "aptos": 319,
+   "comparecimento": 209,
+   "votos_13": 93,
+   "votos_22": 109
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 143,
+   "encerramento": "19:45:33",
+   "minutos_depois": 165.6,
+   "local": "ESCOLA MUNICIPAL OCTACÍLIA DA SILVA STOCKLER MENDONÇA (ANTIGA CEARÁ)",
+   "endereco": "RUA DA PEDREIRA, 1421",
+   "bairro": "VILA BRASÍLIA",
+   "aptos": 270,
+   "comparecimento": 193,
+   "votos_13": 86,
+   "votos_22": 99
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 75,
+   "encerramento": "19:44:21",
+   "minutos_depois": 164.3,
+   "local": "ESCOLA MUNICIPAL OCTACÍLIA DA SILVA STOCKLER MENDONÇA (ANTIGA CEARÁ)",
+   "endereco": "RUA DA PEDREIRA, 1421",
+   "bairro": "VILA BRASÍLIA",
+   "aptos": 317,
+   "comparecimento": 228,
+   "votos_13": 100,
+   "votos_22": 117
+  },
+  {
+   "uf": "es",
+   "municipio": "57932",
+   "zona": 9,
+   "secao": 112,
+   "encerramento": "19:43:21",
+   "minutos_depois": 163.3,
+   "local": "PARÓQUIA ALIANÇA IECLB - COMUNIDADE MARTIM LUTERO, RIO DAS PEDRAS, ZON",
+   "endereco": "RIO DAS PEDRAS",
+   "bairro": "ZONA RURAL",
+   "aptos": 340,
+   "comparecimento": 304,
+   "votos_13": 60,
+   "votos_22": 229
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 265,
+   "encerramento": "19:43:14",
+   "minutos_depois": 163.2,
+   "local": "CIEP MUNICIPALIZADO RUBENS MACHADO",
+   "endereco": "RUA NOSSA SENHORA DAS GRAÇAS, 491",
+   "bairro": "VERDE VALE",
+   "aptos": 321,
+   "comparecimento": 215,
+   "votos_13": 96,
+   "votos_22": 107
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 244,
+   "encerramento": "19:41:24",
+   "minutos_depois": 161.4,
+   "local": "CIEP MUNICIPALIZADO RUBENS MACHADO",
+   "endereco": "RUA NOSSA SENHORA DAS GRAÇAS, 491",
+   "bairro": "VERDE VALE",
+   "aptos": 321,
+   "comparecimento": 234,
+   "votos_13": 95,
+   "votos_22": 131
+  },
+  {
+   "uf": "rj",
+   "municipio": "60011",
+   "zona": 122,
+   "secao": 298,
+   "encerramento": "19:39:57",
+   "minutos_depois": 159.9,
+   "local": "ESCOLA MUNICIPAL SAMUEL WAINER",
+   "endereco": "RUA ALEXANDRE AMARAL, 501",
+   "bairro": "SANTÍSSIMO",
+   "aptos": 446,
+   "comparecimento": 371,
+   "votos_13": 152,
+   "votos_22": 205
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 77,
+   "encerramento": "19:37:19",
+   "minutos_depois": 157.3,
+   "local": "ESCOLA MUNICIPAL OCTACÍLIA DA SILVA STOCKLER MENDONÇA (ANTIGA CEARÁ)",
+   "endereco": "RUA DA PEDREIRA, 1421",
+   "bairro": "VILA BRASÍLIA",
+   "aptos": 311,
+   "comparecimento": 198,
+   "votos_13": 97,
+   "votos_22": 91
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 395,
+   "encerramento": "19:36:52",
+   "minutos_depois": 156.9,
+   "local": "CIEP MUNICIPALIZADO RUBENS MACHADO",
+   "endereco": "RUA NOSSA SENHORA DAS GRAÇAS, 491",
+   "bairro": "VERDE VALE",
+   "aptos": 318,
+   "comparecimento": 220,
+   "votos_13": 116,
+   "votos_22": 96
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 219,
+   "encerramento": "19:36:14",
+   "minutos_depois": 156.2,
+   "local": "ESCOLA MUNICIPAL OCTACÍLIA DA SILVA STOCKLER MENDONÇA (ANTIGA CEARÁ)",
+   "endereco": "RUA DA PEDREIRA, 1421",
+   "bairro": "VILA BRASÍLIA",
+   "aptos": 265,
+   "comparecimento": 187,
+   "votos_13": 74,
+   "votos_22": 107
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 76,
+   "encerramento": "19:34:27",
+   "minutos_depois": 154.4,
+   "local": "ESCOLA MUNICIPAL OCTACÍLIA DA SILVA STOCKLER MENDONÇA (ANTIGA CEARÁ)",
+   "endereco": "RUA DA PEDREIRA, 1421",
+   "bairro": "VILA BRASÍLIA",
+   "aptos": 317,
+   "comparecimento": 227,
+   "votos_13": 120,
+   "votos_22": 100
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 158,
+   "encerramento": "19:34:16",
+   "minutos_depois": 154.3,
+   "local": "ESCOLA MUNICIPAL OCTACÍLIA DA SILVA STOCKLER MENDONÇA (ANTIGA CEARÁ)",
+   "endereco": "RUA DA PEDREIRA, 1421",
+   "bairro": "VILA BRASÍLIA",
+   "aptos": 271,
+   "comparecimento": 195,
+   "votos_13": 84,
+   "votos_22": 104
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 398,
+   "encerramento": "19:32:49",
+   "minutos_depois": 152.8,
+   "local": "CIEP MUNICIPALIZADO RUBENS MACHADO",
+   "endereco": "RUA NOSSA SENHORA DAS GRAÇAS, 491",
+   "bairro": "VERDE VALE",
+   "aptos": 319,
+   "comparecimento": 202,
+   "votos_13": 94,
+   "votos_22": 100
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 396,
+   "encerramento": "19:32:39",
+   "minutos_depois": 152.7,
+   "local": "CIEP MUNICIPALIZADO RUBENS MACHADO",
+   "endereco": "RUA NOSSA SENHORA DAS GRAÇAS, 491",
+   "bairro": "VERDE VALE",
+   "aptos": 316,
+   "comparecimento": 217,
+   "votos_13": 106,
+   "votos_22": 101
+  },
+  {
+   "uf": "rj",
+   "municipio": "59277",
+   "zona": 146,
+   "secao": 174,
+   "encerramento": "19:26:17",
+   "minutos_depois": 146.3,
+   "local": "ESCOLA MUNICIPAL ADOLPHO BERANGER JUNIOR",
+   "endereco": "RUA PADRE JOSÉ DE ANCHIETA, SN (DENTRO DO ESTÁDIO MUNICIPAL",
+   "bairro": "CENTRO",
+   "aptos": 348,
+   "comparecimento": 255,
+   "votos_13": 110,
+   "votos_22": 135
+  },
+  {
+   "uf": "ba",
+   "municipio": "38490",
+   "zona": 6,
+   "secao": 320,
+   "encerramento": "19:21:19",
+   "minutos_depois": 141.3,
+   "local": "COLÉGIO ESTADUAL LUIZ VIANA (ANTIGA ESCOLA MANOEL VITORINO)",
+   "endereco": "RUA WALDEMAR FALCÃO, 7 - ZONA URBANA",
+   "bairro": "BROTAS",
+   "aptos": 386,
+   "comparecimento": 322,
+   "votos_13": 206,
+   "votos_22": 105
+  },
+  {
+   "uf": "pe",
+   "municipio": "30015",
+   "zona": 4,
+   "secao": 372,
+   "encerramento": "19:20:56",
+   "minutos_depois": 140.9,
+   "local": "ESCOLA DO ARQUIPÉLAGO DE FERNANDO DE NORONHA",
+   "endereco": "ALTO DA FLORESTA NOVA, S/N",
+   "bairro": "VILA FLORESTA NOVA",
+   "aptos": 384,
+   "comparecimento": 223,
+   "votos_13": 136,
+   "votos_22": 83
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 159,
+   "encerramento": "19:20:13",
+   "minutos_depois": 140.2,
+   "local": "ESCOLA MUNICIPAL OCTACÍLIA DA SILVA STOCKLER MENDONÇA (ANTIGA CEARÁ)",
+   "endereco": "RUA DA PEDREIRA, 1421",
+   "bairro": "VILA BRASÍLIA",
+   "aptos": 314,
+   "comparecimento": 238,
+   "votos_13": 115,
+   "votos_22": 116
+  },
+  {
+   "uf": "pe",
+   "municipio": "24570",
+   "zona": 101,
+   "secao": 699,
+   "encerramento": "19:20:09",
+   "minutos_depois": 140.2,
+   "local": "FACULDADE DOS GUARARAPES - UNIFG",
+   "endereco": "RUA COMENDADOR JOSÉ DIDIER, 27",
+   "bairro": "PIEDADE",
+   "aptos": 402,
+   "comparecimento": 321,
+   "votos_13": 181,
+   "votos_22": 132
+  },
+  {
+   "uf": "rj",
+   "municipio": "59250",
+   "zona": 90,
+   "secao": 215,
+   "encerramento": "19:18:57",
+   "minutos_depois": 138.9,
+   "local": "ESCOLA MUNICIPAL OCTACÍLIA DA SILVA STOCKLER MENDONÇA (ANTIGA CEARÁ)",
+   "endereco": "RUA DA PEDREIRA, 1421",
+   "bairro": "VILA BRASÍLIA",
+   "aptos": 313,
+   "comparecimento": 212,
+   "votos_13": 92,
+   "votos_22": 113
+  },
+  {
+   "uf": "ba",
+   "municipio": "38490",
+   "zona": 15,
+   "secao": 414,
+   "encerramento": "19:18:46",
+   "minutos_depois": 138.8,
+   "local": "COLÉGIO ESTADUAL DESEMBARGADOR PEDRO RIBEIRO",
+   "endereco": "RUA ANA MARIANI BITTENCOURT, N. 7",
+   "bairro": "SÃO CAETANO",
+   "aptos": 358,
+   "comparecimento": 314,
+   "votos_13": 221,
+   "votos_22": 76
+  }
+ ],
+ "hora_oficial_local_por_uf": {
+  "ac": {
+   "15": 22
+  },
+  "al": {
+   "17": 102
+  },
+  "am": {
+   "16": 51,
+   "15": 11
+  },
+  "ap": {
+   "17": 16
+  },
+  "ba": {
+   "17": 417
+  },
+  "ce": {
+   "17": 184
+  },
+  "df": {
+   "17": 1
+  },
+  "es": {
+   "17": 78
+  },
+  "go": {
+   "17": 246
+  },
+  "ma": {
+   "17": 217
+  },
+  "mg": {
+   "17": 853
+  },
+  "ms": {
+   "16": 79
+  },
+  "mt": {
+   "16": 142
+  },
+  "pa": {
+   "17": 144
+  },
+  "pb": {
+   "17": 223
+  },
+  "pe": {
+   "17": 182,
+   "18": 2,
+   "19": 1
+  },
+  "pi": {
+   "17": 224
+  },
+  "pr": {
+   "17": 399
+  },
+  "rj": {
+   "17": 92
+  },
+  "rn": {
+   "17": 167
+  },
+  "ro": {
+   "16": 52
+  },
+  "rr": {
+   "16": 15
+  },
+  "rs": {
+   "17": 497
+  },
+  "sc": {
+   "17": 295
+  },
+  "se": {
+   "17": 75
+  },
+  "sp": {
+   "17": 645
+  },
+  "to": {
+   "17": 139
+  },
+  "zz": {
+   "17": 144
+  }
+ },
+ "tipos_de_urna": {
+  "Apurada": 499205
+ },
  "urnas_sem_local_identificado": 0,
- "urnas_em_locais_sem_coordenada": 0,
- "estados": {}
+ "urnas_em_locais_sem_coordenada": 3180,
+ "estados": {
+  "ac": {
+   "urnas": 2270,
+   "locais": 660,
+   "arquivo_mb": 0.2
+  },
+  "al": {
+   "urnas": 7101,
+   "locais": 1076,
+   "arquivo_mb": 0.47
+  },
+  "am": {
+   "urnas": 8157,
+   "locais": 1619,
+   "arquivo_mb": 0.61
+  },
+  "ap": {
+   "urnas": 1914,
+   "locais": 370,
+   "arquivo_mb": 0.14
+  },
+  "ba": {
+   "urnas": 35476,
+   "locais": 9196,
+   "arquivo_mb": 3.18
+  },
+  "ce": {
+   "urnas": 23765,
+   "locais": 6701,
+   "arquivo_mb": 2.07
+  },
+  "df": {
+   "urnas": 6969,
+   "locais": 622,
+   "arquivo_mb": 0.38
+  },
+  "es": {
+   "urnas": 9844,
+   "locais": 1765,
+   "arquivo_mb": 0.69
+  },
+  "go": {
+   "urnas": 15686,
+   "locais": 2475,
+   "arquivo_mb": 1.1
+  },
+  "ma": {
+   "urnas": 18093,
+   "locais": 5779,
+   "arquivo_mb": 1.79
+  },
+  "mg": {
+   "urnas": 52062,
+   "locais": 10060,
+   "arquivo_mb": 3.88
+  },
+  "ms": {
+   "urnas": 7106,
+   "locais": 1021,
+   "arquivo_mb": 0.45
+  },
+  "mt": {
+   "urnas": 8287,
+   "locais": 1500,
+   "arquivo_mb": 0.6
+  },
+  "pa": {
+   "urnas": 20827,
+   "locais": 5786,
+   "arquivo_mb": 1.79
+  },
+  "pb": {
+   "urnas": 10712,
+   "locais": 1836,
+   "arquivo_mb": 0.76
+  },
+  "pe": {
+   "urnas": 21418,
+   "locais": 3388,
+   "arquivo_mb": 1.44
+  },
+  "pi": {
+   "urnas": 10225,
+   "locais": 3348,
+   "arquivo_mb": 0.98
+  },
+  "pr": {
+   "urnas": 27142,
+   "locais": 4789,
+   "arquivo_mb": 1.97
+  },
+  "rj": {
+   "urnas": 37675,
+   "locais": 5044,
+   "arquivo_mb": 2.41
+  },
+  "rn": {
+   "urnas": 8115,
+   "locais": 1565,
+   "arquivo_mb": 0.6
+  },
+  "ro": {
+   "urnas": 4698,
+   "locais": 670,
+   "arquivo_mb": 0.31
+  },
+  "rr": {
+   "urnas": 1519,
+   "locais": 355,
+   "arquivo_mb": 0.12
+  },
+  "rs": {
+   "urnas": 27547,
+   "locais": 7773,
+   "arquivo_mb": 2.45
+  },
+  "sc": {
+   "urnas": 17326,
+   "locais": 3450,
+   "arquivo_mb": 1.31
+  },
+  "se": {
+   "urnas": 5923,
+   "locais": 1208,
+   "arquivo_mb": 0.45
+  },
+  "sp": {
+   "urnas": 103656,
+   "locais": 11070,
+   "arquivo_mb": 6.12
+  },
+  "to": {
+   "urnas": 4384,
+   "locais": 920,
+   "arquivo_mb": 0.34
+  },
+  "zz": {
+   "urnas": 1308,
+   "locais": 169,
+   "arquivo_mb": 0.09
+  }
+ }
 }
