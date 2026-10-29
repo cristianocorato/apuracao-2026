@@ -12,6 +12,8 @@ Gera:
   dados/urnas/<uf>.json   locais de votação do estado, cada um com as suas urnas
   dados/urnas/resumo.json totais, horários de encerramento e urnas encerradas
                           depois das 17h
+  dados/urnas/tardias.json locais com urna encerrada a partir de 17h10, para o
+                          mapa do Brasil
 
 Horários: a votação foi das 8h às 17h de Brasília em todo o país (no exterior,
 17h no horário local); no dia, o STF prorrogou até as 19h a votação nas seções
@@ -53,6 +55,7 @@ TEMP = os.environ.get('RUNNER_TEMP') or os.environ.get('TMPDIR') or '/tmp'
 PASTA_LOCAL = os.environ.get('URNAS_PASTA_LOCAL', '')
 UFS = ['ac', 'al', 'am', 'ap', 'ba', 'ce', 'df', 'es', 'go', 'ma', 'mg', 'ms', 'mt', 'pa', 'pb',
        'pe', 'pi', 'pr', 'rj', 'rn', 'ro', 'rr', 'rs', 'sc', 'se', 'sp', 'to', 'zz']
+LIMITE_TARDIAS = 10 * 60           # tardias.json: locais com urna encerrada a partir de 17h10
 
 csv.field_size_limit(10_000_000)
 
@@ -439,6 +442,8 @@ def main():
 
     resumo_ufs = {}
     todas = []           # (uf, mun, zona, secao, enc_brasilia, urna) para os totais
+    tardias = []         # locais com urna encerrada tarde, para o mapa do Brasil
+    nomes_todos = {}     # (uf, mun) -> nome da cidade
     fusos = {}
     sem_local = 0
     sem_coord = 0
@@ -549,6 +554,18 @@ def main():
             if reg.get('ap'):
                 item['ap'] = 1
             saida_locais.append(item)
+            # Urnas deste local encerradas a partir de 17h10 (horário oficial + 10 min)
+            tarde = sorted(s[8] for s in item['s'] if s[8] is not None and s[8] - 17 * 3600 >= LIMITE_TARDIAS)
+            if tarde and item['la'] is not None:
+                t = {'u': uf, 'm': item['m'], 'mn': nomes.get(item['m']) or item['m'], 'n': item['n'],
+                     'la': item['la'], 'lo': item['lo'], 'z': item['s'][0][0], 'k': item['s'][0][1],
+                     'q': len(item['s']), 'a': sum(s[2] for s in item['s']),
+                     'v': [sum(s[4] for s in item['s']), sum(s[5] for s in item['s'])], 't': tarde}
+                if item.get('ap'):
+                    t['ap'] = 1
+                tardias.append(t)
+        for m, n in nomes.items():
+            nomes_todos[(uf, m)] = n
         arquivo = {
             'uf': uf,
             'versao': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
@@ -636,7 +653,8 @@ def main():
         uf, mun, zona, secao, enc, atraso, u = x
         chave_local = secoes.get((uf, mun, zona, secao)) or (uf, mun, zona, u['local'])
         info = locais.get(chave_local) or {}
-        return {'uf': uf, 'municipio': mun, 'zona': zona, 'secao': secao,
+        return {'uf': uf, 'municipio': mun, 'nome_municipio': nomes_todos.get((uf, mun), mun),
+                'zona': zona, 'secao': secao,
                 'encerramento': hhmm(enc), 'minutos_depois': round(atraso / 60, 1),
                 'local': info.get('n', ''), 'endereco': info.get('e', ''), 'bairro': info.get('b', ''),
                 'aptos': u['aptos'], 'comparecimento': u['comp'], 'votos_13': u['v'][0], 'votos_22': u['v'][1]}
@@ -662,6 +680,14 @@ def main():
     }
     with open(os.path.join(SAIDA, 'resumo.json'), 'w', encoding='utf-8') as f:
         json.dump(resumo, f, ensure_ascii=False, indent=1)
+
+    # Locais com urnas encerradas tarde, para o mapa do Brasil (t = encerramentos em segundos desde 0h)
+    with open(os.path.join(SAIDA, 'tardias.json'), 'w', encoding='utf-8') as f:
+        json.dump({'versao': resumo['versao'], 'limite_segundos_depois_das_17h': LIMITE_TARDIAS,
+                   'horario': 'Brasília (no exterior, horário local)', 'locais': tardias},
+                  f, ensure_ascii=False, separators=(',', ':'))
+    log(f'Locais com urna encerrada a partir de 17h{LIMITE_TARDIAS // 60:02d}: {len(tardias)} '
+        f'({os.path.getsize(os.path.join(SAIDA, "tardias.json")) / 1e6:.2f} MB)')
 
     # ---------------- Resumo no log ----------------
     tot = resumo['total']
