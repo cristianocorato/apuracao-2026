@@ -1,0 +1,161 @@
+{
+ "versao": "2026-10-29T11:02:35Z",
+ "fonte": "TSE, boletins de urna do 2º turno (bweb_2t) e eleitorado por local de votação 2026",
+ "nota": "Horário de encerramento convertido para Brasília; no exterior, horário local. \"depois_17h00\" conta urnas encerradas a partir de 17h00min01s.",
+ "candidatos": [
+  "13",
+  "22"
+ ],
+ "total": {
+  "urnas": 0,
+  "aptos": 0,
+  "comparecimento": 0,
+  "votos_13": 0,
+  "votos_22": 0,
+  "brancos": 0,
+  "nulos": 0
+ },
+ "sem_horario_de_encerramento": {
+  "urnas": 0,
+  "aptos": 0,
+  "comparecimento": 0,
+  "votos_13": 0,
+  "votos_22": 0,
+  "brancos": 0,
+  "nulos": 0
+ },
+ "faixas_de_encerramento": {
+  "ate_17h00min59s": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0
+  },
+  "17h01_a_17h04": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0
+  },
+  "17h05_a_17h14": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0
+  },
+  "17h15_a_17h29": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0
+  },
+  "17h30_a_17h59": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0
+  },
+  "18h00_a_18h59": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0
+  },
+  "19h_ou_depois": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0
+  }
+ },
+ "depois_do_horario": {
+  "depois_17h00": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0,
+   "por_uf": {}
+  },
+  "depois_17h01": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0,
+   "por_uf": {}
+  },
+  "depois_17h05": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0,
+   "por_uf": {}
+  },
+  "depois_17h15": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0,
+   "por_uf": {}
+  },
+  "depois_17h30": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0,
+   "por_uf": {}
+  },
+  "depois_18h00": {
+   "urnas": 0,
+   "aptos": 0,
+   "comparecimento": 0,
+   "votos_13": 0,
+   "votos_22": 0,
+   "brancos": 0,
+   "nulos": 0,
+   "por_uf": {}
+  }
+ },
+ "urnas_por_minuto_depois_das_17h": {},
+ "ultimas_a_fechar": [],
+ "hora_oficial_local_por_uf": {},
+ "tipos_de_urna": {},
+ "urnas_sem_local_identificado": 0,
+ "urnas_em_locais_sem_coordenada": 0,
+ "estados": {}
+}
