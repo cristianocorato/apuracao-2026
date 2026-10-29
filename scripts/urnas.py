@@ -40,6 +40,8 @@ from datetime import datetime, timezone
 
 CKAN = 'https://dadosabertos.tse.jus.br/api/3/action/package_show?id='
 PACOTE_BU = 'resultados-2026-boletim-de-urna'
+BASE_BU = 'https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/buweb'
+CARIMBO_BU = '261020260742'        # data e hora dos arquivos do 2º turno publicados pelo TSE
 PACOTE_LOCAIS = 'eleitorado-2026'
 URL_LOCAIS = ('https://cdn.tse.jus.br/estatistica/sead/odsele/eleitorado_locais_votacao/'
               'eleitorado_local_votacao_2026.zip')
@@ -92,17 +94,44 @@ def recursos(pacote):
     return j['result']['resources']
 
 
+def existe(url):
+    try:
+        req = urllib.request.Request(url, method='HEAD', headers={
+            'User-Agent': 'Mozilla/5.0 (compatible; apuracao-2026/1.0; site independente)'})
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return 200 <= r.status < 300
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def arquivos_bu():
     """UF -> (url do zip, url do hash) dos boletins de urna do 2º turno."""
     achados = {}
-    for r in recursos(PACOTE_BU):
-        url = (r.get('url') or '').strip()
-        m = re.search(r'bweb_2t_([A-Za-z]{2})_\d+\.zip', url)
-        if not m:
+    try:
+        res = recursos(PACOTE_BU)
+        log(f'  {len(res)} recursos no conjunto {PACOTE_BU}; exemplos: '
+            + ' | '.join(str(r.get('url') or r.get('name'))[-70:] for r in res[:4]))
+        for r in res:
+            url = (r.get('url') or '').strip()
+            m = re.search(r'bweb_2t_([A-Za-z]{2})_\d+\.zip', url, re.I)
+            if not m:
+                continue
+            uf = m.group(1).lower()
+            zip_url = url[:url.lower().index('.zip') + 4]  # alguns recursos apontam para o .sha512 por engano
+            achados[uf] = (zip_url, zip_url + '.sha512')
+    except Exception as e:  # noqa: BLE001
+        aviso(f'Não consegui ler a lista do Portal de Dados Abertos: {e}')
+    # O que faltar: tenta o endereço de sempre do TSE, com o mesmo carimbo de data dos outros arquivos
+    carimbos = {m.group(1) for u, _ in achados.values() for m in [re.search(r'_(\d{12})\.zip', u)] if m}
+    carimbos.add(CARIMBO_BU)
+    for uf in UFS:
+        if uf in achados:
             continue
-        uf = m.group(1).lower()
-        zip_url = url[:url.index('.zip') + 4]  # alguns recursos apontam para o .sha512 por engano
-        achados[uf] = (zip_url, zip_url + '.sha512')
+        for c in sorted(carimbos):
+            url = f'{BASE_BU}/bweb_2t_{uf.upper()}_{c}.zip'
+            if existe(url):
+                achados[uf] = (url, url + '.sha512')
+                break
     return achados
 
 
