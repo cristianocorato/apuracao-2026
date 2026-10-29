@@ -371,6 +371,7 @@ def ler_boletins(caminho, uf):
                 'enc': segundos_do_dia(lin[i['encerramento']]) if i['encerramento'] is not None else None,
                 'emi': segundos_do_dia(lin[i['emissao']]) if i['emissao'] is not None else None,
                 'enc_txt': lin[i['encerramento']].strip() if i['encerramento'] is not None else '',
+                'ab_txt': lin[i['abertura']].strip() if i['abertura'] is not None else '',
             }
         nr = lin[i['votavel']].strip()
         qt = inteiro(lin[i['votos']])
@@ -445,6 +446,10 @@ def main():
             h = hora_oficial_local(lst) if sum(1 for s in lst if s is not None) >= 3 else None
             oficial[mun] = h if h is not None else hora_uf
         fusos[uf] = dict(Counter(oficial.values()))
+        esperadas = {'ac': {15}, 'am': {15, 16}, 'ms': {16}, 'mt': {16}, 'ro': {16}, 'rr': {16}}.get(uf, {17})
+        fora = {f'{nomes_mun.get(m, m)}': (h, len(por_mun[m])) for m, h in oficial.items() if h not in esperadas}
+        if fora:
+            log(f'  {uf.upper()}: cidades com hora oficial inferida fora do esperado {sorted(esperadas)} -> {fora}')
 
         if uf == 'zz':
             diferentes = {m: h for m, h in oficial.items() if h is not None and h != 17}
@@ -462,6 +467,7 @@ def main():
             # No Brasil, tudo em horário de Brasília (17h); no exterior, no horário local
             desloc = 0 if (uf == 'zz' or h is None) else (17 - h) * 3600
             enc = None if u['enc'] is None else u['enc'] + desloc
+            ab = None if u['ab'] is None else u['ab'] + desloc
             atraso = None if (u['enc'] is None or h is None) else u['enc'] - h * 3600
             todas.append((uf, mun, zona, secao, enc, atraso, u))
             chave_local = secoes.get((uf, mun, zona, secao))
@@ -477,7 +483,7 @@ def main():
             if reg is None:
                 reg = locais_uf[chave_local] = {'m': mun, 'z': zona, 'l': chave_local[3], **info, 's': []}
             reg['s'].append([zona, secao, u['aptos'], u['comp'], u['v'][0], u['v'][1], u['b'], u['n'],
-                             enc, u['agregadas'], tipos_uf.index(u['tipo'])])
+                             enc, u['agregadas'], tipos_uf.index(u['tipo']), ab])
 
         # Locais sem coordenada: no centro dos outros locais da mesma cidade (marcados como aproximados)
         centros = defaultdict(list)
@@ -511,7 +517,7 @@ def main():
             'candidatos': list(CANDIDATOS),
             # encerramento em segundos desde 0h (Brasília; no exterior, horário local); tipo = índice em tipos_urna
             'campos_secao': ['zona', 'secao', 'aptos', 'comparecimento', 'votos_13', 'votos_22', 'brancos',
-                             'nulos', 'encerramento', 'agregadas', 'tipo'],
+                             'nulos', 'encerramento', 'agregadas', 'tipo', 'abertura'],
             'tipos_urna': tipos_uf,
             'municipios': {m: (nomes.get(m) or m) for m in sorted({r['m'] for r in locais_uf.values()})},
             'locais': saida_locais,
@@ -521,6 +527,23 @@ def main():
         tam = os.path.getsize(os.path.join(SAIDA, f'{uf}.json')) / 1e6
         log(f'{uf.upper()}: {len(urnas)} urnas em {len(locais_uf)} locais; hora oficial local {fusos[uf]}; {tam:.1f} MB')
         resumo_ufs[uf] = {'urnas': len(urnas), 'locais': len(locais_uf), 'arquivo_mb': round(tam, 2)}
+
+    # ---------------- Diagnóstico dos horários (relógio das urnas) ----------------
+    def hist(vals, passo=1800):
+        c = Counter((v // passo) * passo for v in vals if v is not None)
+        return ', '.join(f'{hhmm(k)[:5]}={n}' for k, n in sorted(c.items()))
+
+    perto19 = [x for x in todas if x[5] is not None and 115 * 60 <= x[5] <= 140 * 60]
+    normais = [x for x in todas if x[5] is not None and 0 <= x[5] <= 5 * 60][:200000]
+    durs = lambda g: [x[6]['enc'] - x[6]['ab'] for x in g if x[6]['ab'] is not None and x[6]['enc'] is not None]
+    log(f'Diagnóstico: {len(perto19)} urnas fecharam entre 18h55 e 19h20 (horário oficial + 1h55 a 2h20)')
+    log('  abertura no relógio dessas urnas: ' + hist([x[6]['ab'] for x in perto19]))
+    log('  abertura no relógio das que fecharam até 17h05: ' + hist([x[6]['ab'] for x in normais]))
+    log('  duração (encerramento menos abertura) das perto de 19h: ' + hist(durs(perto19), 900))
+    log('  duração das que fecharam até 17h05: ' + hist(durs(normais), 900))
+    log('  emissão do BU das perto de 19h: ' + hist([x[6]['emi'] for x in perto19]))
+    for x in perto19[:6]:
+        log(f'  exemplo {x[0].upper()} {x[1]} z{x[2]} s{x[3]}: abertura {x[6]["ab_txt"]} | encerramento {x[6]["enc_txt"]}')
 
     # ---------------- Totais e urnas encerradas depois do horário ----------------
     def soma(lista):
