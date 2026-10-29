@@ -1,5 +1,5 @@
 {
- "versao": "2026-10-29T11:06:30Z",
+ "versao": "2026-10-29T11:11:48Z",
  "fonte": "TSE, boletins de urna do 2º turno (bweb_2t) e eleitorado por local de votação 2026",
  "nota": "Horário de encerramento convertido para Brasília; no exterior, horário local. \"depois_17h00\" conta urnas encerradas a partir de 17h00min01s.",
  "candidatos": [
@@ -2248,137 +2248,137 @@
   "ac": {
    "urnas": 2270,
    "locais": 660,
-   "arquivo_mb": 0.2
+   "arquivo_mb": 0.22
   },
   "al": {
    "urnas": 7101,
    "locais": 1076,
-   "arquivo_mb": 0.47
+   "arquivo_mb": 0.51
   },
   "am": {
    "urnas": 8157,
    "locais": 1619,
-   "arquivo_mb": 0.61
+   "arquivo_mb": 0.66
   },
   "ap": {
    "urnas": 1914,
    "locais": 370,
-   "arquivo_mb": 0.14
+   "arquivo_mb": 0.15
   },
   "ba": {
    "urnas": 35476,
    "locais": 9196,
-   "arquivo_mb": 3.18
+   "arquivo_mb": 3.39
   },
   "ce": {
    "urnas": 23765,
    "locais": 6701,
-   "arquivo_mb": 2.07
+   "arquivo_mb": 2.22
   },
   "df": {
    "urnas": 6969,
    "locais": 622,
-   "arquivo_mb": 0.38
+   "arquivo_mb": 0.42
   },
   "es": {
    "urnas": 9844,
    "locais": 1765,
-   "arquivo_mb": 0.69
+   "arquivo_mb": 0.75
   },
   "go": {
    "urnas": 15686,
    "locais": 2475,
-   "arquivo_mb": 1.1
+   "arquivo_mb": 1.2
   },
   "ma": {
    "urnas": 18093,
    "locais": 5779,
-   "arquivo_mb": 1.79
+   "arquivo_mb": 1.9
   },
   "mg": {
    "urnas": 52062,
    "locais": 10060,
-   "arquivo_mb": 3.88
+   "arquivo_mb": 4.19
   },
   "ms": {
    "urnas": 7106,
    "locais": 1021,
-   "arquivo_mb": 0.45
+   "arquivo_mb": 0.5
   },
   "mt": {
    "urnas": 8287,
    "locais": 1500,
-   "arquivo_mb": 0.6
+   "arquivo_mb": 0.65
   },
   "pa": {
    "urnas": 20827,
    "locais": 5786,
-   "arquivo_mb": 1.79
+   "arquivo_mb": 1.92
   },
   "pb": {
    "urnas": 10712,
    "locais": 1836,
-   "arquivo_mb": 0.76
+   "arquivo_mb": 0.82
   },
   "pe": {
    "urnas": 21418,
    "locais": 3388,
-   "arquivo_mb": 1.44
+   "arquivo_mb": 1.57
   },
   "pi": {
    "urnas": 10225,
    "locais": 3348,
-   "arquivo_mb": 0.98
+   "arquivo_mb": 1.04
   },
   "pr": {
    "urnas": 27142,
    "locais": 4789,
-   "arquivo_mb": 1.97
+   "arquivo_mb": 2.13
   },
   "rj": {
    "urnas": 37675,
    "locais": 5044,
-   "arquivo_mb": 2.41
+   "arquivo_mb": 2.63
   },
   "rn": {
    "urnas": 8115,
    "locais": 1565,
-   "arquivo_mb": 0.6
+   "arquivo_mb": 0.65
   },
   "ro": {
    "urnas": 4698,
    "locais": 670,
-   "arquivo_mb": 0.31
+   "arquivo_mb": 0.34
   },
   "rr": {
    "urnas": 1519,
    "locais": 355,
-   "arquivo_mb": 0.12
+   "arquivo_mb": 0.13
   },
   "rs": {
    "urnas": 27547,
    "locais": 7773,
-   "arquivo_mb": 2.45
+   "arquivo_mb": 2.61
   },
   "sc": {
    "urnas": 17326,
    "locais": 3450,
-   "arquivo_mb": 1.31
+   "arquivo_mb": 1.42
   },
   "se": {
    "urnas": 5923,
    "locais": 1208,
-   "arquivo_mb": 0.45
+   "arquivo_mb": 0.48
   },
   "sp": {
    "urnas": 103656,
    "locais": 11070,
-   "arquivo_mb": 6.12
+   "arquivo_mb": 6.75
   },
   "to": {
    "urnas": 4384,
    "locais": 920,
-   "arquivo_mb": 0.34
+   "arquivo_mb": 0.36
   },
   "zz": {
    "urnas": 1308,
