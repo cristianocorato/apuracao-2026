@@ -664,6 +664,37 @@ def main():
                 'local': info.get('n', ''), 'endereco': info.get('e', ''), 'bairro': info.get('b', ''),
                 'aptos': u['aptos'], 'comparecimento': u['comp'], 'votos_13': u['v'][0], 'votos_22': u['v'][1]}
 
+    # Votação nas urnas conforme a parcela de eleitores habilitados sem a digital. Só no Brasil (no
+    # exterior não se usa biometria). O voto é secreto: são os totais das urnas, não o voto desses eleitores.
+    def faixa_sem_digital(u):
+        if u['comp'] <= 0:
+            return None
+        if u['bio'] == 0:
+            return 'nenhum'
+        p = u['bio'] / u['comp']
+        for nome, lim in (('ate_5pct', .05), ('5_a_10pct', .10), ('10_a_20pct', .20), ('20_a_50pct', .50)):
+            if p <= lim:
+                return nome
+        return 'mais_de_50pct'
+
+    brasil = [x for x in todas if x[0] != 'zz']
+    grupos_bio = defaultdict(list)
+    for x in brasil:
+        grupos_bio[faixa_sem_digital(x[6])].append(x)
+    por_parcela = {n: soma(grupos_bio.get(n, [])) for n in
+                   ('nenhum', 'ate_5pct', '5_a_10pct', '10_a_20pct', '20_a_50pct', 'mais_de_50pct')}
+    com_algum = soma([x for x in brasil if x[6]['bio'] > 0])
+    ordenadas = sorted((x for x in brasil if x[6]['comp'] > 0), key=lambda x: x[6]['bio'] / x[6]['comp'])
+    decis = []
+    for k in range(10):
+        parte = ordenadas[len(ordenadas) * k // 10: len(ordenadas) * (k + 1) // 10]
+        if parte:
+            g = soma(parte)
+            g.update({'decil': k + 1,
+                      'parcela_de': round(100 * parte[0][6]['bio'] / parte[0][6]['comp'], 2),
+                      'parcela_ate': round(100 * parte[-1][6]['bio'] / parte[-1][6]['comp'], 2)})
+            decis.append(g)
+
     resumo = {
         'versao': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
         'fonte': 'TSE, boletins de urna do 2º turno (bweb_2t) e eleitorado por local de votação 2026',
@@ -691,6 +722,12 @@ def main():
             'por_uf': {uf: {k: v for k, v in soma([x for x in todas if x[0] == uf]).items()
                             if k in ('urnas', 'comparecimento', 'habilitados_sem_digital')}
                        for uf in UFS if any(x[0] == uf for x in todas)},
+            'nota_votacao': 'Totais das urnas do Brasil (sem o exterior), agrupadas pela parcela do '
+                            'comparecimento habilitada sem a digital. O voto é secreto: não mostra em quem '
+                            'esses eleitores votaram.',
+            'brasil_urnas_com_algum': com_algum,
+            'brasil_por_parcela': por_parcela,
+            'brasil_por_decil': decis,
         },
     }
     with open(os.path.join(SAIDA, 'resumo.json'), 'w', encoding='utf-8') as f:
@@ -730,6 +767,17 @@ def main():
         g = depois[nome]
         log(f'  {nome}: {g["habilitados_sem_digital"]} habilitados sem a digital de {g["comparecimento"]} '
             f'({100 * g["habilitados_sem_digital"] / max(1, g["comparecimento"]):.2f}%)')
+    def linha_bio(nome, g):
+        vv = g['votos_13'] + g['votos_22']
+        return (f'  {nome:24s} {g["urnas"]:7d} urnas | comparec. {g["comparecimento"]:10d} | sem digital '
+                f'{g["habilitados_sem_digital"]:9d} | Lula {g["votos_13"]:10d} ({100 * g["votos_13"] / max(1, vv):.2f}%) | '
+                f'Flávio {g["votos_22"]:10d} ({100 * g["votos_22"] / max(1, vv):.2f}%)')
+    log('Votação conforme a parcela de habilitados sem a digital (Brasil, sem o exterior):')
+    log(linha_bio('com algum', com_algum))
+    for nome, g in por_parcela.items():
+        log(linha_bio(nome, g))
+    for g in decis:
+        log(linha_bio(f'decil {g["decil"]} ({g["parcela_de"]}-{g["parcela_ate"]}%)', g))
     for x in todas:
         if (x[0], x[1], x[2], x[3]) in (('ac', '01074', 4, 1), ('rj', '60011', 179, 50)):
             log(f'  conferência {x[0].upper()} {x[1]} z{x[2]} s{x[3]}: comparecimento {x[6]["comp"]}, '
