@@ -337,6 +337,8 @@ def ler_boletins(caminho, uf):
         'abertura': coluna(cab, 'DT_ABERTURA', obrigatoria=False),
         'encerramento': coluna(cab, 'DT_ENCERRAMENTO', obrigatoria=False),
         'emissao': coluna(cab, 'DT_EMISSAO_BU', obrigatoria=False),
+        # eleitores com biometria cadastrada que votaram sem a digital (habilitação biográfica)
+        'bio': coluna(cab, 'QT_ELEI_BIOM_SEM_HABILITACAO', 'QT_ELEITORES_BIOMETRIA_NH', obrigatoria=False),
     }
     if not getattr(ler_boletins, 'cab_mostrado', False):
         log(f'  {nome} colunas: ' + ', '.join(cab))
@@ -374,6 +376,7 @@ def ler_boletins(caminho, uf):
                 'ab': segundos_do_dia(lin[i['abertura']]) if i['abertura'] is not None else None,
                 'enc': segundos_do_dia(lin[i['encerramento']]) if i['encerramento'] is not None else None,
                 'emi': segundos_do_dia(lin[i['emissao']]) if i['emissao'] is not None else None,
+                'bio': max(0, inteiro(lin[i['bio']])) if i['bio'] is not None else 0,
                 'enc_txt': lin[i['encerramento']].strip() if i['encerramento'] is not None else '',
                 'ab_txt': lin[i['abertura']].strip() if i['abertura'] is not None else '',
             }
@@ -604,7 +607,8 @@ def main():
 
     # ---------------- Totais e urnas encerradas depois do horário ----------------
     def soma(lista):
-        t = {'urnas': 0, 'aptos': 0, 'comparecimento': 0, 'votos_13': 0, 'votos_22': 0, 'brancos': 0, 'nulos': 0}
+        t = {'urnas': 0, 'aptos': 0, 'comparecimento': 0, 'votos_13': 0, 'votos_22': 0, 'brancos': 0, 'nulos': 0,
+             'habilitados_sem_digital': 0}
         for *_, u in lista:
             t['urnas'] += 1
             t['aptos'] += u['aptos']
@@ -613,6 +617,7 @@ def main():
             t['votos_22'] += u['v'][1]
             t['brancos'] += u['b']
             t['nulos'] += u['n']
+            t['habilitados_sem_digital'] += u.get('bio', 0)
         return t
 
     faixas = [  # segundos depois do horário oficial (17h00min00s)
@@ -677,6 +682,16 @@ def main():
         'urnas_sem_local_identificado': sem_local,
         'urnas_em_locais_sem_coordenada': sem_coord,
         'estados': resumo_ufs,
+        # Coluna QT_ELEI_BIOM_SEM_HABILITACAO dos boletins: eleitores com biometria cadastrada que foram
+        # habilitados a votar sem a digital (pelos dados biográficos, como o ano de nascimento)
+        'habilitados_sem_digital': {
+            'nota': 'Eleitores com biometria cadastrada habilitados sem a digital (habilitação biográfica), '
+                    'coluna QT_ELEI_BIOM_SEM_HABILITACAO dos boletins de urna. Não inclui quem não tem '
+                    'biometria cadastrada (no boletim, "Habilitação sem Biometria").',
+            'por_uf': {uf: {k: v for k, v in soma([x for x in todas if x[0] == uf]).items()
+                            if k in ('urnas', 'comparecimento', 'habilitados_sem_digital')}
+                       for uf in UFS if any(x[0] == uf for x in todas)},
+        },
     }
     with open(os.path.join(SAIDA, 'resumo.json'), 'w', encoding='utf-8') as f:
         json.dump(resumo, f, ensure_ascii=False, indent=1)
@@ -705,6 +720,20 @@ def main():
     log('Últimas a fechar: ' + '; '.join(f'{d["uf"].upper()} {d["municipio"]} z{d["zona"]} s{d["secao"]} '
                                           f'{d["encerramento"]}' for d in resumo['ultimas_a_fechar'][:8]))
     log(f'Urnas sem local identificado: {sem_local}; em locais sem coordenada: {sem_coord}')
+    sd = tot['habilitados_sem_digital']
+    log(f'Habilitados sem a digital (biometria cadastrada): {sd} = '
+        f'{100 * sd / max(1, tot["comparecimento"]):.2f}% do comparecimento')
+    for uf, v in sorted(resumo['habilitados_sem_digital']['por_uf'].items(), key=lambda x: -x[1]['habilitados_sem_digital']):
+        log(f'  {uf.upper()}: {v["habilitados_sem_digital"]} de {v["comparecimento"]} '
+            f'({100 * v["habilitados_sem_digital"] / max(1, v["comparecimento"]):.2f}%)')
+    for nome in ('depois_17h05', 'depois_17h30', 'depois_19h00'):
+        g = depois[nome]
+        log(f'  {nome}: {g["habilitados_sem_digital"]} habilitados sem a digital de {g["comparecimento"]} '
+            f'({100 * g["habilitados_sem_digital"] / max(1, g["comparecimento"]):.2f}%)')
+    for x in todas:
+        if (x[0], x[1], x[2], x[3]) in (('ac', '01074', 4, 1), ('rj', '60011', 179, 50)):
+            log(f'  conferência {x[0].upper()} {x[1]} z{x[2]} s{x[3]}: comparecimento {x[6]["comp"]}, '
+                f'sem a digital {x[6]["bio"]}')
     log(f'Fim em {time.time() - t0:.0f} s')
 
 
