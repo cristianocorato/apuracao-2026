@@ -1,5 +1,5 @@
 {
- "versao": "2026-11-02T01:08:50Z",
+ "versao": "2026-11-02T02:41:51Z",
  "fonte": "TSE, boletins de urna do 2º turno (bweb_2t) e eleitorado por local de votação 2026",
  "nota": "Horário de encerramento convertido para Brasília (o fuso de cada cidade sai do horário de abertura das urnas); no exterior, horário local. \"depois_17h00\" conta urnas encerradas a partir de 17h00min01s; as outras, a partir do minuto indicado.",
  "candidatos": [
@@ -3422,6 +3422,211 @@
     "comparecimento": 381443,
     "habilitados_sem_digital": 0
    }
-  }
+  },
+  "nota_votacao": "Totais das urnas do Brasil (sem o exterior), agrupadas pela parcela do comparecimento habilitada sem a digital. O voto é secreto: não mostra em quem esses eleitores votaram.",
+  "brasil_urnas_com_algum": {
+   "urnas": 497412,
+   "aptos": 157743563,
+   "comparecimento": 127787728,
+   "votos_13": 64017193,
+   "votos_22": 59628437,
+   "brancos": 1425247,
+   "nulos": 2716851,
+   "habilitados_sem_digital": 8632488
+  },
+  "brasil_por_parcela": {
+   "nenhum": {
+    "urnas": 485,
+    "aptos": 85256,
+    "comparecimento": 66903,
+    "votos_13": 38885,
+    "votos_22": 26107,
+    "brancos": 574,
+    "nulos": 1337,
+    "habilitados_sem_digital": 0
+   },
+   "ate_5pct": {
+    "urnas": 175218,
+    "aptos": 57076741,
+    "comparecimento": 46445765,
+    "votos_13": 22958585,
+    "votos_22": 21943914,
+    "brancos": 532964,
+    "nulos": 1010302,
+    "habilitados_sem_digital": 1630824
+   },
+   "5_a_10pct": {
+    "urnas": 237829,
+    "aptos": 75688436,
+    "comparecimento": 61262571,
+    "votos_13": 30521272,
+    "votos_22": 28758874,
+    "brancos": 682625,
+    "nulos": 1299800,
+    "habilitados_sem_digital": 4336218
+   },
+   "10_a_20pct": {
+    "urnas": 80331,
+    "aptos": 23931743,
+    "comparecimento": 19236470,
+    "votos_13": 10061133,
+    "votos_22": 8584117,
+    "brancos": 201095,
+    "nulos": 390125,
+    "habilitados_sem_digital": 2454737
+   },
+   "20_a_50pct": {
+    "urnas": 3937,
+    "aptos": 1018265,
+    "comparecimento": 819872,
+    "votos_13": 462539,
+    "votos_22": 332870,
+    "brancos": 8345,
+    "nulos": 16118,
+    "habilitados_sem_digital": 192257
+   },
+   "mais_de_50pct": {
+    "urnas": 97,
+    "aptos": 28378,
+    "comparecimento": 23050,
+    "votos_13": 13664,
+    "votos_22": 8662,
+    "brancos": 218,
+    "nulos": 506,
+    "habilitados_sem_digital": 18452
+   }
+  },
+  "brasil_por_decil": [
+   {
+    "urnas": 49789,
+    "aptos": 15983218,
+    "comparecimento": 12976255,
+    "votos_13": 6463074,
+    "votos_22": 6086567,
+    "brancos": 146466,
+    "nulos": 280148,
+    "habilitados_sem_digital": 278594,
+    "decil": 1,
+    "parcela_de": 0.0,
+    "parcela_ate": 2.93
+   },
+   {
+    "urnas": 49790,
+    "aptos": 16296000,
+    "comparecimento": 13283215,
+    "votos_13": 6554130,
+    "votos_22": 6285714,
+    "brancos": 153563,
+    "nulos": 289808,
+    "habilitados_sem_digital": 452989,
+    "decil": 2,
+    "parcela_de": 2.93,
+    "parcela_ate": 3.85
+   },
+   {
+    "urnas": 49790,
+    "aptos": 16311425,
+    "comparecimento": 13281247,
+    "votos_13": 6542361,
+    "votos_22": 6296451,
+    "brancos": 153349,
+    "nulos": 289086,
+    "habilitados_sem_digital": 563460,
+    "decil": 3,
+    "parcela_de": 3.85,
+    "parcela_ate": 4.62
+   },
+   {
+    "urnas": 49789,
+    "aptos": 16199531,
+    "comparecimento": 13175329,
+    "votos_13": 6501318,
+    "votos_22": 6236359,
+    "brancos": 150930,
+    "nulos": 286722,
+    "habilitados_sem_digital": 657400,
+    "decil": 4,
+    "parcela_de": 4.62,
+    "parcela_ate": 5.36
+   },
+   {
+    "urnas": 49790,
+    "aptos": 16075431,
+    "comparecimento": 13047963,
+    "votos_13": 6442040,
+    "votos_22": 6176410,
+    "brancos": 148594,
+    "nulos": 280919,
+    "habilitados_sem_digital": 749157,
+    "decil": 5,
+    "parcela_de": 5.36,
+    "parcela_ate": 6.13
+   },
+   {
+    "urnas": 49790,
+    "aptos": 15941508,
+    "comparecimento": 12919599,
+    "votos_13": 6394040,
+    "votos_22": 6104360,
+    "brancos": 144752,
+    "nulos": 276447,
+    "habilitados_sem_digital": 846979,
+    "decil": 6,
+    "parcela_de": 6.13,
+    "parcela_ate": 7.0
+   },
+   {
+    "urnas": 49789,
+    "aptos": 15786551,
+    "comparecimento": 12760739,
+    "votos_13": 6371175,
+    "votos_22": 5980411,
+    "brancos": 140627,
+    "nulos": 268526,
+    "habilitados_sem_digital": 957510,
+    "decil": 7,
+    "parcela_de": 7.0,
+    "parcela_ate": 8.05
+   },
+   {
+    "urnas": 49790,
+    "aptos": 15565249,
+    "comparecimento": 12552118,
+    "votos_13": 6329950,
+    "votos_22": 5823144,
+    "brancos": 137767,
+    "nulos": 261257,
+    "habilitados_sem_digital": 1093282,
+    "decil": 8,
+    "parcela_de": 8.05,
+    "parcela_ate": 9.46
+   },
+   {
+    "urnas": 49790,
+    "aptos": 15254589,
+    "comparecimento": 12275341,
+    "votos_13": 6289591,
+    "votos_22": 5602698,
+    "brancos": 130123,
+    "nulos": 252929,
+    "habilitados_sem_digital": 1287762,
+    "decil": 9,
+    "parcela_de": 9.46,
+    "parcela_ate": 11.79
+   },
+   {
+    "urnas": 49790,
+    "aptos": 14415317,
+    "comparecimento": 11582825,
+    "votos_13": 6168399,
+    "votos_22": 5062430,
+    "brancos": 119650,
+    "nulos": 232346,
+    "habilitados_sem_digital": 1745355,
+    "decil": 10,
+    "parcela_de": 11.79,
+    "parcela_ate": 99.12
+   }
+  ]
  }
 }
